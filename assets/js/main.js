@@ -187,3 +187,27 @@ window.addEventListener('load', () => {
 // Console branding
 console.log('%c🎨 Roguda Fashion & Art Design School', 'color: #D4AF37; font-size: 24px; font-weight: bold;');
 console.log('%cWebsite crafted with passion for innovation and heritage.', 'color: #F7E7B2; font-size: 14px;');
+// Hide scroll indicator when user scrolls past hero
+function handleScrollIndicator() {
+    const scrollIndicator = document.querySelector('.scroll-indicator');
+    const heroSection = document.querySelector('.hero-cinematic');
+    
+    if (!scrollIndicator || !heroSection) return;
+    
+    const heroHeight = heroSection.offsetHeight;
+    const scrollPosition = window.pageYOffset;
+    
+    if (scrollPosition > heroHeight * 0.3) {
+        scrollIndicator.style.opacity = '0';
+        scrollIndicator.style.pointerEvents = 'none';
+        document.body.classList.add('scrolled');
+    } else {
+        scrollIndicator.style.opacity = '1';
+        scrollIndicator.style.pointerEvents = 'auto';
+        document.body.classList.remove('scrolled');
+    }
+}
+
+// Initialize
+window.addEventListener('scroll', handleScrollIndicator);
+window.addEventListener('load', handleScrollIndicator);
