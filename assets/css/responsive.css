@@ -1,0 +1,327 @@
+/* ======================================
+   RESPONSIVE STYLES - responsive.css
+   Mobile & Tablet Breakpoints
+   ====================================== */
+
+/* Tablet (768px and below) */
+@media (max-width: 768px) {
+    
+    /* Typography */
+    h1 { font-size: 3rem; }
+    h2 { font-size: 2.2rem; }
+    h3 { font-size: 1.6rem; }
+    
+    .hero-title { font-size: 3.5rem; }
+    .hero-subtitle { font-size: 1.2rem; }
+    
+    /* Container */
+    .container {
+        max-width: 95%;
+        padding: 0 15px;
+    }
+    
+    section {
+        padding: 60px 0;
+    }
+    
+    /* Navigation */
+    .nav-container {
+        padding: 15px 20px;
+    }
+    
+    .nav-menu {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background: rgba(0, 0, 0, 0.98);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+        transition: left 0.3s ease;
+    }
+    
+    .nav-menu.active {
+        left: 0;
+    }
+    
+    .mobile-toggle {
+        display: flex;
+    }
+    
+    /* Hero */
+    .hero-cta {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    /* Features Grid */
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    /* Story Grid */
+    .story-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .story-image {
+        height: 350px;
+    }
+    
+    /* Footer */
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+    }
+    
+    /* Form */
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .form-container {
+        padding: 40px 30px;
+    }
+    
+    /* Auth */
+    .auth-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .auth-visual {
+        display: none;
+    }
+    
+    .auth-panel {
+        padding: 60px 30px;
+    }
+    
+    /* Studio */
+    .studio-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .canvas-container {
+        height: 400px;
+    }
+    
+    /* Dashboard */
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    /* Marketplace */
+    .marketplace-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .newsletter-form {
+        flex-direction: column;
+    }
+    
+    .newsletter-form input {
+        max-width: 100%;
+    }
+}
+
+/* Mobile (480px and below) */
+@media (max-width: 480px) {
+    
+    /* Typography */
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 1.8rem; }
+    h3 { font-size: 1.4rem; }
+    
+    .hero-title { font-size: 2.8rem; }
+    .hero-subtitle { font-size: 1rem; }
+    
+    p {
+        font-size: 1rem;
+    }
+    
+    /* Buttons */
+    .btn-primary,
+    .btn-secondary {
+        padding: 12px 30px;
+        font-size: 0.95rem;
+    }
+    
+    /* Hero */
+    .hero-content {
+        padding: 20px;
+    }
+    
+    .hero-cta a {
+        width: 100%;
+        padding: 15px;
+    }
+    
+    /* Navigation */
+    .logo-text {
+        font-size: 1.2rem;
+    }
+    
+    .logo img {
+        width: 35px;
+        height: 35px;
+    }
+    
+    /* Sections */
+    section {
+        padding: 40px 0;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .section-subtitle {
+        font-size: 1rem;
+    }
+    
+    /* Cards */
+    .glass-card,
+    .glass-panel {
+        padding: 20px;
+    }
+    
+    .feature-card {
+        padding: 30px 20px;
+    }
+    
+    /* Footer */
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    .footer-cinematic {
+        padding: 40px 0 15px;
+    }
+    
+    /* Stats */
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .stat-value {
+        font-size: 2rem;
+    }
+    
+    /* Forms */
+    .form-container {
+        padding: 30px 20px;
+    }
+    
+    .form-container h1 {
+        font-size: 2rem;
+    }
+    
+    .form-section {
+        padding-bottom: 30px;
+        margin-bottom: 30px;
+    }
+    
+    /* Auth */
+    .auth-header h1 {
+        font-size: 2.2rem;
+    }
+    
+    .auth-logo {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .auth-panel {
+        padding: 40px 20px;
+    }
+    
+    /* CTA Section */
+    .cta-content h2 {
+        font-size: 2.2rem;
+    }
+    
+    .cta-content p {
+        font-size: 1.1rem;
+    }
+    
+    /* Heritage */
+    .heritage-content {
+        padding: 40px 25px;
+    }
+    
+    /* Team */
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .team-photo {
+        height: 300px;
+    }
+    
+    /* Studio */
+    .canvas-container {
+        height: 300px;
+    }
+    
+    .studio-panel {
+        padding: 20px;
+    }
+    
+    .canvas-controls {
+        flex-direction: column;
+    }
+    
+    /* Product Cards */
+    .product-image {
+        height: 300px;
+    }
+    
+    /* Page Hero */
+    .page-hero {
+        height: 300px;
+    }
+    
+    .page-hero h1 {
+        font-size: 2.5rem;
+    }
+}
+
+/* Large Desktop (1600px and above) */
+@media (min-width: 1600px) {
+    
+    .container {
+        max-width: 85%;
+        width: 1600px;
+    }
+    
+    .hero-title {
+        font-size: 6rem;
+    }
+    
+    .section-title {
+        font-size: 3.5rem;
+    }
+}
+
+/* Reduce Motion for Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .parallax-section {
+        background-attachment: scroll;
+    }
+}

@@ -1,0 +1,236 @@
+/* ────────────────────────────────────────────────
+   🎓 ROGUDA GRID SYSTEM
+   Version: 1.0.0 | Designed for elegance & precision
+   Author: Asingamaanda Nefefe
+   ──────────────────────────────────────────────── */
+
+/* ✨ Core Spacing Variables */
+:root {
+  --roguda-gap-xs: 0.75rem;
+  --roguda-gap-sm: 1rem;
+  --roguda-gap-md: 1.5rem;
+  --roguda-gap-lg: 2rem;
+  --roguda-gap-xl: 3rem;
+
+  --roguda-padding-xs: 0.75rem;
+  --roguda-padding-sm: 1.25rem;
+  --roguda-padding-md: 2rem;
+  --roguda-padding-lg: 3rem;
+
+  --roguda-margin-sm: 1rem;
+  --roguda-margin-md: 2rem;
+  --roguda-margin-lg: 3rem;
+
+  --roguda-max-width: 1440px;
+  --roguda-container-width: 90%;
+}
+
+/* 🌐 Universal Container */
+.container {
+  width: var(--roguda-container-width);
+  max-width: var(--roguda-max-width);
+  margin: 0 auto;
+  padding: var(--roguda-padding-md);
+}
+
+/* 🔳 Grid Layout Helpers */
+.grid {
+  display: grid;
+  gap: var(--roguda-gap-md);
+}
+
+.grid-2 {
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+
+.grid-3 {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.grid-4 {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+/* 🧱 Section Layout */
+.section {
+  margin-top: var(--roguda-margin-lg);
+  margin-bottom: var(--roguda-margin-lg);
+  padding-top: var(--roguda-padding-lg);
+  padding-bottom: var(--roguda-padding-lg);
+}
+
+/* 🪶 Flex Helpers */
+.flex {
+  display: flex;
+  gap: var(--roguda-gap-md);
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+/* 🧭 Alignment Shortcuts */
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+/* 📦 Spacing Utilities */
+.gap-xs { gap: var(--roguda-gap-xs); }
+.gap-sm { gap: var(--roguda-gap-sm); }
+.gap-md { gap: var(--roguda-gap-md); }
+.gap-lg { gap: var(--roguda-gap-lg); }
+.gap-xl { gap: var(--roguda-gap-xl); }
+
+.p-xs { padding: var(--roguda-padding-xs); }
+.p-sm { padding: var(--roguda-padding-sm); }
+.p-md { padding: var(--roguda-padding-md); }
+.p-lg { padding: var(--roguda-padding-lg); }
+
+.m-sm { margin: var(--roguda-margin-sm); }
+.m-md { margin: var(--roguda-margin-md); }
+.m-lg { margin: var(--roguda-margin-lg); }
+
+.mb-sm { margin-bottom: var(--roguda-margin-sm); }
+.mb-md { margin-bottom: var(--roguda-margin-md); }
+.mb-lg { margin-bottom: var(--roguda-margin-lg); }
+
+.mt-sm { margin-top: var(--roguda-margin-sm); }
+.mt-md { margin-top: var(--roguda-margin-md); }
+.mt-lg { margin-top: var(--roguda-margin-lg); }
+
+/* 🎯 Column Helpers */
+.col-1 { grid-column: span 1; }
+.col-2 { grid-column: span 2; }
+.col-3 { grid-column: span 3; }
+.col-4 { grid-column: span 4; }
+.col-full { grid-column: 1 / -1; }
+
+/* 🎨 Responsive Scaling */
+@media (max-width: 1024px) {
+  :root {
+    --roguda-gap-md: 1.25rem;
+    --roguda-padding-lg: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --roguda-gap-md: 1rem;
+    --roguda-padding-md: 1.25rem;
+    --roguda-padding-lg: 2rem;
+    --roguda-margin-lg: 2rem;
+  }
+  
+  .section {
+    padding-top: var(--roguda-padding-md);
+    padding-bottom: var(--roguda-padding-md);
+  }
+  
+  .container {
+    padding: var(--roguda-padding-sm);
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --roguda-gap-md: 0.75rem;
+    --roguda-padding-md: 1rem;
+    --roguda-container-width: 95%;
+  }
+  
+  .grid-2,
+  .grid-3,
+  .grid-4 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 🔄 Flex Direction Variants */
+.flex-col {
+  flex-direction: column;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.justify-start {
+  justify-content: flex-start;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.items-start {
+  align-items: flex-start;
+}
+
+.items-end {
+  align-items: flex-end;
+}
+
+.items-center {
+  align-items: center;
+}
+
+/* 🌊 Flow Utilities */
+.flow > * + * {
+  margin-top: var(--roguda-gap-md);
+}
+
+.flow-sm > * + * {
+  margin-top: var(--roguda-gap-sm);
+}
+
+.flow-lg > * + * {
+  margin-top: var(--roguda-gap-lg);
+}
+
+/* ✨ Usage Examples:
+   
+   🔹 Basic Grid Section:
+   <section class="section">
+     <div class="container grid grid-3">
+       <div class="glass-card">Fashion</div>
+       <div class="glass-card">Design</div>
+       <div class="glass-card">AI Studio</div>
+     </div>
+   </section>
+
+   🔹 Flexible Layout:
+   <div class="container flex">
+     <div>Left Content</div>
+     <div>Right Content</div>
+   </div>
+
+   🔹 Centered Hero:
+   <section class="section center text-center">
+     <h1>Welcome to Roguda</h1>
+   </section>
+
+   🔹 Custom Spacing:
+   <div class="grid grid-2 gap-xl p-lg">
+     <div>Card 1</div>
+     <div>Card 2</div>
+   </div>
+
+   💡 Best Practices:
+   ✓ Use section + container + grid as your base layout
+   ✓ Pair with existing cinematic CSS (charcoal/gold palette)
+   ✓ Never hardcode margins/paddings — use system variables
+   ✓ Responsive by default — all breakpoints handled automatically
+*/

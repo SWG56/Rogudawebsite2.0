@@ -1,0 +1,392 @@
+/* ======================================
+   AUTHENTICATION STYLES - auth.css
+   Login & Register Pages
+   ====================================== */
+
+.auth-page {
+    overflow: hidden;
+}
+
+.auth-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 100vh;
+}
+
+.auth-panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 60px;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2)), linear-gradient(135deg, var(--color-gold-dark), var(--color-gold));
+    overflow-y: auto;
+}
+
+.auth-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.auth-logo {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 25px;
+}
+
+.auth-header h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.auth-header p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.1rem;
+}
+
+.auth-form {
+    max-width: 500px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.form-footer {
+    text-align: center;
+    margin-top: 30px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.form-footer p {
+    margin-bottom: 10px;
+}
+
+.popia-footer {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Auth Visual Panel */
+.auth-visual {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.auth-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(212, 175, 55, 0.5);
+}
+
+.auth-quote {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 60px;
+    max-width: 600px;
+}
+
+.auth-quote h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
+.auth-quote p {
+    font-size: 1.2rem;
+    color: var(--color-white);
+    font-style: italic;
+}
+
+/* Form Page (Application Form) */
+.form-page {
+    padding: 120px 40px 80px;
+    min-height: 100vh;
+}
+
+.form-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 60px;
+}
+
+.form-container h1 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.form-subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 50px;
+}
+
+.form-section {
+    margin-bottom: 50px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.form-section:last-child {
+    border-bottom: none;
+}
+
+.form-section h3 {
+    color: var(--color-gold);
+    margin-bottom: 25px;
+    font-size: 1.5rem;
+}
+
+/* POPIA Section */
+.popia-section {
+    background: rgba(212, 175, 55, 0.05);
+    padding: 40px;
+    border-radius: 12px;
+}
+
+.popia-notice {
+    margin-bottom: 30px;
+    padding: 25px;
+}
+
+.popia-notice strong {
+    color: var(--color-gold);
+    display: block;
+    margin-bottom: 10px;
+}
+
+.popia-notice p {
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+}
+
+.checkbox-group {
+    margin-bottom: 20px;
+}
+
+.form-footer {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Studio Page Styles */
+.studio-section {
+    padding: 120px 0 80px;
+}
+
+.studio-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 30px;
+}
+
+.studio-canvas {
+    padding: 30px;
+    min-height: 700px;
+}
+
+.canvas-container {
+    width: 100%;
+    height: 500px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 12px;
+    margin: 20px 0;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.canvas-controls {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.canvas-btn {
+    padding: 10px 25px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--color-gold);
+    color: var(--color-gold);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.canvas-btn:hover {
+    background: rgba(212, 175, 55, 0.1);
+}
+
+.studio-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.studio-panel {
+    padding: 25px;
+}
+
+.studio-panel h3 {
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+}
+
+.material-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.material-item {
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.material-item:hover {
+    background: rgba(212, 175, 55, 0.1);
+    border-color: var(--color-gold);
+}
+
+.cost-calculator {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.cost-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+}
+
+.cost-row.total-row {
+    border-top: 2px solid var(--color-gold);
+    padding-top: 20px;
+    margin-top: 10px;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.cost-row input {
+    width: 100px;
+    padding: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 6px;
+    color: white;
+}
+
+/* Marketplace Styles */
+.marketplace-intro {
+    text-align: center;
+    padding: 60px;
+    margin-bottom: 60px;
+}
+
+.marketplace-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
+    margin-bottom: 80px;
+}
+
+.product-card {
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.product-image {
+    width: 100%;
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    transition: var(--transition);
+}
+
+.product-card:hover .product-image {
+    transform: scale(1.05);
+}
+
+.product-info {
+    padding: 25px;
+}
+
+.product-info h3 {
+    margin-bottom: 8px;
+    color: var(--color-gold-light);
+}
+
+.product-designer {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 10px;
+}
+
+.product-price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.product-badge {
+    display: inline-block;
+    padding: 6px 15px;
+    background: rgba(212, 175, 55, 0.2);
+    color: var(--color-gold);
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.newsletter-section {
+    text-align: center;
+    padding: 60px;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+.newsletter-form input {
+    flex: 1;
+    max-width: 400px;
+    padding: 15px 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 8px;
+    color: white;
+    font-size: 1rem;
+}
+
+.newsletter-privacy {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.6);
+}
