@@ -258,3 +258,236 @@ document.addEventListener('click', function(e) {
         closeNotifyModal();
     }
 });
+// Add floating particles effect
+document.addEventListener('DOMContentLoaded', function() {
+    const ctaContent = document.querySelector('.cta-content');
+    
+    if (ctaContent) {
+        // Create particles
+        for (let i = 0; i < 15; i++) {
+            createParticle(ctaContent);
+        }
+        
+        // Create particles on mouse move
+        ctaContent.addEventListener('mousemove', function(e) {
+            if (Math.random() > 0.7) { // 30% chance to create particle
+                createParticleAtPosition(ctaContent, e.clientX, e.clientY);
+            }
+        });
+    }
+    
+    function createParticle(container) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        
+        // Random size
+        const size = Math.random() * 10 + 5;
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+        
+        // Random position
+        particle.style.left = `${Math.random() * 100}%`;
+        particle.style.top = `${Math.random() * 100}%`;
+        
+        // Random color (gold variations)
+        const goldVariations = [
+            'rgba(248, 213, 72, 0.3)',
+            'rgba(255, 234, 109, 0.4)',
+            'rgba(255, 255, 255, 0.2)',
+            'rgba(232, 213, 168, 0.3)'
+        ];
+        particle.style.background = goldVariations[Math.floor(Math.random() * goldVariations.length)];
+        
+        // Random animation
+        const duration = Math.random() * 3 + 2;
+        particle.style.animation = `particle-float ${duration}s ease-in-out infinite`;
+        particle.style.animationDelay = `${Math.random() * 2}s`;
+        
+        container.appendChild(particle);
+        
+        // Remove particle after animation completes
+        setTimeout(() => {
+            if (particle.parentNode) {
+                particle.remove();
+                // Create new particle
+                setTimeout(() => createParticle(container), 1000);
+            }
+        }, duration * 1000);
+    }
+    
+    function createParticleAtPosition(container, x, y) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        
+        // Small size for mouse particles
+        const size = Math.random() * 8 + 3;
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+        
+        // Position at mouse
+        const rect = container.getBoundingClientRect();
+        particle.style.left = `${x - rect.left}px`;
+        particle.style.top = `${y - rect.top}px`;
+        
+        // Gold color
+        particle.style.background = 'rgba(248, 213, 72, 0.5)';
+        
+        // Quick animation
+        const duration = Math.random() * 2 + 1;
+        particle.style.animation = `particle-float ${duration}s ease-in-out forwards`;
+        
+        container.appendChild(particle);
+        
+        // Remove particle after animation
+        setTimeout(() => {
+            if (particle.parentNode) {
+                particle.remove();
+            }
+        }, duration * 1000);
+    }
+})
+document.addEventListener('DOMContentLoaded', function() {
+    const innovationSection = document.querySelector('.innovation-cinematic');
+    const particlesContainer = document.querySelector('.ai-particles');
+    
+    if (particlesContainer) {
+        // Create initial particles
+        for (let i = 0; i < 30; i++) {
+            createAIParticle(particlesContainer);
+        }
+    }
+    
+    function createAIParticle(container) {
+        const particle = document.createElement('div');
+        particle.classList.add('ai-particle');
+        
+        // Random size
+        const size = Math.random() * 8 + 2;
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+        
+        // Random position
+        particle.style.left = `${Math.random() * 100}%`;
+        
+        // Random vertical start position
+        const startY = Math.random() * 100 + 100;
+        particle.style.setProperty('--x-start', `${Math.random() * 100 - 50}px`);
+        particle.style.setProperty('--x-end', `${Math.random() * 100 - 50}px`);
+        particle.style.top = `${startY}%`;
+        
+        // Random color (blue variations)
+        const blueVariations = [
+            'rgba(0, 150, 255, 0.6)',
+            'rgba(0, 212, 255, 0.7)',
+            'rgba(100, 200, 255, 0.5)',
+            'rgba(0, 100, 200, 0.4)'
+        ];
+        particle.style.background = blueVariations[Math.floor(Math.random() * blueVariations.length)];
+        
+        // Random animation
+        const duration = Math.random() * 15 + 10;
+        const delay = Math.random() * 5;
+        particle.style.animation = `particle-float ${duration}s linear infinite`;
+        particle.style.animationDelay = `${delay}s`;
+        
+        container.appendChild(particle);
+        
+        // Remove and recreate particles periodically
+        setTimeout(() => {
+            if (particle.parentNode) {
+                particle.remove();
+                setTimeout(() => createAIParticle(container), 1000);
+            }
+        }, duration * 1000);
+    }
+});
+
+// Add sparkle effects to incubator section
+document.addEventListener('DOMContentLoaded', function() {
+    const incubatorSection = document.querySelector('.incubator-cinematic');
+    const sparklesContainer = document.querySelector('.incubator-sparkles');
+    
+    if (sparklesContainer) {
+        // Create initial sparkles
+        for (let i = 0; i < 25; i++) {
+            createSparkle(sparklesContainer);
+        }
+    }
+    
+    function createSparkle(container) {
+        const sparkle = document.createElement('div');
+        sparkle.classList.add('incubator-sparkle');
+        
+        // Random position
+        sparkle.style.left = `${Math.random() * 100}%`;
+        sparkle.style.top = `${Math.random() * 100}%`;
+        
+        // Random size
+        const size = Math.random() * 6 + 2;
+        sparkle.style.width = `${size}px`;
+        sparkle.style.height = `${size}px`;
+        
+        // Random animation
+        const duration = Math.random() * 4 + 2;
+        const delay = Math.random() * 2;
+        sparkle.style.animation = `sparkle-twinkle ${duration}s ease-in-out infinite`;
+        sparkle.style.animationDelay = `${delay}s`;
+        
+        container.appendChild(sparkle);
+        
+        // Remove and recreate sparkles periodically
+        setTimeout(() => {
+            if (sparkle.parentNode) {
+                sparkle.remove();
+                setTimeout(() => createSparkle(container), 1000);
+            }
+        }, duration * 1000);
+    }
+    
+    // Add hover effect to incubator button
+    const incubatorBtn = document.querySelector('.btn-incubator');
+    if (incubatorBtn) {
+        incubatorBtn.addEventListener('mouseenter', function() {
+            // Create mini sparkles on hover
+            for (let i = 0; i < 8; i++) {
+                createButtonSparkle(incubatorBtn);
+            }
+        });
+    }
+    
+    function createButtonSparkle(button) {
+        const sparkle = document.createElement('div');
+        sparkle.style.position = 'absolute';
+        sparkle.style.width = '6px';
+        sparkle.style.height = '6px';
+        sparkle.style.background = 'rgba(255, 255, 255, 0.8)';
+        sparkle.style.borderRadius = '50%';
+        
+        // Random position around button
+        const rect = button.getBoundingClientRect();
+        const x = Math.random() * rect.width;
+        const y = Math.random() * rect.height;
+        
+        sparkle.style.left = `${x}px`;
+        sparkle.style.top = `${y}px`;
+        
+        // Animate outwards
+        const angle = Math.random() * Math.PI * 2;
+        const distance = Math.random() * 50 + 30;
+        
+        const animation = sparkle.animate([
+            { transform: 'translate(0, 0) scale(1)', opacity: 1 },
+            { transform: `translate(${Math.cos(angle) * distance}px, ${Math.sin(angle) * distance}px) scale(0)`, opacity: 0 }
+        ], {
+            duration: 1000,
+            easing: 'cubic-bezier(0.4, 0, 0.2, 1)'
+        });
+        
+        button.appendChild(sparkle);
+        
+        // Remove after animation
+        animation.onfinish = () => {
+            sparkle.remove();
+        };
+    }
+});
