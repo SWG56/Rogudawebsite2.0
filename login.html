@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Roguda Fashion & Art Design School</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/theme.css">
+</head>
+<body>
+    
+    <div class="auth-container">
+        <div class="auth-panel glass-panel">
+            <div class="auth-header">
+                <img src="assets/images/logo.svg" alt="Roguda Logo" class="auth-logo">
+                <h1 class="gold-glow">Welcome Back</h1>
+                <p>Login to access your student portal</p>
+            </div>
+
+            <form action="includes/auth.php" method="POST" class="auth-form">
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required autofocus>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+
+                <div class="form-options">
+                    <label class="checkbox-container">
+                        <input type="checkbox" id="rememberMe">
+                        <span class="checkmark"></span>
+                        <span class="checkbox-label">Remember me</span>
+                    </label>
+                    <a href="#" class="gold-link">Forgot password?</a>
+                </div>
+
+                <button type="submit" class="btn-primary gold-btn-large">Login</button>
+
+                <div class="form-footer">
+                    <p>Don't have an account? <a href="register.html" class="gold-link">Register here</a></p>
+                    <p><a href="index.html" class="gold-link">← Back to Home</a></p>
+                </div>
+            </form>
+
+            <div class="popia-footer">
+                <p>By logging in, you acknowledge our <a href="docs/popia_compliance.html" class="gold-link">POPIA Compliance Policy</a>.</p>
+            </div>
+        </div>
+
+        <div class="auth-visual" style="background-image: url('assets/images/hero.jpg');">
+            <div class="auth-overlay"></div>
+            <div class="auth-quote">
+                <h2 class="gold-glow">"Fashion is the armor to survive the reality of everyday life."</h2>
+                <p>— Bill Cunningham</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/auth.js"></script>
+</body>
+</html>
