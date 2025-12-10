@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apply | Roguda Fashion & Art Design School</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/theme.css">
+  <link rel="stylesheet" href="assets/css/roguda-grid.css">
+  <style>
+    body {
+      background: linear-gradient(135deg, #1a1a1a 0%, #2d2416 50%, #1a1a1a 100%);
+      background-attachment: fixed;
+      min-height: 100vh;
+      margin: 0;
+      font-family: var(--font-body);
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .glass-overlay {
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(26,26,26,0.85), rgba(45,36,22,0.9));
+      z-index: 0;
+    }
+
+    .form-section-box {
+      background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+      backdrop-filter: blur(30px);
+      border: 1px solid rgba(199,158,79,0.3);
+      border-radius: 20px;
+      padding: 2.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1);
+      transition: all 0.3s ease;
+    }
+
+    .form-section-box:hover {
+      border-color: rgba(199,158,79,0.5);
+      box-shadow: 0 12px 40px rgba(199,158,79,0.2), inset 0 1px 0 rgba(255,255,255,0.15);
+    }
+
+    .form-section-title {
+      color: #C79E4F;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.2rem, 3vw, 1.5rem);
+      margin-bottom: 1.5rem;
+      border-bottom: 2px solid rgba(199,158,79,0.3);
+      padding-bottom: 0.6rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      letter-spacing: 0.3px;
+      font-weight: 600;
+    }
+
+    .form-section-title::before {
+      content: '';
+      width: 4px;
+      height: 24px;
+      background: linear-gradient(135deg, #C79E4F, #F8D548);
+      border-radius: 2px;
+    }
+
+    .glass-input, .glass-select, .glass-textarea {
+      width: 100%;
+      padding: 1rem;
+      border-radius: 12px;
+      border: 1px solid rgba(199,158,79,0.25);
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(10px);
+      color: rgba(255,255,255,0.95);
+      font-family: 'Outfit', sans-serif;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .glass-input:focus, .glass-select:focus, .glass-textarea:focus {
+      outline: none;
+      border-color: rgba(199,158,79,0.6);
+      background: rgba(255,255,255,0.12);
+      box-shadow: 0 0 0 3px rgba(199,158,79,0.15);
+    }
+
+    .glass-label {
+      display: block;
+      margin-bottom: 0.6rem;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .form-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .form-group { margin-bottom: 1.2rem; }
+
+    .consent-box {
+      background: linear-gradient(135deg, rgba(199,158,79,0.15), rgba(199,158,79,0.08));
+      border: 2px solid rgba(199,158,79,0.4);
+      padding: 2rem;
+      border-radius: 16px;
+      backdrop-filter: blur(20px);
+      margin-bottom: 2rem;
+    }
+
+    .consent-notice {
+      background: rgba(255,255,255,0.08);
+      border-left: 4px solid #C79E4F;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .consent-notice p {
+      margin: 0 0 0.8rem;
+      line-height: 1.6;
+    }
+
+    .checkbox-label {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+      margin-bottom: 1rem;
+      background: rgba(255,255,255,0.05);
+      padding: 1rem;
+      border-radius: 10px;
+      transition: background 0.3s ease;
+    }
+
+    .checkbox-label:hover {
+      background: rgba(255,255,255,0.08);
+    }
+
+    .checkbox-label input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      accent-color: #C79E4F;
+      margin-top: 0.3rem;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 1.3rem;
+      border: none;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #C79E4F 0%, #F8D548 100%);
+      color: #1a1a1a;
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 8px 30px rgba(199,158,79,0.4);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(199,158,79,0.6);
+      background: linear-gradient(135deg, #D4AF37 0%, #FFE55C 100%);
+    }
+
+    .submit-btn:active {
+      transform: translateY(-1px);
+    }
+
+    .form-footer-text {
+      text-align: center;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.75);
+      margin-top: 1.5rem;
+      padding: 1rem;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.05);
+    }
+
+    /* Multi-Step Form Styles */
+    .progressbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      counter-reset: step;
+      margin: 2rem 0 3.5rem;
+      position: relative;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .progressbar::before {
+      content: '';
+      position: absolute;
+      top: 20px;
+      left: 0;
+      height: 2px;
+      width: 100%;
+      background: rgba(199,158,79,0.15);
+      z-index: 0;
+    }
+
+    .progress-step {
+      width: 40px;
+      height: 40px;
+      background: rgba(26,26,26,0.8);
+      border: 2px solid rgba(199,158,79,0.3);
+      border-radius: 50%;
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      line-height: 36px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      position: relative;
+      z-index: 1;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .progress-step.active {
+      background: linear-gradient(135deg, #C79E4F, #F8D548);
+      color: #1a1a1a;
+      border-color: #C79E4F;
+      box-shadow: 0 4px 15px rgba(199,158,79,0.4);
+      transform: scale(1.1);
+    }
+
+    .progress-step::after {
+      content: attr(data-title);
+      position: absolute;
+      top: 52px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.6);
+      white-space: nowrap;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+    }
+
+    .progress-step.active::after {
+      color: #C79E4F;
+      font-weight: 600;
+    }
+
+    .form-step {
+      display: none;
+      animation: fadeIn 0.5s ease;
+    }
+
+    .form-step.active {
+      display: block;
+    }
+
+    .btns-group {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .btn-next, .btn-prev {
+      background: linear-gradient(135deg, #C79E4F 0%, #F8D548 100%);
+      border: none;
+      color: #1a1a1a;
+      padding: 1rem 2rem;
+      border-radius: 10px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      font-size: 1rem;
+      font-family: 'Outfit', sans-serif;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      box-shadow: 0 4px 12px rgba(199,158,79,0.2);
+    }
+
+    .btn-prev {
+      background: rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.95);
+      border: 1.5px solid rgba(199,158,79,0.3);
+      box-shadow: none;
+    }
+
+    .btn-next:hover, .btn-prev:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(199,158,79,0.4);
+    }
+
+    .btn-next:active, .btn-prev:active {
+      transform: translateY(0);
+    }
+
+    .btn-prev:hover {
+      background: rgba(255,255,255,0.12);
+      border-color: rgba(199,158,79,0.6);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Tablet Responsive */
+    @media (max-width: 1024px) {
+      .form-section-box { padding: 2rem; }
+      .form-grid-2 { gap: 1rem; }
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      body { font-size: 14px; }
+      
+      .form-grid-2 { 
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+      }
+      
+      .form-section-box { 
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+      }
+      
+      .form-section-title {
+        font-size: 1.2rem;
+        padding-bottom: 0.5rem;
+      }
+      
+      .progressbar { 
+        margin: 1.5rem 0 3rem;
+        max-width: 100%;
+      }
+      
+      .progress-step { 
+        width: 32px;
+        height: 32px;
+        line-height: 28px;
+        font-size: 0.8rem;
+      }
+      
+      .progress-step::after { 
+        font-size: 0.6rem;
+        top: 42px;
+      }
+      
+      .btns-group { 
+        flex-direction: column;
+        gap: 0.8rem;
+      }
+      
+      .btn-next, .btn-prev { 
+        width: 100%;
+        padding: 0.9rem 1.5rem;
+      }
+      
+      .glass-input, .glass-select, .glass-textarea {
+        padding: 0.9rem;
+        font-size: 1rem;
+      }
+      
+      .submit-btn {
+        padding: 1.1rem;
+        font-size: 1.1rem;
+      }
+    }
+
+    /* Small Mobile */
+    @media (max-width: 480px) {
+      .progressbar { margin: 1rem 0 2.5rem; }
+      
+      .progress-step {
+        width: 28px;
+        height: 28px;
+        line-height: 24px;
+        font-size: 0.75rem;
+      }
+      
+      .progress-step::after {
+        font-size: 0.55rem;
+        top: 38px;
+      }
+      
+      .form-section-box {
+        padding: 1.2rem;
+      }
+      
+      .consent-box {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  
+  <!-- Glass Overlay for Entire Page -->
+  <div class="glass-overlay"></div>
+
+  <nav class="glass-nav" style="position: relative; z-index: 10;">
+    <div class="nav-container">
+      <div class="logo">
+        <img src="assets/images/logo.svg" alt="Roguda Logo" style="height:28px;">
+        <span class="logo-text">ROGUDA</span>
+      </div>
+      <a href="index.html" class="btn-secondary">← Back Home</a>
+    </div>
+  </nav>
+
+  <section class="section" style="min-height:100vh; padding:4rem 1rem; position:relative; z-index:1;">
+    <div style="max-width:950px; width:100%; margin:0 auto; background:rgba(255,255,255,0.08); backdrop-filter:blur(40px); border:1px solid rgba(199,158,79,0.35); padding:3rem; border-radius:24px; box-shadow:0 20px 60px rgba(0,0,0,0.4); box-sizing:border-box;">
+
+      <div style="text-align:center; margin-bottom:3rem;">
+        <div style="display:inline-block; background:rgba(199,158,79,0.1); padding:0.8rem 2rem; border-radius:30px; border:1px solid rgba(199,158,79,0.4); margin-bottom:1.5rem;">
+          <span style="color:#C79E4F; font-weight:700; font-size:0.85rem; letter-spacing:0.5px;">APPLICATIONS OPEN: DEC 11, 2025 – JAN 22, 2026</span>
+        </div>
+        <h2 style="font-family:'Playfair Display',serif; color:#C79E4F; font-size:clamp(2rem, 5vw, 2.8rem); margin-bottom:0.8rem; line-height:1.2;">Apply to Roguda</h2>
+        <p style="max-width:700px; margin:0 auto; color:rgba(255,255,255,0.85); line-height:1.7; font-size:clamp(0.95rem, 2vw, 1.05rem);">Complete this application to begin your creative journey at Roguda. We'll match your passion with the perfect program.</p>
+      </div>
+
+      <form id="rogudaForm" action="submit_application.php" method="POST" enctype="multipart/form-data">
+        
+        <!-- Progress Bar -->
+        <div class="progressbar">
+          <div class="progress-step active" data-title="Personal">1</div>
+          <div class="progress-step" data-title="Program">2</div>
+          <div class="progress-step" data-title="Education">3</div>
+          <div class="progress-step" data-title="Documents">4</div>
+          <div class="progress-step" data-title="Review">5</div>
+        </div>
+
+        <!-- Step 1: Personal Information -->
+        <div class="form-step active">
+          <div class="form-section-box">
+            <h3 class="form-section-title">Personal Information</h3>
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label class="glass-label">First Name *</label>
+                <input type="text" name="firstName" required placeholder="John" class="glass-input">
+              </div>
+              <div class="form-group">
+                <label class="glass-label">Last Name *</label>
+                <input type="text" name="lastName" required placeholder="Doe" class="glass-input">
+              </div>
+            </div>
+
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label class="glass-label">Email Address *</label>
+                <input type="email" name="email" required placeholder="your.email@example.com" class="glass-input">
+              </div>
+              <div class="form-group">
+                <label class="glass-label">Phone Number *</label>
+                <input type="tel" name="phone" required placeholder="+27 XX XXX XXXX" class="glass-input">
+              </div>
+            </div>
+
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label class="glass-label">ID / Passport Number *</label>
+                <input type="text" name="idNumber" required placeholder="XXXXXXXXXX" class="glass-input">
+              </div>
+              <div class="form-group">
+                <label class="glass-label">Date of Birth *</label>
+                <input type="date" name="dob" required class="glass-input">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="glass-label">Gender *</label>
+              <select name="gender" required class="glass-select">
+                <option value="">Select...</option>
+                <option>Male</option>
+                <option>Female</option>
+                <option>Non-binary</option>
+                <option>Prefer not to say</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="glass-label">Physical Address *</label>
+              <textarea name="address" rows="3" required placeholder="Street, City, Province, Postal Code" class="glass-textarea"></textarea>
+            </div>
+          </div>
+          <button type="button" class="btn-next">Continue</button>
+        </div>
+
+        <!-- Step 2: Program Selection -->
+        <div class="form-step">
+          <div class="form-section-box">
+            <h3 class="form-section-title">Program Selection</h3>
+            <div class="form-group">
+              <label class="glass-label">Choose Your Program *</label>
+              <select name="program" required class="glass-select">
+                <option value="">Select a program...</option>
+                <option>Fashion Design – NQF 5 (12 months)</option>
+                <option>Pattern Making – NQF 4 (9 months)</option>
+                <option>Production Management – NQF 5 (10 months)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="glass-label">Preferred Start Date *</label>
+              <select name="startDate" required class="glass-select">
+                <option value="">Select...</option>
+                <option>February 2026</option>
+                <option>March 2026</option>
+                <option>July 2026</option>
+                <option>August 2026</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="glass-label">Why are you interested in this program? *</label>
+              <textarea name="motivation" rows="4" required placeholder="Tell us what draws you to this program..." class="glass-textarea"></textarea>
+            </div>
+          </div>
+          <div class="btns-group">
+            <button type="button" class="btn-prev">Previous</button>
+            <button type="button" class="btn-next">Continue</button>
+          </div>
+        </div>
+
+        <!-- Step 3: Education & Experience -->
+        <div class="form-step">
+          <div class="form-section-box">
+            <h3 class="form-section-title">Educational Background</h3>
+            <div class="form-group">
+              <label class="glass-label">Highest Level of Education *</label>
+              <select name="education" required class="glass-select">
+                <option value="">Select...</option>
+                <option>Grade 12 / Matric</option>
+                <option>Diploma</option>
+                <option>Degree</option>
+                <option>Certificate</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="glass-label">School / Institution *</label>
+              <input type="text" name="school" required placeholder="Name of your school or institution" class="glass-input">
+            </div>
+
+            <div class="form-group">
+              <label class="glass-label">Year Completed / Expected *</label>
+              <input type="number" name="graduationYear" required placeholder="2024" min="2000" max="2030" class="glass-input">
+            </div>
+
+            <div class="form-group">
+              <label class="glass-label">Portfolio / Social Media Links</label>
+              <input type="url" name="portfolio" placeholder="https://instagram.com/yourhandle" class="glass-input">
+            </div>
+
+            <div class="form-group">
+              <label class="glass-label">Previous Fashion/Design Experience</label>
+              <textarea name="experience" rows="3" placeholder="Describe any relevant experience..." class="glass-textarea"></textarea>
+            </div>
+          </div>
+          <div class="btns-group">
+            <button type="button" class="btn-prev">Previous</button>
+            <button type="button" class="btn-next">Continue</button>
+          </div>
+        </div>
+
+        <!-- Step 4: Upload Documents -->
+        <div class="form-step">
+          <div class="form-section-box">
+            <h3 class="form-section-title">Upload Documents</h3>
+            <div class="form-group">
+              <label class="glass-label">Upload ID / Passport Copy *</label>
+              <input type="file" name="idCopy" accept=".pdf,.jpg,.jpeg,.png" required class="glass-input" style="padding:0.8rem;">
+              <small style="color:rgba(255,255,255,0.6); font-size:0.85rem; display:block; margin-top:0.5rem;">Accepted formats: PDF, JPG, PNG (Max 5MB)</small>
+            </div>
+
+            <div class="form-group">
+              <label class="glass-label">Upload Matric Certificate / Latest Results (Optional)</label>
+              <input type="file" name="certificate" accept=".pdf,.jpg,.jpeg,.png" class="glass-input" style="padding:0.8rem;">
+            </div>
+
+            <div class="form-group">
+              <label class="glass-label">Upload Portfolio / Creative Work (Optional)</label>
+              <input type="file" name="portfolioFile" accept=".pdf,.jpg,.jpeg,.png" class="glass-input" style="padding:0.8rem;">
+            </div>
+          </div>
+          <div class="btns-group">
+            <button type="button" class="btn-prev">Previous</button>
+            <button type="button" class="btn-next">Continue</button>
+          </div>
+        </div>
+
+        <!-- Step 5: Review & Submit -->
+        <div class="form-step">
+          <div class="form-section-box">
+            <h3 class="form-section-title">Review & Submit</h3>
+            <p style="color:rgba(255,255,255,0.85); line-height:1.7; margin-bottom:1.5rem;">
+              Please review all the information you've provided before submitting your application. You can go back to any previous step to make changes.
+            </p>
+          </div>
+
+          <!-- POPIA CONSENT -->
+          <div class="consent-box">
+            <h3 class="form-section-title">Data Privacy & Consent</h3>
+            <div class="consent-notice">
+              <p><strong>Protection of Personal Information Act (POPIA) Notice:</strong></p>
+              <p>Your information will only be used for application processing, enrollment communication, and educational purposes. You have the right to access or delete your data at any time.</p>
+              <p><a href="docs/popia_compliance.html" target="_blank" style="color:#F8D548;">Read our full POPIA Policy →</a></p>
+            </div>
+
+            <label class="checkbox-label">
+              <input type="checkbox" name="popiaConsent" required>
+              <span>I consent to my personal data being processed in accordance with the <a href="docs/popia_compliance.html" target="_blank" style="color:#F8D548;">POPIA Policy</a>. *</span>
+            </label>
+
+            <label class="checkbox-label">
+              <input type="checkbox" name="marketingConsent">
+              <span>I agree to receive updates, event invitations, and promotional content from Roguda (optional).</span>
+            </label>
+
+            <label class="checkbox-label">
+              <input type="checkbox" name="accuracyConsent" required>
+              <span>I confirm that all information provided is true, accurate, and complete to the best of my knowledge. *</span>
+            </label>
+          </div>
+
+          <div class="btns-group">
+            <button type="button" class="btn-prev">Previous</button>
+            <button type="submit" class="submit-btn">Submit Application</button>
+          </div>
+          
+          <p class="form-footer-text">
+            All fields marked with * are required. Your application will be reviewed within 5–7 business days.
+          </p>
+        </div>
+
+      </form>
+    </div>
+  </section>
+
+  <footer class="footer-cinematic">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3>ROGUDA</h3>
+          <p class="footer-tagline">Where craft becomes culture. Empowering Africa's creative future.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="programs.html">Programs</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Follow Us</h4>
+          <div class="social-links">
+            <a href="https://www.instagram.com/roguda_fashion_design_and_arts/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+            <a href="https://www.tiktok.com/@roguda_fashion_design_an" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61584366087913" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="https://za.pinterest.com/rogudadesign/" target="_blank" rel="noopener noreferrer" aria-label="Pinterest">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.39 18.592.026 11.985.026L12.017 0z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Roguda Fashion & Art Design (Pty) Ltd • All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const steps = document.querySelectorAll(".form-step");
+    const progressSteps = document.querySelectorAll(".progress-step");
+    let currentStep = 0;
+
+    document.querySelectorAll(".btn-next").forEach(btn =>
+      btn.addEventListener("click", () => {
+        if (validateCurrentStep()) {
+          changeStep(1);
+        }
+      })
+    );
+
+    document.querySelectorAll(".btn-prev").forEach(btn =>
+      btn.addEventListener("click", () => changeStep(-1))
+    );
+
+    function changeStep(direction) {
+      steps[currentStep].classList.remove("active");
+      progressSteps[currentStep].classList.remove("active");
+      currentStep += direction;
+      steps[currentStep].classList.add("active");
+      progressSteps[currentStep].classList.add("active");
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function validateCurrentStep() {
+      const currentInputs = steps[currentStep].querySelectorAll('input[required], select[required], textarea[required]');
+      let isValid = true;
+
+      currentInputs.forEach(input => {
+        if (!input.value.trim()) {
+          input.style.borderColor = '#E57373';
+          isValid = false;
+          setTimeout(() => {
+            input.style.borderColor = 'rgba(199,158,79,0.25)';
+          }, 2000);
+        }
+      });
+
+      if (!isValid) {
+        alert('Please fill in all required fields before proceeding.');
+      }
+
+      return isValid;
+    }
+  </script>
+</body>
+</html>

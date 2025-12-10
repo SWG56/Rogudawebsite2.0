@@ -1,0 +1,98 @@
+===============================================
+ROGUDA GDPR/POPIA COMPLIANCE CHECKLIST
+===============================================
+Last Updated: November 29, 2025
+
+□ DATA COLLECTION & CONSENT
+  □ POPIA consent checkbox on application form ✅
+  □ Clear privacy policy available (create docs/popia_compliance.html)
+  □ Explicit consent for email communications ✅
+  □ Age verification (18+ or guardian consent) if needed
+  □ Purpose of data collection clearly stated ✅
+
+□ DATA STORAGE & SECURITY
+  □ Passwords hashed using password_hash() ✅
+  □ Database credentials stored in config.php (not version controlled) ✅
+  □ SSL/HTTPS enabled on production ⚙️
+  □ config.php protected via .htaccess ✅
+  □ Regular database backups scheduled ✅
+  □ Limited access to admin dashboard (authentication required) ✅
+
+□ DATA PROCESSING
+  □ Only collect necessary data (name, email, phone, program) ✅
+  □ No excessive personal data collected ✅
+  □ Data retention policy defined (7 years for students)
+  □ Automated data deletion after retention period (implement if needed)
+  □ Secure password change functionality ✅
+  □ Session timeout implemented (1 hour) ✅
+
+□ USER RIGHTS (POPIA Act)
+  □ Right to access data (applicants can login to view their info) ✅
+  □ Right to rectification (password change available) ✅
+  □ Right to deletion (admin can delete applicants)
+  □ Right to data portability (CSV export available) ✅
+  □ Right to object to processing (withdrawal form needed)
+
+□ TRANSPARENCY
+  □ Privacy policy clearly accessible
+  □ Contact information for data queries provided ✅
+  □ Data protection officer designated (if required)
+  □ Cookie policy (if using cookies)
+
+□ THIRD-PARTY PROCESSING
+  □ Email service provider compliant (using mail())
+  □ Hosting provider compliant (Afrihost - South African)
+  □ No unauthorized third-party data sharing
+  □ Payment processor compliant (if adding payments)
+
+□ BREACH NOTIFICATION
+  □ Incident response plan in place
+  □ Notification procedure for data breaches
+  □ Contact: POPIA Information Regulator if breach occurs
+
+□ DOCUMENTATION
+  □ Record of processing activities maintained
+  □ Consent forms archived
+  □ Data protection impact assessment (DPIA) if needed
+
+□ TRAINING & AWARENESS
+  □ Staff trained on POPIA compliance
+  □ Admin users aware of data protection responsibilities
+  □ Regular compliance audits scheduled
+
+===============================================
+ACTIONS REQUIRED
+===============================================
+
+HIGH PRIORITY:
+  □ Create comprehensive privacy policy page
+  □ Add data retention policy documentation
+  □ Implement account deletion request form
+  □ Enable SSL certificate on production
+
+MEDIUM PRIORITY:
+  □ Add cookie consent banner (if using analytics)
+  □ Create data subject access request form
+  □ Document data processing procedures
+  □ Schedule annual compliance review
+
+LOW PRIORITY:
+  □ Consider data anonymization for analytics
+  □ Implement audit logging for admin actions
+  □ Create incident response playbook
+
+===============================================
+USEFUL RESOURCES
+===============================================
+
+POPIA Information Regulator South Africa:
+https://inforegulator.org.za/
+
+POPIA Compliance Guide:
+https://popia.co.za/
+
+Contact for Compliance Support:
+Email: info@roguda.co.za
+Phone: +27 72 728 7577
+
+===============================================

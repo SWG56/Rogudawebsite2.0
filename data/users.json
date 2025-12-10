@@ -1,0 +1,21 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "fullName": "Demo Student",
+      "email": "student@roguda.co.za",
+      "phone": "+27 12 345 6789",
+      "password": "ZGVtbzEyMw==",
+      "role": "student",
+      "registeredAt": "2025-01-15T10:00:00Z",
+      "program": "fashion-design",
+      "popiaConsent": true,
+      "termsConsent": true
+    }
+  ],
+  "notes": [
+    "This is a temporary user storage file for development purposes.",
+    "In production, use a proper database with encrypted passwords.",
+    "Password for demo account: demo123 (Base64 encoded)"
+  ]
+}

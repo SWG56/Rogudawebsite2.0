@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard | Roguda</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/theme.css">
+    <link rel="stylesheet" href="assets/css/dashboard.css">
+</head>
+<body>
+    <div class="dashboard-wrapper">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="user-avatar" id="userAvatar">👤</div>
+                <div class="user-name" id="userName">Loading...</div>
+                <div class="user-program" id="userProgram">Loading...</div>
+            </div>
+            
+            <ul class="nav-menu">
+                <li><a href="#" class="active"><span class="icon">🏠</span> Dashboard</a></li>
+                <li><a href="#moodle-section"><span class="icon">📚</span> Moodle LMS</a></li>
+                <li><a href="studio.html"><span class="icon">🎨</span> AI Studio</a></li>
+                <li><a href="marketplace.html"><span class="icon">🛍️</span> Marketplace</a></li>
+                <li><a href="programs.html"><span class="icon">📖</span> My Courses</a></li>
+                <li><a href="includes/change-password.php"><span class="icon">🔒</span> Change Password</a></li>
+                <li><a href="includes/logout.php"><span class="icon">🚪</span> Logout</a></li>
+            </ul>
+        </aside>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <div class="dashboard-header">
+                <div class="welcome-text">
+                    <h1>Welcome Back! 👋</h1>
+                    <p id="currentDate">Loading...</p>
+                </div>
+                <div class="header-actions">
+                    <a href="includes/change-password.php" class="btn-secondary">Change Password</a>
+                    <a href="includes/logout.php" class="btn-primary">Logout</a>
+                </div>
+            </div>
+            
+            <!-- Stats Grid -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">📖</div>
+                    <div class="stat-value" id="activeModules">4</div>
+                    <div class="stat-label">Active Modules</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">✅</div>
+                    <div class="stat-value" id="completedTasks">12</div>
+                    <div class="stat-label">Completed Tasks</div>
+                </div>
+                <div class="stat-card">
+                    <div class="progress-ring" id="progressRing">
+                        <svg width="120" height="120">
+                            <circle class="bg" cx="60" cy="60" r="45"></circle>
+                            <circle class="progress" cx="60" cy="60" r="45"></circle>
+                        </svg>
+                        <div class="progress-ring-text">85%</div>
+                    </div>
+                    <div class="stat-label">Overall Progress</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">⭐</div>
+                    <div class="stat-value" id="achievements">8</div>
+                    <div class="stat-label">Achievements</div>
+                </div>
+            </div>
+            
+            <!-- AI Design Studio Preview -->
+            <div class="content-section">
+                <h2 class="section-title">🎨 AI Design Studio</h2>
+                <div style="background:linear-gradient(135deg,rgba(199,158,79,0.15),rgba(243,229,192,0.25));padding:4rem 2rem;border-radius:12px;border:2px solid rgba(199,158,79,0.3);text-align:center;">
+                    <div style="font-size:5rem;margin-bottom:1.5rem;opacity:0.8;">🚀</div>
+                    <h3 style="color:#C79E4F;font-size:2rem;margin-bottom:1rem;font-family:'Playfair Display',serif;">Coming Soon</h3>
+                    <p style="font-size:1.3rem;color:#1A1A1A;margin-bottom:0.5rem;font-weight:600;">Launching March 2026</p>
+                    <p style="color:#8B7355;font-size:1rem;max-width:600px;margin:0 auto;">Experience the future of fashion design with AI-powered tools, 3D visualization, and intelligent pattern generation.</p>
+                </div>
+            </div>
+
+            <!-- Marketplace Dashboard -->
+            <div class="content-section">
+                <h2 class="section-title">🛍️ My Marketplace Stats</h2>
+                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-bottom:1rem;">
+                    <div style="background:linear-gradient(135deg,rgba(199,158,79,0.1),rgba(243,229,192,0.2));padding:1.5rem;border-radius:12px;text-align:center;">
+                        <div style="font-size:2rem;margin-bottom:0.5rem;">👗</div>
+                        <div style="font-size:1.8rem;font-weight:700;color:#C79E4F;">3</div>
+                        <div style="color:#8B7355;font-size:0.9rem;">Designs Listed</div>
+                    </div>
+                    <div style="background:linear-gradient(135deg,rgba(199,158,79,0.1),rgba(243,229,192,0.2));padding:1.5rem;border-radius:12px;text-align:center;">
+                        <div style="font-size:2rem;margin-bottom:0.5rem;">💰</div>
+                        <div style="font-size:1.8rem;font-weight:700;color:#C79E4F;">R 1,250</div>
+                        <div style="color:#8B7355;font-size:0.9rem;">Total Sales</div>
+                    </div>
+                    <div style="background:linear-gradient(135deg,rgba(199,158,79,0.1),rgba(243,229,192,0.2));padding:1.5rem;border-radius:12px;text-align:center;">
+                        <div style="font-size:2rem;margin-bottom:0.5rem;">⭐</div>
+                        <div style="font-size:1.8rem;font-weight:700;color:#C79E4F;">4.8</div>
+                        <div style="color:#8B7355;font-size:0.9rem;">Avg. Rating</div>
+                    </div>
+                    <div style="background:linear-gradient(135deg,rgba(199,158,79,0.1),rgba(243,229,192,0.2));padding:1.5rem;border-radius:12px;text-align:center;">
+                        <div style="font-size:2rem;margin-bottom:0.5rem;">📦</div>
+                        <div style="font-size:1.8rem;font-weight:700;color:#C79E4F;">1</div>
+                        <div style="color:#8B7355;font-size:0.9rem;">Pending Orders</div>
+                    </div>
+                </div>
+                <a href="marketplace.html" class="btn-primary" style="display:inline-block;text-decoration:none;">Go to Marketplace →</a>
+            </div>
+
+            <!-- Moodle LMS Integration -->
+            <div class="content-section" id="moodle-section">
+                <h2 class="section-title">📚 Moodle Learning Management System</h2>
+                
+                <!-- Moodle Quick Stats -->
+                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-bottom:2rem;">
+                    <div style="background:linear-gradient(135deg,rgba(199,158,79,0.1),rgba(243,229,192,0.2));padding:1.5rem;border-radius:12px;text-align:center;border:2px solid rgba(199,158,79,0.3);">
+                        <div style="font-size:2rem;margin-bottom:0.5rem;">📖</div>
+                        <div style="font-size:1.8rem;font-weight:700;color:#C79E4F;" id="moodleCourses">4</div>
+                        <div style="color:#8B7355;font-size:0.9rem;">Enrolled Courses</div>
+                    </div>
+                    <div style="background:linear-gradient(135deg,rgba(199,158,79,0.1),rgba(243,229,192,0.2));padding:1.5rem;border-radius:12px;text-align:center;border:2px solid rgba(199,158,79,0.3);">
+                        <div style="font-size:2rem;margin-bottom:0.5rem;">✅</div>
+                        <div style="font-size:1.8rem;font-weight:700;color:#C79E4F;" id="moodleCompleted">12</div>
+                        <div style="color:#8B7355;font-size:0.9rem;">Assignments Done</div>
+                    </div>
+                    <div style="background:linear-gradient(135deg,rgba(199,158,79,0.1),rgba(243,229,192,0.2));padding:1.5rem;border-radius:12px;text-align:center;border:2px solid rgba(199,158,79,0.3);">
+                        <div style="font-size:2rem;margin-bottom:0.5rem;">🕒</div>
+                        <div style="font-size:1.8rem;font-weight:700;color:#C79E4F;" id="moodlePending">3</div>
+                        <div style="color:#8B7355;font-size:0.9rem;">Pending Tasks</div>
+                    </div>
+                    <div style="background:linear-gradient(135deg,rgba(199,158,79,0.1),rgba(243,229,192,0.2));padding:1.5rem;border-radius:12px;text-align:center;border:2px solid rgba(199,158,79,0.3);">
+                        <div style="font-size:2rem;margin-bottom:0.5rem;">📊</div>
+                        <div style="font-size:1.8rem;font-weight:700;color:#C79E4F;" id="moodleGrade">85%</div>
+                        <div style="color:#8B7355;font-size:0.9rem;">Average Grade</div>
+                    </div>
+                </div>
+
+                <!-- Moodle Course Quick Access -->
+                <div style="background:rgba(199,158,79,0.08);padding:1.5rem;border-radius:12px;margin-bottom:2rem;border:2px solid rgba(199,158,79,0.2);">
+                    <h3 style="margin:0 0 1rem 0;color:#C79E4F;font-size:1.2rem;">🚀 Quick Course Access</h3>
+                    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem;">
+                        <a href="#" onclick="openMoodleCourse('fashion-fundamentals'); return false;" style="background:white;padding:1rem;border-radius:8px;text-decoration:none;color:#1A1A1A;border:1px solid rgba(199,158,79,0.3);transition:all 0.3s;display:block;" onmouseover="this.style.borderColor='#C79E4F';this.style.boxShadow='0 4px 12px rgba(199,158,79,0.3)'" onmouseout="this.style.borderColor='rgba(199,158,79,0.3)';this.style.boxShadow='none'">
+                            <div style="display:flex;align-items:center;gap:0.8rem;">
+                                <span style="font-size:1.8rem;">🎨</span>
+                                <div>
+                                    <div style="font-weight:600;margin-bottom:0.3rem;">Fashion Fundamentals</div>
+                                    <div style="font-size:0.85rem;color:#8B7355;">Module 1 • 89% Complete</div>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#" onclick="openMoodleCourse('pattern-design'); return false;" style="background:white;padding:1rem;border-radius:8px;text-decoration:none;color:#1A1A1A;border:1px solid rgba(199,158,79,0.3);transition:all 0.3s;display:block;" onmouseover="this.style.borderColor='#C79E4F';this.style.boxShadow='0 4px 12px rgba(199,158,79,0.3)'" onmouseout="this.style.borderColor='rgba(199,158,79,0.3)';this.style.boxShadow='none'">
+                            <div style="display:flex;align-items:center;gap:0.8rem;">
+                                <span style="font-size:1.8rem;">📐</span>
+                                <div>
+                                    <div style="font-weight:600;margin-bottom:0.3rem;">Pattern Design</div>
+                                    <div style="font-size:0.85rem;color:#8B7355;">Module 2 • In Progress</div>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#" onclick="openMoodleCourse('ai-design-tools'); return false;" style="background:white;padding:1rem;border-radius:8px;text-decoration:none;color:#1A1A1A;border:1px solid rgba(199,158,79,0.3);transition:all 0.3s;display:block;" onmouseover="this.style.borderColor='#C79E4F';this.style.boxShadow='0 4px 12px rgba(199,158,79,0.3)'" onmouseout="this.style.borderColor='rgba(199,158,79,0.3)';this.style.boxShadow='none'">
+                            <div style="display:flex;align-items:center;gap:0.8rem;">
+                                <span style="font-size:1.8rem;">🤖</span>
+                                <div>
+                                    <div style="font-weight:600;margin-bottom:0.3rem;">AI Design Tools</div>
+                                    <div style="font-size:0.85rem;color:#8B7355;">Module 3 • 45% Complete</div>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#" onclick="openMoodleCourse('textile-technology'); return false;" style="background:white;padding:1rem;border-radius:8px;text-decoration:none;color:#1A1A1A;border:1px solid rgba(199,158,79,0.3);transition:all 0.3s;display:block;" onmouseover="this.style.borderColor='#C79E4F';this.style.boxShadow='0 4px 12px rgba(199,158,79,0.3)'" onmouseout="this.style.borderColor='rgba(199,158,79,0.3)';this.style.boxShadow='none'">
+                            <div style="display:flex;align-items:center;gap:0.8rem;">
+                                <span style="font-size:1.8rem;">🧵</span>
+                                <div>
+                                    <div style="font-weight:600;margin-bottom:0.3rem;">Textile Technology</div>
+                                    <div style="font-size:0.85rem;color:#8B7355;">Module 4 • Locked</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Embedded Moodle Frame -->
+                <div style="background:white;border-radius:12px;overflow:hidden;border:2px solid rgba(199,158,79,0.3);box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+                    <div style="background:linear-gradient(135deg,#C79E4F,#D4AF37);padding:1rem;display:flex;justify-content:space-between;align-items:center;">
+                        <h3 style="margin:0;color:#1A1A1A;font-size:1.1rem;font-weight:600;">📚 Moodle Course Portal</h3>
+                        <div style="display:flex;gap:0.5rem;">
+                            <button onclick="toggleMoodleFullscreen()" style="background:rgba(255,255,255,0.3);border:none;padding:0.5rem 1rem;border-radius:6px;color:#1A1A1A;cursor:pointer;font-weight:600;transition:all 0.3s;" onmouseover="this.style.background='rgba(255,255,255,0.5)'" onmouseout="this.style.background='rgba(255,255,255,0.3)'">⛶ Fullscreen</button>
+                            <button onclick="openMoodleNewTab()" style="background:rgba(255,255,255,0.3);border:none;padding:0.5rem 1rem;border-radius:6px;color:#1A1A1A;cursor:pointer;font-weight:600;transition:all 0.3s;" onmouseover="this.style.background='rgba(255,255,255,0.5)'" onmouseout="this.style.background='rgba(255,255,255,0.3)'">↗ Open in New Tab</button>
+                        </div>
+                    </div>
+                    <div id="moodleContainer" style="position:relative;height:800px;background:#f5f5f5;">
+                        <!-- Replace YOUR_MOODLE_URL with actual Moodle installation URL -->
+                        <iframe 
+                            id="moodleFrame"
+                            src="https://moodle.roguda.co.za" 
+                            style="width:100%;height:100%;border:none;"
+                            title="Moodle Learning Platform"
+                            allow="fullscreen"
+                        ></iframe>
+                        <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;pointer-events:none;">
+                            <div style="font-size:3rem;margin-bottom:1rem;opacity:0.3;">📚</div>
+                            <p style="color:#8B7355;font-size:1.1rem;opacity:0.5;">Configure Moodle URL in settings</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Moodle Integration Info -->
+                <div style="background:linear-gradient(135deg,rgba(52,152,219,0.1),rgba(41,128,185,0.15));padding:1.5rem;border-radius:12px;margin-top:2rem;border-left:4px solid #3498db;">
+                    <h4 style="color:#2980b9;margin:0 0 0.5rem 0;display:flex;align-items:center;gap:0.5rem;"><span>ℹ️</span> Moodle Integration Guide</h4>
+                    <ul style="margin:0.5rem 0 0 1.5rem;color:#34495e;line-height:1.8;">
+                        <li>Access all your course materials, videos, and assignments in one place</li>
+                        <li>Submit assignments directly through Moodle</li>
+                        <li>Participate in discussion forums with instructors and peers</li>
+                        <li>Track your grades and progress in real-time</li>
+                        <li>Download course resources and study materials</li>
+                    </ul>
+                    <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid rgba(52,152,219,0.3);">
+                        <p style="margin:0;color:#7f8c8d;font-size:0.9rem;"><strong>Need help?</strong> Contact IT Support: <a href="mailto:support@roguda.co.za" style="color:#3498db;text-decoration:underline;">support@roguda.co.za</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Learning Progress Panel -->
+            <div class="content-section">
+                <h2 class="section-title">📘 Learning Progress</h2>
+                <div style="overflow-x:auto;">
+                    <table style="width:100%;border-collapse:collapse;">
+                        <thead>
+                            <tr style="background:rgba(199,158,79,0.1);text-align:left;">
+                                <th style="padding:1rem;border-bottom:2px solid rgba(199,158,79,0.3);">Module</th>
+                                <th style="padding:1rem;border-bottom:2px solid rgba(199,158,79,0.3);">Status</th>
+                                <th style="padding:1rem;border-bottom:2px solid rgba(199,158,79,0.3);">Grade</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="padding:1rem;border-bottom:1px solid rgba(199,158,79,0.1);">Fashion Fundamentals</td>
+                                <td style="padding:1rem;border-bottom:1px solid rgba(199,158,79,0.1);"><span style="background:rgba(46,204,113,0.2);padding:0.3rem 0.8rem;border-radius:20px;color:#27ae60;font-size:0.85rem;">✅ Completed</span></td>
+                                <td style="padding:1rem;border-bottom:1px solid rgba(199,158,79,0.1);font-weight:700;color:#C79E4F;">89%</td>
+                            </tr>
+                            <tr>
+                                <td style="padding:1rem;border-bottom:1px solid rgba(199,158,79,0.1);">Pattern Design</td>
+                                <td style="padding:1rem;border-bottom:1px solid rgba(199,158,79,0.1);"><span style="background:rgba(241,196,15,0.2);padding:0.3rem 0.8rem;border-radius:20px;color:#d68910;font-size:0.85rem;">🕒 In Progress</span></td>
+                                <td style="padding:1rem;border-bottom:1px solid rgba(199,158,79,0.1);color:#8B7355;">—</td>
+                            </tr>
+                            <tr>
+                                <td style="padding:1rem;border-bottom:1px solid rgba(199,158,79,0.1);">AI Design Tools</td>
+                                <td style="padding:1rem;border-bottom:1px solid rgba(199,158,79,0.1);"><span style="background:rgba(241,196,15,0.2);padding:0.3rem 0.8rem;border-radius:20px;color:#d68910;font-size:0.85rem;">🕒 In Progress</span></td>
+                                <td style="padding:1rem;border-bottom:1px solid rgba(199,158,79,0.1);color:#8B7355;">—</td>
+                            </tr>
+                            <tr>
+                                <td style="padding:1rem;">Textile Technology</td>
+                                <td style="padding:1rem;"><span style="background:rgba(149,165,166,0.2);padding:0.3rem 0.8rem;border-radius:20px;color:#7f8c8d;font-size:0.85rem;">🔒 Locked</span></td>
+                                <td style="padding:1rem;color:#8B7355;">—</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Skills Tracker -->
+            <div class="content-section">
+                <h2 class="section-title">🧠 Skill Development Tracker</h2>
+                <div style="display:grid;gap:1rem;">
+                    <div>
+                        <div style="display:flex;justify-content:space-between;margin-bottom:0.5rem;">
+                            <span style="font-weight:600;">Sewing Precision</span>
+                            <span style="color:#C79E4F;font-weight:700;">70%</span>
+                        </div>
+                        <div style="background:rgba(199,158,79,0.1);border-radius:20px;height:12px;overflow:hidden;">
+                            <div class="skill-bar" data-progress="70" style="background:linear-gradient(90deg,#C79E4F,#D4AF37);height:100%;width:0%;border-radius:20px;transition:width 1.5s ease-out;"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div style="display:flex;justify-content:space-between;margin-bottom:0.5rem;">
+                            <span style="font-weight:600;">Digital Illustration</span>
+                            <span style="color:#C79E4F;font-weight:700;">60%</span>
+                        </div>
+                        <div style="background:rgba(199,158,79,0.1);border-radius:20px;height:12px;overflow:hidden;">
+                            <div class="skill-bar" data-progress="60" style="background:linear-gradient(90deg,#C79E4F,#D4AF37);height:100%;width:0%;border-radius:20px;transition:width 1.5s ease-out;"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div style="display:flex;justify-content:space-between;margin-bottom:0.5rem;">
+                            <span style="font-weight:600;">Business & Branding</span>
+                            <span style="color:#C79E4F;font-weight:700;">40%</span>
+                        </div>
+                        <div style="background:rgba(199,158,79,0.1);border-radius:20px;height:12px;overflow:hidden;">
+                            <div class="skill-bar" data-progress="40" style="background:linear-gradient(90deg,#C79E4F,#D4AF37);height:100%;width:0%;border-radius:20px;transition:width 1.5s ease-out;"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div style="display:flex;justify-content:space-between;margin-bottom:0.5rem;">
+                            <span style="font-weight:600;">Pattern Making</span>
+                            <span style="color:#C79E4F;font-weight:700;">85%</span>
+                        </div>
+                        <div style="background:rgba(199,158,79,0.1);border-radius:20px;height:12px;overflow:hidden;">
+                            <div class="skill-bar" data-progress="85" style="background:linear-gradient(90deg,#C79E4F,#D4AF37);height:100%;width:0%;border-radius:20px;transition:width 1.5s ease-out;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Achievements & Certificates -->
+            <div class="content-section">
+                <h2 class="section-title">🏅 Achievements & Certificates</h2>
+                <div style="background:linear-gradient(135deg,rgba(199,158,79,0.15),rgba(243,229,192,0.3));padding:2rem;border-radius:12px;border:2px solid rgba(199,158,79,0.3);text-align:center;">
+                    <div style="font-size:3rem;margin-bottom:1rem;">🎖️</div>
+                    <p style="font-size:1.2rem;margin-bottom:1rem;">You've earned <strong style="color:#C79E4F;font-size:1.5rem;">480 Roguda Points</strong></p>
+                    <p style="margin-bottom:1.5rem;color:#1A1A1A;">Only <strong>20 more points</strong> to unlock your <span style="color:#C79E4F;font-weight:600;">Design Excellence Certificate!</span></p>
+                    <div style="background:rgba(199,158,79,0.1);border-radius:20px;height:20px;overflow:hidden;margin-bottom:1.5rem;max-width:400px;margin-left:auto;margin-right:auto;">
+                        <div style="background:linear-gradient(90deg,#C79E4F,#D4AF37);height:100%;width:96%;border-radius:20px;box-shadow:0 0 20px rgba(199,158,79,0.5);"></div>
+                    </div>
+                    <button class="btn-primary" onclick="window.location.href='certificates.html'" style="margin-right:0.5rem;">📜 View Certificates</button>
+                    <button class="btn-secondary" onclick="alert('Badges feature coming soon!')">🏆 View Badges</button>
+                </div>
+            </div>
+
+            <!-- Community & Events Feed -->
+            <div class="content-section">
+                <h2 class="section-title">🌍 Community & Upcoming Events</h2>
+                <div style="display:grid;gap:1rem;">
+                    <div style="background:rgba(199,158,79,0.08);padding:1.5rem;border-radius:12px;border-left:4px solid #C79E4F;transition:all 0.3s ease;cursor:pointer;" onmouseover="this.style.background='rgba(199,158,79,0.15)'" onmouseout="this.style.background='rgba(199,158,79,0.08)'">
+                        <div style="display:flex;align-items:center;gap:1rem;">
+                            <div style="font-size:2.5rem;">🧵</div>
+                            <div style="flex:1;">
+                                <h3 style="margin:0 0 0.5rem 0;color:#1A1A1A;font-size:1.1rem;">Workshop: Traditional Textile Innovation</h3>
+                                <p style="margin:0;color:#8B7355;font-size:0.9rem;">📅 12 March 2026 • 10:00 AM - 2:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="background:rgba(199,158,79,0.08);padding:1.5rem;border-radius:12px;border-left:4px solid #C79E4F;transition:all 0.3s ease;cursor:pointer;" onmouseover="this.style.background='rgba(199,158,79,0.15)'" onmouseout="this.style.background='rgba(199,158,79,0.08)'">
+                        <div style="display:flex;align-items:center;gap:1rem;">
+                            <div style="font-size:2.5rem;">💡</div>
+                            <div style="flex:1;">
+                                <h3 style="margin:0 0 0.5rem 0;color:#1A1A1A;font-size:1.1rem;">Lecture: AI & Fabric Forecasting</h3>
+                                <p style="margin:0;color:#8B7355;font-size:0.9rem;">📅 18 March 2026 • Guest Speaker: Dr. Rina Tshishivhiri</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="background:rgba(199,158,79,0.08);padding:1.5rem;border-radius:12px;border-left:4px solid #C79E4F;transition:all 0.3s ease;cursor:pointer;" onmouseover="this.style.background='rgba(199,158,79,0.15)'" onmouseout="this.style.background='rgba(199,158,79,0.08)'">
+                        <div style="display:flex;align-items:center;gap:1rem;">
+                            <div style="font-size:2.5rem;">🌍</div>
+                            <div style="flex:1;">
+                                <h3 style="margin:0 0 0.5rem 0;color:#1A1A1A;font-size:1.1rem;">Showcase: Student Market Live</h3>
+                                <p style="margin:0;color:#8B7355;font-size:0.9rem;">📅 25 April 2026 • Exhibition & Sales Event</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Recent Activity Timeline -->
+            <div class="content-section">
+                <h2 class="section-title">📅 Recent Activity</h2>
+                <div class="activity-timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker">🎨</div>
+                        <div class="timeline-content">
+                            <div class="timeline-title">Created new design in AI Studio</div>
+                            <div class="timeline-time">2 hours ago</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">✅</div>
+                        <div class="timeline-content">
+                            <div class="timeline-title">Completed Module 3: Pattern Making</div>
+                            <div class="timeline-time">1 day ago</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">🛍️</div>
+                        <div class="timeline-content">
+                            <div class="timeline-title">Listed item on Marketplace</div>
+                            <div class="timeline-time">3 days ago</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">🏆</div>
+                        <div class="timeline-content">
+                            <div class="timeline-title">Earned "Creative Pioneer" badge</div>
+                            <div class="timeline-time">1 week ago</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Motivational Quote -->
+            <div class="content-section" style="background:linear-gradient(135deg,rgba(199,158,79,0.2),rgba(243,229,192,0.3));border:2px solid rgba(199,158,79,0.4);">
+                <div style="text-align:center;padding:1rem;">
+                    <div style="font-size:3rem;margin-bottom:1rem;">✨</div>
+                    <p id="dailyQuote" style="font-size:1.3rem;font-style:italic;color:#1A1A1A;margin-bottom:0.8rem;font-family:'Playfair Display',serif;">"Creativity is intelligence having fun."</p>
+                    <p style="color:#8B7355;font-size:0.95rem;">— Albert Einstein</p>
+                    <button onclick="changeQuote()" style="background:rgba(199,158,79,0.2);border:2px solid #C79E4F;padding:0.5rem 1.5rem;border-radius:20px;color:#C79E4F;font-weight:600;cursor:pointer;margin-top:1rem;transition:all 0.3s;" onmouseover="this.style.background='rgba(199,158,79,0.3)'" onmouseout="this.style.background='rgba(199,158,79,0.2)'">Get New Quote</button>
+                </div>
+            </div>
+
+            <!-- Daily Reflection -->
+            <div class="content-section">
+                <h2 class="section-title">💭 Daily Reflection</h2>
+                <div style="background:rgba(199,158,79,0.08);padding:1.5rem;border-radius:12px;">
+                    <label style="display:block;margin-bottom:1rem;font-weight:600;color:#1A1A1A;">What inspired your design today?</label>
+                    <textarea id="dailyReflection" placeholder="Share your thoughts, ideas, or inspirations..." style="width:100%;min-height:100px;padding:1rem;border:2px solid rgba(199,158,79,0.3);border-radius:8px;resize:vertical;font-family:inherit;"></textarea>
+                    <button class="btn-primary" onclick="saveReflection()" style="margin-top:1rem;">💾 Save Reflection</button>
+                </div>
+            </div>
+
+            <!-- Announcements -->
+            <div class="content-section">
+                <h2 class="section-title">📢 Important Announcements</h2>
+                <div style="background: rgba(199, 158, 79, 0.1); padding: 1.5rem; border-radius: 12px; border-left:4px solid #C79E4F;">
+                    <h3 style="color: #C79E4F; margin-bottom: 0.5rem;">🎉 Welcome to Roguda!</h3>
+                    <p style="color: #1A1A1A;">Your application has been successfully processed. Check your email for important information about your program start date and orientation details.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script src="assets/js/dashboard.js"></script>
+    <script>
+        // Moodle Integration Functions
+        function openMoodleCourse(courseId) {
+            const moodleFrame = document.getElementById('moodleFrame');
+            // Replace with actual Moodle course URLs
+            const courseUrls = {
+                'fashion-fundamentals': 'https://moodle.roguda.co.za/course/view.php?id=1',
+                'pattern-design': 'https://moodle.roguda.co.za/course/view.php?id=2',
+                'ai-design-tools': 'https://moodle.roguda.co.za/course/view.php?id=3',
+                'textile-technology': 'https://moodle.roguda.co.za/course/view.php?id=4'
+            };
+            
+            if (courseUrls[courseId]) {
+                moodleFrame.src = courseUrls[courseId];
+                // Scroll to Moodle section
+                document.getElementById('moodle-section').scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        function toggleMoodleFullscreen() {
+            const container = document.getElementById('moodleContainer');
+            if (!document.fullscreenElement) {
+                container.requestFullscreen().catch(err => {
+                    alert('Error attempting to enable fullscreen: ' + err.message);
+                });
+            } else {
+                document.exitFullscreen();
+            }
+        }
+
+        function openMoodleNewTab() {
+            const moodleFrame = document.getElementById('moodleFrame');
+            window.open(moodleFrame.src, '_blank');
+        }
+
+        // Load Moodle stats from API (example)
+        async function loadMoodleStats() {
+            try {
+                // Replace with actual Moodle API endpoint
+                const response = await fetch('api/moodle-stats.php');
+                if (response.ok) {
+                    const data = await response.json();
+                    document.getElementById('moodleCourses').textContent = data.courses || '4';
+                    document.getElementById('moodleCompleted').textContent = data.completed || '12';
+                    document.getElementById('moodlePending').textContent = data.pending || '3';
+                    document.getElementById('moodleGrade').textContent = data.averageGrade || '85%';
+                }
+            } catch (error) {
+                console.log('Moodle stats not available:', error);
+            }
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            loadMoodleStats();
+        });
+    </script>
+</body>
+</html>

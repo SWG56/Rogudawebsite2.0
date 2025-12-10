@@ -1,0 +1,68 @@
+{
+  "materials": {
+    "cotton": {
+      "name": "Cotton",
+      "cost": 120,
+      "description": "Natural, breathable fabric ideal for everyday wear",
+      "color": "#F5F5DC",
+      "weight": "150gsm",
+      "sustainability": "High"
+    },
+    "denim": {
+      "name": "Denim",
+      "cost": 200,
+      "description": "Durable, heavy-weight fabric perfect for jeans and jackets",
+      "color": "#1560BD",
+      "weight": "300gsm",
+      "sustainability": "Medium"
+    },
+    "silk": {
+      "name": "Silk",
+      "cost": 450,
+      "description": "Luxurious, smooth fabric for elegant garments",
+      "color": "#E6E6FA",
+      "weight": "80gsm",
+      "sustainability": "Medium"
+    },
+    "leather": {
+      "name": "Leather",
+      "cost": 650,
+      "description": "Premium material for bags, shoes, and statement pieces",
+      "color": "#8B4513",
+      "weight": "1.2mm",
+      "sustainability": "Low"
+    },
+    "linen": {
+      "name": "Linen",
+      "cost": 180,
+      "description": "Lightweight, breathable fabric perfect for summer wear",
+      "color": "#FAF0E6",
+      "weight": "140gsm",
+      "sustainability": "High"
+    },
+    "polyester": {
+      "name": "Polyester",
+      "cost": 90,
+      "description": "Affordable, versatile synthetic fabric",
+      "color": "#FFFFFF",
+      "weight": "120gsm",
+      "sustainability": "Low"
+    },
+    "wool": {
+      "name": "Wool",
+      "cost": 350,
+      "description": "Warm, natural fiber for winter garments",
+      "color": "#D3D3D3",
+      "weight": "250gsm",
+      "sustainability": "High"
+    },
+    "velvet": {
+      "name": "Velvet",
+      "cost": 400,
+      "description": "Luxurious, soft fabric with a distinctive pile",
+      "color": "#8B008B",
+      "weight": "280gsm",
+      "sustainability": "Medium"
+    }
+  }
+}

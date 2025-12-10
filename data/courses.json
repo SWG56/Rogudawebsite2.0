@@ -1,0 +1,196 @@
+{
+  "courses": [
+    {
+      "id": "fashion-design-nqf5",
+      "title": "Fashion Design Qualification",
+      "level": "NQF Level 5",
+      "duration_months": 12,
+      "qcto_code": "QCTO-FD-001",
+      "description": "Comprehensive fashion design training aligned with QCTO standards.",
+      "modules": [
+        {
+          "code": "FD101",
+          "name": "Fashion Illustration & Technical Drawing",
+          "credits": 12,
+          "duration_weeks": 8
+        },
+        {
+          "code": "FD102",
+          "name": "Fabric Science & Manipulation",
+          "credits": 10,
+          "duration_weeks": 6
+        },
+        {
+          "code": "FD103",
+          "name": "Garment Construction Techniques",
+          "credits": 15,
+          "duration_weeks": 10
+        },
+        {
+          "code": "FD104",
+          "name": "Collection Development",
+          "credits": 12,
+          "duration_weeks": 8
+        },
+        {
+          "code": "FD105",
+          "name": "AI Design Tools & Digital Fashion",
+          "credits": 8,
+          "duration_weeks": 6
+        },
+        {
+          "code": "FD106",
+          "name": "Fashion Business & Entrepreneurship",
+          "credits": 10,
+          "duration_weeks": 6
+        },
+        {
+          "code": "FD107",
+          "name": "Portfolio Development",
+          "credits": 8,
+          "duration_weeks": 4
+        },
+        {
+          "code": "FD108",
+          "name": "Trend Forecasting & Research",
+          "credits": 10,
+          "duration_weeks": 6
+        }
+      ],
+      "total_credits": 85,
+      "assessment_methods": ["Portfolio", "Practical Projects", "Written Exams", "Final Collection"],
+      "career_paths": ["Fashion Designer", "Creative Director", "Fashion Entrepreneur", "Costume Designer"],
+      "entry_requirements": ["Grade 12 Certificate", "Portfolio (optional)", "Passion for fashion"],
+      "tuition_fees": "Contact for pricing",
+      "intake_months": [2, 7]
+    },
+    {
+      "id": "pattern-making-nqf4",
+      "title": "Pattern Making & Grading",
+      "level": "NQF Level 4",
+      "duration_months": 9,
+      "qcto_code": "QCTO-PM-002",
+      "description": "Technical qualification in pattern drafting and grading.",
+      "modules": [
+        {
+          "code": "PM101",
+          "name": "Pattern Drafting Principles",
+          "credits": 15,
+          "duration_weeks": 8
+        },
+        {
+          "code": "PM102",
+          "name": "Sizing Standards & Grading",
+          "credits": 12,
+          "duration_weeks": 6
+        },
+        {
+          "code": "PM103",
+          "name": "CAD Pattern Software",
+          "credits": 14,
+          "duration_weeks": 8
+        },
+        {
+          "code": "PM104",
+          "name": "Marker Making & Lay Planning",
+          "credits": 10,
+          "duration_weeks": 5
+        },
+        {
+          "code": "PM105",
+          "name": "Fit Analysis & Alterations",
+          "credits": 12,
+          "duration_weeks": 6
+        },
+        {
+          "code": "PM106",
+          "name": "Production Pattern Development",
+          "credits": 13,
+          "duration_weeks": 7
+        },
+        {
+          "code": "PM107",
+          "name": "Quality Control in Pattern Making",
+          "credits": 8,
+          "duration_weeks": 4
+        }
+      ],
+      "total_credits": 84,
+      "assessment_methods": ["Practical Assessments", "CAD Projects", "Industry Simulation", "Portfolio"],
+      "career_paths": ["Pattern Maker", "Grader", "Technical Designer", "CAD Operator"],
+      "entry_requirements": ["Grade 12 Certificate", "Basic sewing knowledge (advantageous)"],
+      "tuition_fees": "Contact for pricing",
+      "intake_months": [3, 8]
+    },
+    {
+      "id": "production-management-nqf5",
+      "title": "Fashion Production Management",
+      "level": "NQF Level 5",
+      "duration_months": 10,
+      "qcto_code": "QCTO-FPM-003",
+      "description": "Management qualification for fashion manufacturing and operations.",
+      "modules": [
+        {
+          "code": "FPM101",
+          "name": "Production Planning & Scheduling",
+          "credits": 12,
+          "duration_weeks": 6
+        },
+        {
+          "code": "FPM102",
+          "name": "Supply Chain Management",
+          "credits": 11,
+          "duration_weeks": 6
+        },
+        {
+          "code": "FPM103",
+          "name": "Quality Assurance Systems",
+          "credits": 10,
+          "duration_weeks": 5
+        },
+        {
+          "code": "FPM104",
+          "name": "Costing & Budgeting",
+          "credits": 10,
+          "duration_weeks": 5
+        },
+        {
+          "code": "FPM105",
+          "name": "Factory Operations & Machinery",
+          "credits": 14,
+          "duration_weeks": 8
+        },
+        {
+          "code": "FPM106",
+          "name": "Team Supervision & Leadership",
+          "credits": 12,
+          "duration_weeks": 6
+        },
+        {
+          "code": "FPM107",
+          "name": "Compliance & Safety Standards",
+          "credits": 9,
+          "duration_weeks": 5
+        },
+        {
+          "code": "FPM108",
+          "name": "Lean Manufacturing Principles",
+          "credits": 10,
+          "duration_weeks": 5
+        }
+      ],
+      "total_credits": 88,
+      "assessment_methods": ["Case Studies", "Factory Simulation", "Written Exams", "Management Project"],
+      "career_paths": ["Production Manager", "Quality Controller", "Factory Supervisor", "Operations Coordinator"],
+      "entry_requirements": ["Grade 12 Certificate", "Interest in manufacturing", "Leadership potential"],
+      "tuition_fees": "Contact for pricing",
+      "intake_months": [2, 7]
+    }
+  ],
+  "qcto_info": {
+    "accreditation_body": "Quality Council for Trades and Occupations (QCTO)",
+    "accreditation_number": "QCTO-ACC-2024-ROGUDA",
+    "valid_until": "2029-12-31",
+    "website": "https://www.qcto.org.za"
+  }
+}

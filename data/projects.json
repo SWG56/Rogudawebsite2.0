@@ -1,0 +1,76 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "title": "Heritage Collection",
+      "designer": "Thabo Makwena",
+      "price": 1200,
+      "status": "completed",
+      "thumbnail": "assets/images/Back1.jpg",
+      "description": "A contemporary take on traditional African patterns",
+      "materials": ["cotton", "silk"],
+      "category": "cultural",
+      "featured": true
+    },
+    {
+      "id": 2,
+      "title": "Modern Minimalist",
+      "designer": "Zanele Dlamini",
+      "price": 950,
+      "status": "completed",
+      "thumbnail": "assets/images/Back2.jpg",
+      "description": "Clean lines and monochromatic elegance",
+      "materials": ["linen", "cotton"],
+      "category": "contemporary",
+      "featured": true
+    },
+    {
+      "id": 3,
+      "title": "Urban Fusion",
+      "designer": "Mpho Mokoena",
+      "price": 1500,
+      "status": "in_progress",
+      "thumbnail": "assets/images/Back3.jpg",
+      "description": "Streetwear meets high fashion",
+      "materials": ["denim", "leather"],
+      "category": "urban",
+      "featured": false
+    },
+    {
+      "id": 4,
+      "title": "Avant-Garde Statement",
+      "designer": "Nomsa Nkosi",
+      "price": 2200,
+      "status": "completed",
+      "thumbnail": "assets/images/Back4.jpg",
+      "description": "Bold, experimental design pushing boundaries",
+      "materials": ["silk", "velvet"],
+      "category": "experimental",
+      "featured": true
+    },
+    {
+      "id": 5,
+      "title": "Eco Sustainable",
+      "designer": "Lerato Khumalo",
+      "price": 1100,
+      "status": "completed",
+      "thumbnail": "assets/images/Back5.jpg",
+      "description": "Fashion with environmental consciousness",
+      "materials": ["cotton", "linen"],
+      "category": "sustainable",
+      "featured": true
+    },
+    {
+      "id": 6,
+      "title": "Cultural Remix",
+      "designer": "Sipho Ndlovu",
+      "price": 1800,
+      "status": "in_progress",
+      "thumbnail": "assets/images/Back6.jpg",
+      "description": "Blending traditional and modern aesthetics",
+      "materials": ["cotton", "wool"],
+      "category": "cultural",
+      "featured": false
+    }
+  ]
+}
