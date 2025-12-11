@@ -3,265 +3,500 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Programs & Qualifications | Roguda Fashion & Art Design School</title>
-    <meta name="description" content="QCTO-accredited fashion design, pattern making, and production qualifications at Roguda Fashion & Art Design School.">
+    <title>Programs & Qualifications | ROGUDA Fashion & Art Design School</title>
+    <meta name="description" content="QCTO-accredited fashion design, pattern making, and production qualifications at ROGUDA Fashion & Art Design School.">
     
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="icon" href="assets/images/circle3.png" type="image/png">
+    <link rel="shortcut icon" href="assets/images/circle3.png">
     
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="assets/css/cinematic.css">
     <link rel="stylesheet" href="assets/css/theme.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/fixes.css">
 </head>
-<body>
+<body style="position: relative; min-height: 100vh; overflow-x: hidden;">
+  
+  <!-- Navigation (Matches index.html) -->
+  <nav class="nav-cinematic glass-nav" id="mainNav">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <img src="assets/images/WhatsApp Image 2025-09-08 at 20.56.36_80570309.jpg" alt="ROGUDA">
+        <div class="logo-text">
+          <span class="logo-name">ROGUDA</span>
+        </div>
+      </a>
+      
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="programs.html" class="active">Programs</a></li>
+        <li><a href="incubator.html">Incubator</a></li>
+        <li><a href="studio.html">AI Studio</a></li>
+        <li><a href="marketplace.html">Marketplace</a></li>
+        <li><a href="login.html" class="nav-btn-outline">Student Login</a></li>
+        <li><a href="apply.html" class="nav-btn-gold">Apply Now</a></li>
+      </ul>
+      
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Programs Hero Section -->
+  <section class="hero-cinematic programs-hero" id="programs">
+    <div class="hero-background">
+      <div class="hero-image" style="background-image: url('assets/images/incubator.png');"></div>
+      <div class="hero-overlay"></div>
+    </div>
     
-    <nav class="glass-nav" id="mainNav">
-        <div class="nav-container">
-            <div class="logo">
-                <img src="assets/images/logo.svg" alt="Roguda Logo">
-                <span class="logo-text">ROGUDA</span>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="programs.html" class="active">Programs</a></li>
-                <li><a href="incubator.html">Incubator</a></li>
-                <li><a href="studio.html">AI Studio</a></li>
-                <li><a href="marketplace.html">Marketplace</a></li>
-                <li><a href="apply.html" class="btn-gold">Apply Now</a></li>
-                <li><a href="login.html">Login</a></li>
-            </ul>
-            <button class="mobile-toggle" id="mobileToggle">
-                <span></span><span></span><span></span>
-            </button>
-        </div>
-    </nav>
+    <div class="hero-content" data-animate="fade-up">
+      <h1 class="hero-title reveal-stagger">
+        <span class="title-line reveal-text">Professional</span>
+        <span class="title-line title-gold reveal-text" style="transition-delay: 0.3s;">Qualifications</span>
+        <span class="title-line reveal-text" style="transition-delay: 0.5s;">That Shape Careers</span>
+      </h1>
+      
+      <p class="hero-subtitle float-animation" style="animation-delay: 0.7s; margin-bottom: 30px;">
+        QCTO-accredited fashion design, pattern making, and production qualifications
+      </p>
+      
+      <div class="programs-badges reveal-stagger" style="transition-delay: 0.9s">
+        <div class="badge-pill">✓ QCTO Accredited</div>
+        <div class="badge-pill">✓ Industry Aligned</div>
+        <div class="badge-pill">✓ Practical Training</div>
+        <div class="badge-pill">✓ Job Ready</div>
+      </div>
+    </div>
+  </section>
 
-    <!-- Programs Hero with Background -->
-    <section style="min-height: 100vh; background: linear-gradient(rgba(26, 26, 26, 0.85), rgba(26, 26, 26, 0.90)), url('assets/images/incubator.png'); background-size: cover; background-position: center; background-attachment: fixed; padding: 120px 0 80px;">
-        <div class="container">
-            <!-- Hero Header -->
-            <div style="text-align: center; margin-bottom: 60px;">
-                <h1 class="gold-glow" style="font-size: 3.5rem; margin-bottom: 20px;">Our Programs</h1>
-                <p class="lead" style="font-size: 1.3rem; max-width: 800px; margin: 0 auto 30px; color: rgba(255,255,255,0.9);">Industry-recognized QCTO qualifications that transform passion into professional expertise</p>
-                <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-top: 30px;">
-                    <div class="badge-pill" style="background: linear-gradient(135deg, rgba(199,158,79,0.2), rgba(199,158,79,0.1)); backdrop-filter: blur(10px); padding: 10px 20px; border-radius: 30px; border: 1px solid rgba(199,158,79,0.4); color: var(--gold); font-weight: 600;">✓ QCTO Accredited</div>
-                    <div class="badge-pill" style="background: linear-gradient(135deg, rgba(199,158,79,0.2), rgba(199,158,79,0.1)); backdrop-filter: blur(10px); padding: 10px 20px; border-radius: 30px; border: 1px solid rgba(199,158,79,0.4); color: var(--gold); font-weight: 600;">✓ Industry Aligned</div>
-                    <div class="badge-pill" style="background: linear-gradient(135deg, rgba(199,158,79,0.2), rgba(199,158,79,0.1)); backdrop-filter: blur(10px); padding: 10px 20px; border-radius: 30px; border: 1px solid rgba(199,158,79,0.4); color: var(--gold); font-weight: 600;">✓ Practical Training</div>
-                    <div class="badge-pill" style="background: linear-gradient(135deg, rgba(199,158,79,0.2), rgba(199,158,79,0.1)); backdrop-filter: blur(10px); padding: 10px 20px; border-radius: 30px; border: 1px solid rgba(199,158,79,0.4); color: var(--gold); font-weight: 600;">✓ Job Ready</div>
+  <!-- Programs Grid Section -->
+  <section class="programs-cinematic" data-animate="fade-up">
+    <div class="container">
+      <div class="programs-grid-cinematic">
+        
+        <!-- Fashion Design Card -->
+        <div class="program-card-cinematic" data-animate="fade-up" data-delay="100">
+          <div class="program-card-inner hover-lift">
+            <div class="program-image-container">
+              <div class="program-image" style="background-image: url('assets/images/fashion-design.jpg');">
+                <div class="image-overlay"></div>
+                <div class="program-level-badge">
+                  <span>NQF Level 5</span>
                 </div>
+                <div class="program-duration-badge">
+                  <span>📅 12 Months</span>
+                </div>
+              </div>
             </div>
-
-            <!-- Programs Grid -->
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; margin-top: 60px;">
             
-                <!-- Fashion Design Card -->
-                <div class="program-card">
-                    <div class="icon">🎨</div>
-                    <h3>Fashion Design</h3>
-                    <span class="program-badge">QCTO Certified • NQF Level 5</span>
-                    <p>Master concept sketching, fabric selection, and garment creation with hands-on mentorship.</p>
-                    
-                    <div class="skills-list">
-                        <h4>🎯 What You'll Master</h4>
-                        <ul>
-                            <li>Fashion illustration & technical drawing</li>
-                            <li>Fabric selection & manipulation</li>
-                            <li>Garment construction techniques</li>
-                            <li>AI-powered design tools</li>
-                            <li>Portfolio development</li>
-                            <li>Trend forecasting</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="program-stats">
-                        <div class="stat-box">
-                            <span class="value">12 Months</span>
-                            <span class="label">Duration</span>
-                        </div>
-                        <div class="stat-box">
-                            <span class="value">Feb & Jul</span>
-                            <span class="label">Intake</span>
-                        </div>
-                    </div>
-                    
-                    <a href="apply.html?program=fashion-design" class="btn-gold">Apply Now</a>
+            <div class="program-content-cinematic">
+              <div class="program-header">
+                <div class="program-category">
+                  <span class="category-badge">Professional Qualification</span>
+                  <span class="program-code">FD-501</span>
                 </div>
-
-                <!-- Pattern Making Card -->
-                <div class="program-card">
-                    <div class="icon">📐</div>
-                    <h3>Pattern Making</h3>
-                    <span class="program-badge">QCTO Certified • NQF Level 4</span>
-                    <p>Develop professional pattern drafting and grading techniques for diverse garment structures.</p>
-                    
-                    <div class="skills-list">
-                        <h4>🎯 What You'll Master</h4>
-                        <ul>
-                            <li>Pattern drafting principles</li>
-                            <li>Sizing & grading techniques</li>
-                            <li>CAD pattern software (Lectra, Gerber)</li>
-                            <li>Marker making & lay planning</li>
-                            <li>Fit & alteration methods</li>
-                            <li>Quality control standards</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="program-stats">
-                        <div class="stat-box">
-                            <span class="value">9 Months</span>
-                            <span class="label">Duration</span>
-                        </div>
-                        <div class="stat-box">
-                            <span class="value">Mar & Aug</span>
-                            <span class="label">Intake</span>
-                        </div>
-                    </div>
-                    
-                    <a href="apply.html?program=pattern-making" class="btn-gold">Apply Now</a>
+                <h3 class="program-title">Fashion Design</h3>
+                <p class="program-subtitle">Master concept sketching, fabric selection, and garment creation</p>
+              </div>
+              
+              <div class="program-features-cinematic">
+                <div class="feature-item">
+                  <div class="feature-icon">🎨</div>
+                  <div class="feature-text">Fashion Illustration</div>
                 </div>
-
-                <!-- Production Management Card -->
-                <div style="background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05)); backdrop-filter: blur(30px); border-radius: 24px; padding: 40px; border: 1px solid rgba(199,158,79,0.3); box-shadow: 0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1); transition: all 0.4s ease;" onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 20px 60px rgba(199,158,79,0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 32px rgba(0,0,0,0.3)'">
-                    <div style="text-align: center; margin-bottom: 30px;">
-                        <div style="font-size: 4rem; margin-bottom: 20px;">📊</div>
-                <!-- Production Management Card -->
-                <div class="program-card">
-                    <div class="icon">📊</div>
-                    <h3>Production Management</h3>
-                    <span class="program-badge">QCTO Certified • NQF Level 5</span>
-                    <p>Gain managerial insight into production workflows, quality control, and sustainable fashion systems.</p>
-                    
-                    <div class="skills-list">
-                        <h4>🎯 What You'll Master</h4>
-                        <ul>
-                            <li>Production planning & scheduling</li>
-                            <li>Supply chain management</li>
-                            <li>Quality assurance protocols</li>
-                            <li>Costing & budgeting</li>
-                            <li>Team supervision & leadership</li>
-                            <li>Compliance & safety standards</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="program-stats">
-                        <div class="stat-box">
-                            <span class="value">10 Months</span>
-                            <span class="label">Duration</span>
-                        </div>
-                        <div class="stat-box">
-                            <span class="value">Feb & Jul</span>
-                            <span class="label">Intake</span>
-                        </div>
-                    </div>
-                    
-                    <a href="apply.html?program=production-management" class="btn-gold">Apply Now</a>
+                <div class="feature-item">
+                  <div class="feature-icon">👕</div>
+                  <div class="feature-text">Fabric Selection</div>
                 </div>
+                <div class="feature-item">
+                  <div class="feature-icon">✂️</div>
+                  <div class="feature-text">Garment Construction</div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon">🤖</div>
+                  <div class="feature-text">AI Design Tools</div>
+                </div>
+              </div>
+              
+              <div class="program-curriculum">
+                <h4 class="curriculum-title">What You'll Master:</h4>
+                <ul class="curriculum-list">
+                  <li>Fashion illustration & technical drawing</li>
+                  <li>Fabric selection & manipulation</li>
+                  <li>Garment construction techniques</li>
+                  <li>AI-powered design tools</li>
+                  <li>Portfolio development</li>
+                  <li>Trend forecasting</li>
+                </ul>
+              </div>
+              
+              <div class="program-meta">
+                <div class="meta-item">
+                  <span class="meta-label">Qualification:</span>
+                  <span class="meta-value">QCTO Accredited</span>
+                </div>
+                <div class="meta-item">
+                  <span class="meta-label">Level:</span>
+                  <span class="meta-value">NQF Level 5</span>
+                </div>
+                <div class="meta-item">
+                  <span class="meta-label">Intakes:</span>
+                  <span class="meta-value">February & July</span>
+                </div>
+              </div>
+              
+              <div class="program-cta">
+                <a href="programs.html#fashion-design" class="btn-program-cinematic">
+                  <span>View Details</span>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                  </svg>
+                </a>
+                <a href="apply.html?program=fashion-design" class="btn-program-apply">
+                  <span>Apply Now</span>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 12H4M16 6l4 6-4 6"/>
+                  </svg>
+                </a>
+              </div>
             </div>
+          </div>
         </div>
-    </section>lass="heritage-overlay"></div>
-        <div class="container">
-            <div class="heritage-content glass-panel">
-                <h2 class="gold-text">AI-Powered Learning</h2>
-                <p class="lead">All programs include access to our cutting-edge AI Fashion Studio with 3D visualization, material cost simulators, and digital design tools.</p>
-                <a href="studio.html" class="btn-primary gold-btn">Explore AI Studio</a>
-            </div>
-        </div>
-    </section>
 
-    <!-- Application Process -->
-    <section class="content-section">
-        <div class="container">
-            <h2 class="section-title gold-text">How to Apply</h2>
+        <!-- Pattern Making Card -->
+        <div class="program-card-cinematic" data-animate="fade-up" data-delay="200">
+          <div class="program-card-inner hover-lift">
+            <div class="program-image-container">
+              <div class="program-image" style="background-image: url('assets/images/pattern-making.jpg');">
+                <div class="image-overlay"></div>
+                <div class="program-level-badge">
+                  <span>NQF Level 4</span>
+                </div>
+                <div class="program-duration-badge">
+                  <span>📅 9 Months</span>
+                </div>
+              </div>
+            </div>
             
-            <div class="steps-grid">
-                <div class="step-card glass-card">
-                    <div class="step-number">1</div>
-                    <h3>Submit Application</h3>
-                    <p>Complete our POPIA-compliant online application form with your personal details and program preference.</p>
+            <div class="program-content-cinematic">
+              <div class="program-header">
+                <div class="program-category">
+                  <span class="category-badge">Technical Qualification</span>
+                  <span class="program-code">PM-401</span>
                 </div>
-                
-                <div class="step-card glass-card">
-                    <div class="step-number">2</div>
-                    <h3>Portfolio Review</h3>
-                    <p>Our admissions team reviews your application. Portfolio submission is optional but recommended for Fashion Design.</p>
+                <h3 class="program-title">Pattern Making</h3>
+                <p class="program-subtitle">Professional pattern drafting and grading techniques</p>
+              </div>
+              
+              <div class="program-features-cinematic">
+                <div class="feature-item">
+                  <div class="feature-icon">📐</div>
+                  <div class="feature-text">Pattern Drafting</div>
                 </div>
-                
-                <div class="step-card glass-card">
-                    <div class="step-number">3</div>
-                    <h3>Interview</h3>
-                    <p>Selected candidates are invited for a brief interview (in-person or virtual) to discuss goals and program fit.</p>
+                <div class="feature-item">
+                  <div class="feature-icon">📏</div>
+                  <div class="feature-text">Sizing & Grading</div>
                 </div>
-                
-                <div class="step-card glass-card">
-                    <div class="step-number">4</div>
-                    <h3>Acceptance</h3>
-                    <p>Receive your acceptance letter, complete enrollment paperwork, and pay the registration fee to secure your spot.</p>
+                <div class="feature-item">
+                  <div class="feature-icon">💻</div>
+                  <div class="feature-text">CAD Software</div>
                 </div>
+                <div class="feature-item">
+                  <div class="feature-icon">✓</div>
+                  <div class="feature-text">Quality Control</div>
+                </div>
+              </div>
+              
+              <div class="program-curriculum">
+                <h4 class="curriculum-title">What You'll Master:</h4>
+                <ul class="curriculum-list">
+                  <li>Pattern drafting principles</li>
+                  <li>Sizing & grading techniques</li>
+                  <li>CAD pattern software (Lectra, Gerber)</li>
+                  <li>Marker making & lay planning</li>
+                  <li>Fit & alteration methods</li>
+                  <li>Quality control standards</li>
+                </ul>
+              </div>
+              
+              <div class="program-meta">
+                <div class="meta-item">
+                  <span class="meta-label">Qualification:</span>
+                  <span class="meta-value">QCTO Accredited</span>
+                </div>
+                <div class="meta-item">
+                  <span class="meta-label">Level:</span>
+                  <span class="meta-value">NQF Level 4</span>
+                </div>
+                <div class="meta-item">
+                  <span class="meta-label">Intakes:</span>
+                  <span class="meta-value">March & August</span>
+                </div>
+              </div>
+              
+              <div class="program-cta">
+                <a href="programs.html#pattern-making" class="btn-program-cinematic">
+                  <span>View Details</span>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                  </svg>
+                </a>
+                <a href="apply.html?program=pattern-making" class="btn-program-apply">
+                  <span>Apply Now</span>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 12H4M16 6l4 6-4 6"/>
+                  </svg>
+                </a>
+              </div>
             </div>
-
-            <div style="text-align: center; margin-top: 60px;">
-                <a href="apply.html" class="btn-primary gold-btn-large">Start Your Application</a>
-                <p style="margin-top: 20px; color: rgba(255,255,255,0.7);">
-                    Questions? Email <a href="mailto:admissions@roguda.co.za" class="gold-link">admissions@roguda.co.za</a>
-                </p>
-            </div>
+          </div>
         </div>
-    </section>
 
-    <footer class="footer-cinematic">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <h4>Roguda</h4>
-                    <p>Fashion & Art Design School</p>
-                    <p class="footer-tagline">QCTO-accredited excellence.</p>
+        <!-- Production Management Card -->
+        <div class="program-card-cinematic" data-animate="fade-up" data-delay="300">
+          <div class="program-card-inner hover-lift">
+            <div class="program-image-container">
+              <div class="program-image" style="background-image: url('assets/images/production.jpg');">
+                <div class="image-overlay"></div>
+                <div class="program-level-badge">
+                  <span>NQF Level 5</span>
                 </div>
-                <div class="footer-col">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="programs.html">Programs</a></li>
-                        <li><a href="incubator.html">Incubator</a></li>
-                        <li><a href="apply.html">Apply Now</a></li>
-                    </ul>
+                <div class="program-duration-badge">
+                  <span>📅 10 Months</span>
                 </div>
-                <div class="footer-col">
-                    <h4>Legal</h4>
-                    <ul>
-                        <li><a href="docs/privacy_policy.html">Privacy Policy</a></li>
-                        <li><a href="docs/terms.html">Terms of Service</a></li>
-                        <li><a href="docs/popia_compliance.html">POPIA Compliance</a></li>
-                        <li><a href="docs/quality_policy.html">Quality Policy</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Contact</h4>
-                    <p>Email: info@roguda.co.za</p>
-                    <p>Phone: +27 XX XXX XXXX</p>
-                    <p>Location: South Africa</p>
-                </div>
-                <div class="footer-col">
-                    <h4>Follow Us</h4>
-                    <div class="social-links">
-                        <a href="https://www.instagram.com/roguda_fashion_design_and_arts/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-                        </a>
-                        <a href="https://www.tiktok.com/@roguda_fashion_design_an" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
-                        </a>
-                        <a href="https://www.facebook.com/profile.php?id=61584366087913" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-                        </a>
-                        <a href="https://za.pinterest.com/rogudadesign/" target="_blank" rel="noopener noreferrer" aria-label="Pinterest">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.39 18.592.026 11.985.026L12.017 0z"/></svg>
-                        </a>
-                    </div>
-                </div>
+              </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Roguda Fashion & Art Design School. All rights reserved.</p>
+            
+            <div class="program-content-cinematic">
+              <div class="program-header">
+                <div class="program-category">
+                  <span class="category-badge">Management Qualification</span>
+                  <span class="program-code">PM-501</span>
+                </div>
+                <h3 class="program-title">Production Management</h3>
+                <p class="program-subtitle">Production workflows, quality control, and sustainable systems</p>
+              </div>
+              
+              <div class="program-features-cinematic">
+                <div class="feature-item">
+                  <div class="feature-icon">📊</div>
+                  <div class="feature-text">Production Planning</div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon">⚙️</div>
+                  <div class="feature-text">Supply Chain</div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon">✓</div>
+                  <div class="feature-text">Quality Assurance</div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon">💰</div>
+                  <div class="feature-text">Costing & Budgeting</div>
+                </div>
+              </div>
+              
+              <div class="program-curriculum">
+                <h4 class="curriculum-title">What You'll Master:</h4>
+                <ul class="curriculum-list">
+                  <li>Production planning & scheduling</li>
+                  <li>Supply chain management</li>
+                  <li>Quality assurance protocols</li>
+                  <li>Costing & budgeting</li>
+                  <li>Team supervision & leadership</li>
+                  <li>Compliance & safety standards</li>
+                </ul>
+              </div>
+              
+              <div class="program-meta">
+                <div class="meta-item">
+                  <span class="meta-label">Qualification:</span>
+                  <span class="meta-value">QCTO Accredited</span>
+                </div>
+                <div class="meta-item">
+                  <span class="meta-label">Level:</span>
+                  <span class="meta-value">NQF Level 5</span>
+                </div>
+                <div class="meta-item">
+                  <span class="meta-label">Intakes:</span>
+                  <span class="meta-value">February & July</span>
+                </div>
+              </div>
+              
+              <div class="program-cta">
+                <a href="programs.html#production-management" class="btn-program-cinematic">
+                  <span>View Details</span>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                  </svg>
+                </a>
+                <a href="apply.html?program=production-management" class="btn-program-apply">
+                  <span>Apply Now</span>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 12H4M16 6l4 6-4 6"/>
+                  </svg>
+                </a>
+              </div>
             </div>
+          </div>
         </div>
-    </footer>
 
-    <script src="assets/js/main.js"></script>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI Studio Feature -->
+  <section class="section-cinematic section-dark" data-animate="fade-up">
+    <div class="container">
+      <div class="split-section">
+        <div class="split-content" data-animate="fade-right">
+          <span class="section-label">AI-Powered Learning</span>
+          <h2 class="section-title">Transform Design with <span class="text-gold">Artificial Intelligence</span></h2>
+          <p>All programs include access to our cutting-edge AI Fashion Studio with 3D visualization, material cost simulators, and digital design tools.</p>
+          <ul class="feature-list">
+            <li><span class="feature-check">✓</span> 3D garment visualization</li>
+            <li><span class="feature-check">✓</span> AI pattern generation</li>
+            <li><span class="feature-check">✓</span> Material cost simulation</li>
+            <li><span class="feature-check">✓</span> Virtual fitting rooms</li>
+            <li><span class="feature-check">✓</span> Trend forecasting algorithms</li>
+          </ul>
+          <a href="studio.html" class="btn-gold">Explore AI Studio →</a>
+        </div>
+        <div class="split-visual" data-animate="fade-left">
+          <div class="visual-card">
+            <img src="assets/images/ai-studio.jpg" alt="AI Design Studio">
+            <div class="visual-overlay">
+              <span class="visual-badge">🤖 Next-Gen Design</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Application Process -->
+  <section class="section-cinematic section-light" data-animate="fade-up">
+    <div class="container">
+      <div class="section-header-center">
+        <span class="section-label">How to Apply</span>
+        <h2 class="section-title">Start Your <span class="text-gold">Creative Journey</span></h2>
+        <p class="section-description">Simple steps to join our QCTO-accredited programs</p>
+      </div>
+
+      <div class="steps-grid-cinematic">
+        <div class="step-card-cinematic" data-animate="fade-up" data-delay="100">
+          <div class="step-number">1</div>
+          <h3>Submit Application</h3>
+          <p>Complete our POPIA-compliant online application form with your personal details and program preference.</p>
+        </div>
+        
+        <div class="step-card-cinematic" data-animate="fade-up" data-delay="200">
+          <div class="step-number">2</div>
+          <h3>Portfolio Review</h3>
+          <p>Our admissions team reviews your application. Portfolio submission is optional but recommended.</p>
+        </div>
+        
+        <div class="step-card-cinematic" data-animate="fade-up" data-delay="300">
+          <div class="step-number">3</div>
+          <h3>Interview</h3>
+          <p>Selected candidates are invited for a brief interview (in-person or virtual) to discuss goals.</p>
+        </div>
+        
+        <div class="step-card-cinematic" data-animate="fade-up" data-delay="400">
+          <div class="step-number">4</div>
+          <h3>Acceptance</h3>
+          <p>Receive your acceptance letter, complete enrollment paperwork, and secure your spot.</p>
+        </div>
+      </div>
+
+      <div class="section-cta" data-animate="fade-up">
+        <a href="apply.html" class="btn-cta-primary">Start Your Application</a>
+        <p class="cta-note">Questions? Email <a href="mailto:admissions@roguda.co.za" class="gold-link">info@rogudafashion.co.za</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer (Matches index.html) -->
+  <footer class="footer-cinematic">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="footer-logo">
+            <img src="assets/images/WhatsApp Image 2025-09-08 at 20.56.36_80570309.jpg" alt="ROGUDA" class="logo-image">
+            <div class="logo-text">
+              <h3 class="school-name">ROGUDA</h3>
+              <p class="school-tagline">Fashion & Art Design School</p>
+            </div>
+          </div>
+          <p>QCTO-accredited fashion design school empowering Africa's next generation of creative professionals.</p>
+          
+          <div class="footer-contact">
+            <p>📧 <a href="mailto:info@rogudafashion.co.za">info@rogudafashion.co.za</a></p>
+            <p>📱 <a href="https://wa.me/27823246267">082 324 6267</a> (WhatsApp & Calls)</p>
+          </div>
+          
+          <div class="footer-social">
+            <a href="https://www.instagram.com/roguda_fashion_design_and_arts/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+            <a href="https://www.tiktok.com/@roguda_fashion_design_an" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61584366087913" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="https://za.pinterest.com/rogudadesign/" target="_blank" rel="noopener noreferrer" aria-label="Pinterest">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.39 18.592.026 11.985.026L12.017 0z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="programs.html">Programs</a></li>
+            <li><a href="incubator.html">Incubator</a></li>
+            <li><a href="studio.html">AI Studio</a></li>
+            <li><a href="marketplace.html">Marketplace</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>For Students</h4>
+          <ul>
+            <li><a href="apply.html">Apply Now</a></li>
+            <li><a href="login.html">Student Login</a></li>
+            <li><a href="register.html">Register</a></li>
+            <li><a href="dashboard.html">Student Portal</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="docs/privacy_policy.html">Privacy Policy</a></li>
+            <li><a href="docs/terms.html">Terms of Service</a></li>
+            <li><a href="docs/popia_compliance.html">POPIA Compliance</a></li>
+            <li><a href="docs/quality_policy.html">Quality Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 ROGUDA Fashion & Art Design School. All rights reserved.</p>
+        <p>QCTO Accredited | NQF Levels 4-5</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/cinematic-animations.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/animations.js"></script>
 </body>
 </html>

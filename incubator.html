@@ -3,192 +3,193 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Graduate Incubator | Roguda Fashion & Art Design School</title>
-  <meta
-    name="description"
-    content="Launch your fashion business with support from Roguda's Graduate Incubator program."
-  />
-
+  <title>Graduate Incubator | ROGUDA Fashion & Art Design School</title>
+  <meta name="description" content="Launch your fashion business with support from ROGUDA's Graduate Incubator program.">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="assets/images/circle3.png" type="image/png">
+  <link rel="shortcut icon" href="assets/images/circle3.png">
+  
   <!-- Fonts -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Outfit:wght@300;400;600&display=swap"
-    rel="stylesheet"
-  />
-
-  <!-- Theme CSS -->
-  <link rel="stylesheet" href="assets/css/theme.css" />
-
-  <!-- Optional: Favicon -->
-  <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="assets/css/cinematic.css">
+  <link rel="stylesheet" href="assets/css/theme.css">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/fixes.css">
 </head>
 
-<body>
-  <!-- Navigation -->
-  <nav class="glass-nav" id="mainNav">
+<body style="position: relative; min-height: 100vh; overflow-x: hidden;">
+  
+  <!-- Navigation (Matches index.html) -->
+  <nav class="nav-cinematic glass-nav" id="mainNav">
     <div class="nav-container">
-      <div class="logo">
-        <img src="assets/images/logo.svg" alt="Roguda Logo" />
-        <span class="logo-text">ROGUDA</span>
-      </div>
-      <ul class="nav-menu">
+      <a href="index.html" class="nav-logo">
+        <img src="assets/images/WhatsApp Image 2025-09-08 at 20.56.36_80570309.jpg" alt="ROGUDA">
+        <div class="logo-text">
+          <span class="logo-name">ROGUDA</span>
+        </div>
+      </a>
+      
+      <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="programs.html">Programs</a></li>
         <li><a href="incubator.html" class="active">Incubator</a></li>
         <li><a href="studio.html">AI Studio</a></li>
         <li><a href="marketplace.html">Marketplace</a></li>
-        <li><a href="apply.html" class="btn-gold">Apply Now</a></li>
-        <li><a href="login.html">Login</a></li>
+        <li><a href="login.html" class="nav-btn-outline">Student Login</a></li>
+        <li><a href="apply.html" class="nav-btn-gold">Apply Now</a></li>
       </ul>
-      <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle Menu">
-        <span></span><span></span><span></span>
+      
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
       </button>
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <section
-    class="page-hero"
-    style="background-image: url('assets/images/campus/incubator.jpg');"
-  >
-    <div class="hero-overlay"></div>
-    <div class="container">
-      <h1 class="gold-glow">Graduate Business Incubator</h1>
-      <p class="lead">
-        From student to entrepreneur — we support your fashion business journey.
+  <!-- Incubator Hero Section -->
+  <section class="hero-cinematic incubator-hero" id="incubator">
+    <div class="hero-background">
+      <div class="hero-image" style="background-image: url('assets/images/campus/incubator.jpg');"></div>
+      <div class="hero-overlay"></div>
+    </div>
+    
+    <div class="hero-content" data-animate="fade-up">
+      <h1 class="hero-title reveal-stagger">
+        <span class="title-line reveal-text">Graduate</span>
+        <span class="title-line title-gold reveal-text" style="transition-delay: 0.3s;">Business Incubator</span>
+      </h1>
+      
+      <p class="hero-subtitle float-animation" style="animation-delay: 0.7s; margin-bottom: 30px;">
+        From student to entrepreneur — we support your fashion business journey
       </p>
+      
+      <div class="hero-cta reveal-stagger" style="transition-delay: 0.9s">
+        <a href="#apply" class="btn-hero-primary btn-enhanced gold-pulse">
+          <span class="btn-text">Apply to Incubator</span>
+          <span class="btn-icon">→</span>
+        </a>
+      </div>
     </div>
   </section>
 
-  <!-- Overview -->
-  <section class="content-section">
+  <!-- Overview Section -->
+  <section class="about-cinematic" data-animate="fade-up">
     <div class="container">
-      <div class="incubator-intro glass-panel" style="padding: 60px; text-align: center;">
-        <h2 class="gold-text">Launch Your Fashion Brand</h2>
-        <p class="lead">
-          Our Graduate Incubator provides resources, mentorship, and
-          infrastructure to help you transform your creative vision into a
-          sustainable business.
+      <div class="section-header-cinematic">
+        <div class="header-top">
+          <span class="section-badge">Launch Your Brand</span>
+          <div class="section-line"></div>
+        </div>
+        
+        <h2 class="section-title-cinematic">
+          <span class="title-line">Transform Your Vision Into</span>
+          <span class="title-line">
+            <span class="text-gold shimmer">Sustainable Business</span>
+          </span>
+        </h2>
+        
+        <p class="section-description-cinematic">
+          Our Graduate Incubator provides resources, mentorship, and infrastructure 
+          to help you transform your creative vision into a successful fashion enterprise.
         </p>
+      </div>
 
-        <div
-          style="
-            margin-top: 40px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-          "
-        >
-          <div class="incubator-stat">
-            <div class="stat-number gold-text">24</div>
-            <div>Active Startups</div>
-          </div>
-          <div class="incubator-stat">
-            <div class="stat-number gold-text">R2.5M+</div>
-            <div>Funding Secured</div>
-          </div>
-          <div class="incubator-stat">
-            <div class="stat-number gold-text">85%</div>
-            <div>Still Operating After 2 Years</div>
-          </div>
-          <div class="incubator-stat">
-            <div class="stat-number gold-text">120+</div>
-            <div>Jobs Created</div>
-          </div>
+      <!-- Stats Grid -->
+      <div class="incubator-stats" data-animate="fade-up">
+        <div class="stat-item-incubator">
+          <div class="stat-number-incubator">24</div>
+          <div class="stat-label-incubator">Active Startups</div>
+        </div>
+        <div class="stat-item-incubator">
+          <div class="stat-number-incubator">R2.5M+</div>
+          <div class="stat-label-incubator">Funding Secured</div>
+        </div>
+        <div class="stat-item-incubator">
+          <div class="stat-number-incubator">85%</div>
+          <div class="stat-label-incubator">Still Operating After 2 Years</div>
+        </div>
+        <div class="stat-item-incubator">
+          <div class="stat-number-incubator">120+</div>
+          <div class="stat-label-incubator">Jobs Created</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- What We Offer -->
-  <section class="content-section" style="background: rgba(212, 175, 55, 0.02);">
+  <!-- What We Offer Section -->
+  <section class="section-cinematic section-light" data-animate="fade-up">
     <div class="container">
-      <h2 class="section-title gold-text">What We Offer</h2>
+      <div class="section-header-center">
+        <span class="section-label">Our Support</span>
+        <h2 class="section-title">What We <span class="text-gold">Offer</span></h2>
+        <p class="section-description">Comprehensive support for fashion entrepreneurs</p>
+      </div>
 
-      <div class="incubator-benefits">
-        <div class="benefit-card glass-card">
+      <div class="benefits-grid-cinematic">
+        <div class="benefit-card-cinematic" data-animate="fade-up" data-delay="100">
           <div class="benefit-icon">🏢</div>
           <h3>Workspace Access</h3>
-          <p>
-            Dedicated studio space, sewing machines, cutting tables, and
-            professional equipment at subsidized rates.
-          </p>
+          <p>Dedicated studio space, sewing machines, cutting tables, and professional equipment at subsidized rates.</p>
         </div>
 
-        <div class="benefit-card glass-card">
+        <div class="benefit-card-cinematic" data-animate="fade-up" data-delay="200">
           <div class="benefit-icon">👥</div>
           <h3>Mentorship</h3>
-          <p>
-            One-on-one guidance from industry professionals, successful alumni,
-            and business advisors.
-          </p>
+          <p>One-on-one guidance from industry professionals, successful alumni, and business advisors.</p>
         </div>
 
-        <div class="benefit-card glass-card">
+        <div class="benefit-card-cinematic" data-animate="fade-up" data-delay="300">
           <div class="benefit-icon">💰</div>
           <h3>Funding Support</h3>
-          <p>
-            Assistance with business plans, grant applications, and connections
-            to investors and funding opportunities.
-          </p>
+          <p>Assistance with business plans, grant applications, and connections to investors.</p>
         </div>
 
-        <div class="benefit-card glass-card">
+        <div class="benefit-card-cinematic" data-animate="fade-up" data-delay="400">
           <div class="benefit-icon">📚</div>
           <h3>Business Training</h3>
-          <p>
-            Workshops on marketing, financial management, supply chain, legal
-            compliance, and scaling strategies.
-          </p>
+          <p>Workshops on marketing, financial management, supply chain, legal compliance, and scaling strategies.</p>
         </div>
 
-        <div class="benefit-card glass-card">
+        <div class="benefit-card-cinematic" data-animate="fade-up" data-delay="500">
           <div class="benefit-icon">🌐</div>
           <h3>Market Access</h3>
-          <p>
-            Listing on our student marketplace, participation in fashion shows,
-            and industry networking events.
-          </p>
+          <p>Listing on our student marketplace, participation in fashion shows, and industry networking events.</p>
         </div>
 
-        <div class="benefit-card glass-card">
+        <div class="benefit-card-cinematic" data-animate="fade-up" data-delay="600">
           <div class="benefit-icon">🤝</div>
           <h3>Peer Network</h3>
-          <p>
-            Collaborative community of fellow designers, access to shared
-            resources, and partnership opportunities.
-          </p>
+          <p>Collaborative community of fellow designers, access to shared resources, and partnership opportunities.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Success Stories -->
-  <section class="content-section">
+  <!-- Success Stories Section -->
+  <section class="section-cinematic section-dark" data-animate="fade-up">
     <div class="container">
-      <h2 class="section-title gold-text">Incubator Success Stories</h2>
-      <p class="section-subtitle">
-        Meet graduates who launched successful fashion businesses with Roguda's
-        support.
-      </p>
+      <div class="section-header-center">
+        <span class="section-label">Success Stories</span>
+        <h2 class="section-title">Incubator <span class="text-gold">Graduates</span></h2>
+        <p class="section-description">Meet graduates who launched successful fashion businesses</p>
+      </div>
 
-      <div class="success-stories">
-        <!-- Card 1 -->
-        <div class="story-card glass-panel">
-          <div
-            class="story-image"
-            style="background-image: url('assets/images/students/graduate1.jpg');"
-          ></div>
+      <div class="success-grid-cinematic">
+        <!-- Story 1 -->
+        <div class="story-card-cinematic" data-animate="fade-up" data-delay="100">
+          <div class="story-image" style="background-image: url('assets/images/students/graduate1.jpg');">
+            <div class="story-overlay"></div>
+            <div class="story-badge">Thando Textiles</div>
+          </div>
           <div class="story-content">
             <h3>Thando Textiles</h3>
-            <p class="story-founder">
-              Founded by <strong>Thando Mthembu</strong>, Class of 2023
-            </p>
-            <p>
-              Launched a sustainable textile brand specializing in eco-friendly
-              African prints. Now supplies to 15+ boutiques across South Africa
-              and exports to 3 countries.
-            </p>
+            <p class="story-founder">Founded by <strong>Thando Mthembu</strong>, Class of 2023</p>
+            <p>Launched a sustainable textile brand specializing in eco-friendly African prints.</p>
             <div class="story-stats">
               <span>📈 R850K Revenue (Year 1)</span>
               <span>👥 8 Employees</span>
@@ -196,22 +197,16 @@
           </div>
         </div>
 
-        <!-- Card 2 -->
-        <div class="story-card glass-panel">
-          <div
-            class="story-image"
-            style="background-image: url('assets/images/students/graduate2.jpg');"
-          ></div>
+        <!-- Story 2 -->
+        <div class="story-card-cinematic" data-animate="fade-up" data-delay="200">
+          <div class="story-image" style="background-image: url('assets/images/students/graduate2.jpg');">
+            <div class="story-overlay"></div>
+            <div class="story-badge">Urban Fusion</div>
+          </div>
           <div class="story-content">
             <h3>Urban Fusion Apparel</h3>
-            <p class="story-founder">
-              Founded by <strong>Sipho Nkosi</strong>, Class of 2022
-            </p>
-            <p>
-              Streetwear brand blending traditional Zulu beadwork with
-              contemporary urban fashion. Featured in Vogue SA and collaborated
-              with major retailers.
-            </p>
+            <p class="story-founder">Founded by <strong>Sipho Nkosi</strong>, Class of 2022</p>
+            <p>Streetwear brand blending traditional Zulu beadwork with contemporary urban fashion.</p>
             <div class="story-stats">
               <span>🏆 Best New Designer 2024</span>
               <span>💼 Retail Partnership</span>
@@ -219,25 +214,19 @@
           </div>
         </div>
 
-        <!-- Card 3 -->
-        <div class="story-card glass-panel">
-          <div
-            class="story-image"
-            style="background-image: url('assets/images/students/graduate3.jpg');"
-          ></div>
+        <!-- Story 3 -->
+        <div class="story-card-cinematic" data-animate="fade-up" data-delay="300">
+          <div class="story-image" style="background-image: url('assets/images/students/graduate3.jpg');">
+            <div class="story-overlay"></div>
+            <div class="story-badge">Elegance</div>
+          </div>
           <div class="story-content">
             <h3>Elegance Alterations</h3>
-            <p class="story-founder">
-              Founded by <strong>Nomsa Dlamini</strong>, Class of 2023
-            </p>
-            <p>
-              Mobile tailoring service offering on-site alterations and custom
-              garment fitting. Expanded to 3 mobile units serving corporate
-              clients.
-            </p>
+            <p class="story-founder">Founded by <strong>Nomsa Dlamini</strong>, Class of 2023</p>
+            <p>Mobile tailoring service offering on-site alterations and custom garment fitting.</p>
             <div class="story-stats">
               <span>🚐 3 Mobile Units</span>
-              <span>⭐ 4.9/5 Rating (200+ reviews)</span>
+              <span>⭐ 4.9/5 Rating</span>
             </div>
           </div>
         </div>
@@ -246,23 +235,27 @@
   </section>
 
   <!-- Application Process -->
-  <section class="content-section" style="background: rgba(212, 175, 55, 0.02);">
+  <section class="section-cinematic section-light" id="apply" data-animate="fade-up">
     <div class="container">
-      <h2 class="section-title gold-text">Join the Incubator</h2>
+      <div class="section-header-center">
+        <span class="section-label">Join Us</span>
+        <h2 class="section-title">Incubator <span class="text-gold">Application</span></h2>
+        <p class="section-description">Start your entrepreneurial journey with us</p>
+      </div>
 
-      <div class="incubator-process">
-        <div class="process-card glass-card">
+      <div class="process-grid-cinematic">
+        <div class="process-card-cinematic" data-animate="fade-up" data-delay="100">
           <h3>Eligibility</h3>
           <ul>
-            <li>Roguda graduate (within 2 years of completion)</li>
+            <li>ROGUDA graduate (within 2 years of completion)</li>
             <li>Business concept related to fashion/textiles</li>
             <li>Commitment to full-time entrepreneurship</li>
             <li>Willingness to mentor future students</li>
           </ul>
         </div>
 
-        <div class="process-card glass-card">
-          <h3>Application Requirements</h3>
+        <div class="process-card-cinematic" data-animate="fade-up" data-delay="200">
+          <h3>Requirements</h3>
           <ul>
             <li>Business plan or concept pitch deck</li>
             <li>Portfolio of designs/products</li>
@@ -272,50 +265,60 @@
           </ul>
         </div>
 
-        <div class="process-card glass-card">
+        <div class="process-card-cinematic" data-animate="fade-up" data-delay="300">
           <h3>Selection Process</h3>
           <ul>
             <li>Application review by advisory panel</li>
             <li>Business pitch presentation</li>
             <li>Feasibility assessment</li>
             <li>Interview with incubator committee</li>
-            <li>Acceptance notification within 4 weeks</li>
+            <li>Acceptance within 4 weeks</li>
           </ul>
         </div>
       </div>
 
-      <div style="text-align: center; margin-top: 60px;">
-        <a href="apply.html?type=incubator" class="btn-primary gold-btn-large">Apply to Incubator</a>
-        <p style="margin-top: 20px; color: rgba(255,255,255,0.7);">
-          Not a graduate yet?
-          <a href="programs.html" class="gold-link">View our programs</a>
+      <div class="section-cta" data-animate="fade-up">
+        <a href="apply.html?type=incubator" class="btn-cta-primary">Apply to Incubator</a>
+        <p class="cta-note">
+          Not a graduate yet? <a href="programs.html" class="gold-link">View our programs</a>
         </p>
       </div>
     </div>
   </section>
 
-  <!-- Current Projects -->
-  <section class="content-section">
-    <div class="container">
-      <h2 class="section-title gold-text">Current Incubator Projects</h2>
-      <p class="section-subtitle">Discover what our entrepreneurs are building right now.</p>
-
-      <div class="incubator-projects-grid" id="incubatorProjects">
-        <div class="project-preview glass-card">
-          <div class="project-thumb" style="background: linear-gradient(135deg, #D4AF37, #000);"></div>
-          <h4>Loading projects...</h4>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
+  <!-- Footer (Matches index.html) -->
   <footer class="footer-cinematic">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-col">
-          <h4>Roguda</h4>
-          <p>Fashion & Art Design School</p>
+          <div class="footer-logo">
+            <img src="assets/images/WhatsApp Image 2025-09-08 at 20.56.36_80570309.jpg" alt="ROGUDA" class="logo-image">
+            <div class="logo-text">
+              <h3 class="school-name">ROGUDA</h3>
+              <p class="school-tagline">Fashion & Art Design School</p>
+            </div>
+          </div>
+          <p>QCTO-accredited fashion design school empowering Africa's next generation of creative professionals.</p>
+          
+          <div class="footer-contact">
+            <p>📧 <a href="mailto:info@rogudafashion.co.za">info@rogudafashion.co.za</a></p>
+            <p>📱 <a href="https://wa.me/27823246267">082 324 6267</a> (WhatsApp & Calls)</p>
+          </div>
+          
+          <div class="footer-social">
+            <a href="https://www.instagram.com/roguda_fashion_design_and_arts/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+            <a href="https://www.tiktok.com/@roguda_fashion_design_an" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61584366087913" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="https://za.pinterest.com/rogudadesign/" target="_blank" rel="noopener noreferrer" aria-label="Pinterest">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.39 18.592.026 11.985.026L12.017 0z"/></svg>
+            </a>
+          </div>
         </div>
         <div class="footer-col">
           <h4>Quick Links</h4>
@@ -323,7 +326,17 @@
             <li><a href="about.html">About Us</a></li>
             <li><a href="programs.html">Programs</a></li>
             <li><a href="incubator.html">Incubator</a></li>
+            <li><a href="studio.html">AI Studio</a></li>
+            <li><a href="marketplace.html">Marketplace</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>For Students</h4>
+          <ul>
             <li><a href="apply.html">Apply Now</a></li>
+            <li><a href="login.html">Student Login</a></li>
+            <li><a href="register.html">Register</a></li>
+            <li><a href="dashboard.html">Student Portal</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -332,47 +345,20 @@
             <li><a href="docs/privacy_policy.html">Privacy Policy</a></li>
             <li><a href="docs/terms.html">Terms of Service</a></li>
             <li><a href="docs/popia_compliance.html">POPIA Compliance</a></li>
+            <li><a href="docs/quality_policy.html">Quality Policy</a></li>
           </ul>
         </div>
-        <div class="footer-col">
-          <h4>Contact</h4>
-          <p>Email: incubator@roguda.co.za</p>
-        </div>
-        <div class="footer-col">
-          <h4>Follow Us</h4>
-          <div class="social-links">
-            <!-- social SVGs same as before -->
-          </div>
-        </div>
       </div>
-
       <div class="footer-bottom">
-        <p>&copy; 2025 Roguda Fashion & Art Design School. All rights reserved.</p>
+        <p>&copy; 2025 ROGUDA Fashion & Art Design School. All rights reserved.</p>
+        <p>QCTO Accredited | NQF Levels 4-5</p>
       </div>
     </div>
   </footer>
 
-  <!-- JS -->
+  <!-- Scripts -->
+  <script src="assets/js/cinematic-animations.js"></script>
   <script src="assets/js/main.js"></script>
-  <script>
-    fetch("data/incubator_projects.json")
-      .then((res) => res.json())
-      .then((data) => {
-        const container = document.getElementById("incubatorProjects");
-        container.innerHTML = data.projects
-          .map(
-            (p) => `
-          <div class="project-preview glass-card">
-            <div class="project-thumb" style="background-image: url('${p.image}');"></div>
-            <h4>${p.name}</h4>
-            <p class="project-founder">by ${p.founder}</p>
-            <p>${p.description}</p>
-            <span class="project-category">${p.category}</span>
-          </div>`
-          )
-          .join("");
-      })
-      .catch(() => console.log("Using fallback project display"));
-  </script>
+  <script src="assets/js/animations.js"></script>
 </body>
 </html>

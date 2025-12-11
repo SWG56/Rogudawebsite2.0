@@ -211,3 +211,106 @@ function handleScrollIndicator() {
 // Initialize
 window.addEventListener('scroll', handleScrollIndicator);
 window.addEventListener('load', handleScrollIndicator);
+ // Legendary Scroll Animations
+    document.addEventListener('DOMContentLoaded', function() {
+      // Smooth scroll reveal
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, observerOptions);
+
+      // Observe all cards
+      document.querySelectorAll('.square-card, .team-card').forEach(card => {
+        observer.observe(card);
+      });
+
+      // Parallax effect on video
+      let ticking = false;
+      window.addEventListener('scroll', function() {
+        if (!ticking) {
+          window.requestAnimationFrame(function() {
+            const scrolled = window.pageYOffset;
+            const video = document.querySelector('.video-container video');
+            if (video) {
+              video.style.transform = `translateY(${scrolled * 0.3}px) scale(1.1)`;
+            }
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+
+      // Add sparkle effect on hover
+      document.querySelectorAll('.square-card, .team-card').forEach(card => {
+        card.addEventListener('mouseenter', function(e) {
+          createSparkle(e.currentTarget);
+        });
+      });
+
+      function createSparkle(element) {
+        const sparkle = document.createElement('div');
+        sparkle.style.cssText = `
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 100px;
+          height: 100px;
+          background: radial-gradient(circle, rgba(199, 158, 79, 0.6) 0%, transparent 70%);
+          border-radius: 50%;
+          pointer-events: none;
+          animation: sparkleExpand 1s ease-out forwards;
+          transform: translate(-50%, -50%);
+        `;
+        element.style.position = 'relative';
+        element.appendChild(sparkle);
+        setTimeout(() => sparkle.remove(), 1000);
+      }
+
+      // Add sparkle animation
+      const style = document.createElement('style');
+      style.textContent = `
+        @keyframes sparkleExpand {
+          to {
+            width: 200px;
+            height: 200px;
+            opacity: 0;
+          }
+        }
+      `;
+      document.head.appendChild(style);
+
+      // Add subtle cursor glow
+      const cursorGlow = document.createElement('div');
+      cursorGlow.style.cssText = `
+        position: fixed;
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(199, 158, 79, 0.15) 0%, transparent 70%);
+        pointer-events: none;
+        z-index: 9999;
+        transform: translate(-50%, -50%);
+        transition: opacity 0.3s ease;
+        opacity: 0;
+      `;
+      document.body.appendChild(cursorGlow);
+
+      document.addEventListener('mousemove', (e) => {
+        cursorGlow.style.left = e.clientX + 'px';
+        cursorGlow.style.top = e.clientY + 'px';
+        cursorGlow.style.opacity = '1';
+      });
+
+      document.addEventListener('mouseleave', () => {
+        cursorGlow.style.opacity = '0';
+      });
+    });
