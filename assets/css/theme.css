@@ -2867,3 +2867,403 @@ section {
         padding: 10px 20px;
     }
 }
+/* ===== FIX PROGRAM CARD BUTTONS ===== */
+
+/* Program CTA Section - Button Container */
+.program-cta {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+    padding-top: 25px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Base Button Styles */
+.btn-program-cinematic,
+.btn-program-apply {
+    flex: 1;
+    min-width: 0; /* Prevent buttons from overflowing */
+    padding: 14px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+/* "View Full Curriculum" Button */
+.btn-program-cinematic {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--color-white);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-program-cinematic:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* "Apply Now" Button */
+.btn-program-apply {
+    background: linear-gradient(135deg, var(--color-gold), var(--color-gold-dark));
+    color: var(--color-black);
+    border: 1px solid var(--color-gold);
+}
+
+.btn-program-apply:hover {
+    background: linear-gradient(135deg, var(--color-gold-light), var(--color-gold));
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2);
+}
+
+/* Coming Soon Card Button Fix */
+.coming-soon-card .program-cta {
+    justify-content: center;
+    border-top: none;
+    padding-top: 0;
+}
+
+.coming-soon-card .btn-notify-me {
+    width: 100%;
+    max-width: 400px;
+    padding: 16px 30px;
+    background: rgba(212, 175, 55, 0.1);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    color: var(--color-gold-light);
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.coming-soon-card .btn-notify-me:hover {
+    background: rgba(212, 175, 55, 0.2);
+    border-color: rgba(212, 175, 55, 0.5);
+    transform: translateY(-2px);
+}
+
+/* Responsive Fixes for Buttons */
+@media (max-width: 768px) {
+    .program-cta {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .btn-program-cinematic,
+    .btn-program-apply {
+        width: 100%;
+        padding: 16px 20px;
+    }
+    
+    .coming-soon-card .btn-notify-me {
+        padding: 18px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .btn-program-cinematic,
+    .btn-program-apply {
+        font-size: 0.9rem;
+        padding: 14px 15px;
+    }
+    
+    .btn-program-cinematic svg,
+    .btn-program-apply svg {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+/* Ensure program card content has proper spacing */
+.program-content-cinematic {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+/* Add smooth transition to program cards */
+.program-card-inner {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Fix button icon alignment */
+.btn-program-cinematic svg,
+.btn-program-apply svg,
+.btn-notify-me svg {
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+}
+
+.btn-program-cinematic:hover svg,
+.btn-program-apply:hover svg,
+.btn-notify-me:hover svg {
+    transform: translateX(3px);
+}
+
+/* Button text overflow protection */
+.btn-program-cinematic span,
+.btn-program-apply span,
+.btn-notify-me span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Ensure program meta section doesn't push buttons too far down */
+.program-meta {
+    margin-bottom: auto;
+    padding-bottom: 20px;
+}
+/* ======================================
+   PROGRAM META FIX - Add to theme.css
+   ====================================== */
+
+/* Fix the program meta section layout */
+.program-meta {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 20px;
+    margin: 25px 0;
+}
+
+.meta-item {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(212, 175, 55, 0.1);
+    border-radius: 8px;
+    padding: 15px;
+    min-height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.meta-label {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: block;
+    font-weight: 500;
+}
+
+.meta-value {
+    color: #ffffff !important;
+    font-weight: 600;
+    font-size: 0.95rem;
+    display: block;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+    line-height: 1.3;
+}
+
+/* Fix for specific text cut-off issues */
+.meta-item:nth-child(3) .meta-value {
+    hyphens: auto;
+    word-break: normal;
+}
+
+/* Responsive design for meta items */
+@media (max-width: 768px) {
+    .program-meta {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    
+    .meta-item {
+        min-height: 70px;
+        padding: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .meta-label {
+        font-size: 0.8rem;
+    }
+    
+    .meta-value {
+        font-size: 0.9rem;
+    }
+}
+/* EMERGENCY TEXT FIX - Add if text is still cut off */
+.program-meta {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 12px !important;
+    background: rgba(0, 0, 0, 0.2) !important;
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+    border-radius: 12px !important;
+    padding: 15px !important;
+    margin: 20px 0 !important;
+}
+
+.meta-item {
+    flex: 1 !important;
+    min-width: 120px !important;
+    background: rgba(255, 255, 255, 0.03) !important;
+    border: 1px solid rgba(212, 175, 55, 0.1) !important;
+    border-radius: 8px !important;
+    padding: 12px !important;
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+}
+
+/* Force career path to be full width on mobile */
+@media (max-width: 768px) {
+    .meta-item:nth-child(3) {
+        flex: 0 0 100% !important;
+        min-width: 100% !important;
+    }
+}
+/* Circular logo styling - no hover effects */
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-decoration: none;
+}
+
+/* Make the logo image circular */
+.nav-logo img {
+    height: 60px !important;
+    width: 60px !important;
+    border-radius: 50% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    border: 3px solid var(--gold) !important;
+    padding: 3px !important;
+    background: white !important;
+    box-shadow: 0 0 10px rgba(248, 213, 72, 0.3) !important;
+}
+
+/* Logo text styling */
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+}
+
+.logo-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 1px;
+}
+/* ===== FOOTER LOGO STYLING ===== */
+
+/* Footer logo container */
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 2rem;
+}
+
+/* Circular logo image for footer */
+.footer-logo .logo-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    border: 3px solid var(--gold);
+    padding: 3px;
+    background: white;
+    box-shadow: 0 0 15px rgba(248, 213, 72, 0.3);
+}
+
+/* Footer logo text */
+.footer-logo .logo-text {
+    display: flex;
+    flex-direction: column;
+}
+
+/* School name in footer */
+.footer-logo .school-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin: 0 0 5px 0;
+    line-height: 1;
+    letter-spacing: 1px;
+}
+
+/* School tagline in footer */
+.footer-logo .school-tagline {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    line-height: 1.4;
+}
+
+/* Make footer logo responsive */
+@media (max-width: 768px) {
+    .footer-logo {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+    
+    .footer-logo .logo-image {
+        width: 70px;
+        height: 70px;
+        border-width: 2px;
+    }
+    
+    .footer-logo .school-name {
+        font-size: 1.8rem;
+    }
+    
+    .footer-logo .school-tagline {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-logo .logo-image {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .footer-logo .school-name {
+        font-size: 1.6rem;
+    }
+    
+    .footer-logo .school-tagline {
+        font-size: 0.75rem;
+        letter-spacing: 1px;
+    }
+}
