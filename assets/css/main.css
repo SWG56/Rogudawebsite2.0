@@ -532,3 +532,448 @@ section {
 .btn-submit svg {
     transition: transform 0.3s ease;
 }
+/* ================= POPUPS ================= */
+
+/* Overlay */
+.welcome-popup {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(10px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.welcome-popup.active {
+  display: flex;
+}
+
+/* Welcome Popup Box */
+.popup-content {
+  background: linear-gradient(135deg, #111, #000);
+  border: 1px solid rgba(248, 213, 72, 0.4);
+  border-radius: 22px;
+  padding: 40px 35px;
+  max-width: 520px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8);
+  animation: popupFade 0.6s ease;
+}
+
+@keyframes popupFade {
+  from {
+    opacity: 0;
+    transform: translateY(-40px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.popup-close {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: #aaa;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+.popup-title {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  color: #fff;
+  margin-bottom: 14px;
+}
+
+.popup-subtitle {
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+
+.popup-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--color-gold);
+  color: #000;
+  padding: 14px 36px;
+  border-radius: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.popup-cta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(248, 213, 72, 0.5);
+}
+
+.popup-note {
+  margin-top: 18px;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* ================= Notification ================= */
+
+.notification-popup {
+  position: fixed;
+  bottom: -200px;
+  right: 30px;
+  background: linear-gradient(135deg, #111, #000);
+  border: 1px solid rgba(248, 213, 72, 0.4);
+  border-radius: 16px;
+  padding: 22px 26px;
+  max-width: 360px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+  transition: bottom 0.5s ease;
+  z-index: 9998;
+}
+
+.notification-popup.show {
+  bottom: 30px;
+}
+
+.notification-close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  background: none;
+  border: none;
+  color: #aaa;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+.notification-text h4 {
+  color: var(--color-gold);
+  font-family: var(--font-display);
+  margin-bottom: 6px;
+}
+
+.notification-text p {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Mobile Fix */
+@media (max-width: 480px) {
+  .notification-popup {
+    right: 16px;
+    left: 16px;
+    max-width: none;
+  }
+}
+/* Typewriter Dreams Animation */
+.typewriter {
+  font-weight: 900;
+  color: #f8d548;
+  position: relative;
+}
+
+/* Blinking cursor */
+.typewriter::after {
+  content: '|';
+  margin-left: 4px;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0; }
+}
+/* ================= MOBILE-ONLY SCROLL INDICATOR ================= */
+
+.scroll-indicator {
+  display: none; /* Hidden by default */
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.55);
+  z-index: 5;
+}
+
+/* Arrow styling */
+.scroll-arrow {
+  width: 10px;
+  height: 10px;
+  margin: 6px auto 0;
+  border-right: 2px solid #f8d548;
+  border-bottom: 2px solid #f8d548;
+  transform: rotate(45deg);
+  animation: scrollBounce 1.8s infinite;
+}
+
+/* Arrow animation */
+@keyframes scrollBounce {
+  0% {
+    transform: translateY(0) rotate(45deg);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateY(8px) rotate(45deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0) rotate(45deg);
+    opacity: 0.3;
+  }
+}
+
+/* 📱 SHOW on phones & tablets (including iPad Pro) */
+@media (max-width: 1024px) {
+  .scroll-indicator {
+    display: block;
+  }
+}
+
+/* 💻 HIDE on laptops & desktops */
+@media (min-width: 1025px) {
+  .scroll-indicator {
+    display: none;
+  }
+}
+/* ================= FIX SECTION TITLE VISIBILITY ================= */
+
+.section-light .section-title {
+  color: #1a1a1a; /* strong charcoal for light backgrounds */
+}
+
+.section-dark .section-title {
+  color: #ffffff;
+}
+
+/* Keep gold highlight */
+.text-gold {
+  color: #f8d548;
+}
+/* ================= VALUE CARDS – PROFESSIONAL BOXES ================= */
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 30px;
+  margin: 60px 0;
+}
+
+/* ================= GOLDISH VALUE BOXES ================= */
+
+.value-card {
+  background: linear-gradient(
+    145deg,
+    #f6edcf 0%,   /* champagne gold */
+    #efe0b5 50%,  /* soft gold */
+    #e6d39a 100%  /* warm gold base */
+  );
+  border: 1px solid rgba(248, 213, 72, 0.35);
+  border-radius: 18px;
+  padding: 36px 28px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+/* Hover effect – elegant lift */
+.value-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 22px 50px rgba(248, 213, 72, 0.35);
+  border-color: rgba(248, 213, 72, 0.7);
+}
+.value-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  color: #1a1a1a;
+  margin-bottom: 14px;
+}
+
+.value-card p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: rgba(0, 0, 0, 0.75);
+}
+/* ================= FORCE GOLD VALUE BOXES ================= */
+
+/* Target ONLY this section */
+.section-cinematic.section-light .value-card {
+  background: linear-gradient(
+    145deg,
+    #f6edcf 0%,
+    #efe0b5 50%,
+    #e6d39a 100%
+  ) !important;
+
+  border: 1px solid rgba(248, 213, 72, 0.5) !important;
+  border-radius: 18px;
+  padding: 36px 28px;
+  text-align: center;
+
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.18);
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+/* Hover */
+.section-cinematic.section-light .value-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 26px 60px rgba(248, 213, 72, 0.45);
+  border-color: rgba(248, 213, 72, 0.85);
+}
+
+/* Text inside gold cards */
+.section-cinematic.section-light .value-card h3 {
+  color: #1a1a1a !important;
+}
+
+.section-cinematic.section-light .value-card p {
+  color: rgba(0, 0, 0, 0.75) !important;
+}
+/* ================= FORCE VALUES SECTION VISIBILITY ================= */
+
+.section-cinematic.section-light .values-grid,
+.section-cinematic.section-light .value-card {
+  opacity: 1 !important;
+  transform: none !important;
+  visibility: visible !important;
+}
+/* ================= GOLD VALUE BOXES (FINAL) ================= */
+
+.section-cinematic.section-light .value-card {
+  background: linear-gradient(
+    145deg,
+    #f6edcf 0%,
+    #efe0b5 50%,
+    #e6d39a 100%
+  );
+  border: 1px solid rgba(248, 213, 72, 0.55);
+  border-radius: 18px;
+  padding: 36px 28px;
+  text-align: center;
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.18);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.section-cinematic.section-light .value-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 26px 60px rgba(248, 213, 72, 0.45);
+}
+
+.section-cinematic.section-light .value-card h3 {
+  color: #1a1a1a;
+}
+
+.section-cinematic.section-light .value-card p {
+  color: rgba(0, 0, 0, 0.75);
+}
+.hero-title,
+.hero-title span,
+.section-title-cinematic,
+.section-title-programs,
+.cta-title {
+  color: #ffffff !important;
+}
+.hero-title .text-gold,
+.hero-title .dreams {
+  color: #f8d548 !important;
+}
+.hero-subtitle,
+.hero-description,
+.hero-content p {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+.section-title-light {
+  color: #ffffff !important;
+}
+/* ================= PROGRAM CARDS – VISIBILITY FIX ================= */
+
+.programs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 40px;
+  margin-top: 70px;
+}
+
+.program-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 50px 40px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.program-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 30px 70px rgba(248, 213, 72, 0.35);
+}
+
+/* FORCE TEXT COLOR INSIDE WHITE CARDS */
+.program-card h3 {
+  color: #1a1a1a !important;
+  font-size: 1.6rem;
+  margin-bottom: 12px;
+}
+
+.program-card p {
+  color: rgba(0, 0, 0, 0.7) !important;
+  font-size: 0.95rem;
+  margin-bottom: 12px;
+}
+
+/* Center content nicely */
+.program-content {
+  text-align: center;
+}
+.program-card::before {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, #f8d548, #c79e4f);
+  margin: 0 auto 25px;
+  border-radius: 2px;
+}
+
+.program-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.program-card .btn-hero-primary {
+  margin-top: 28px;
+}
+.program-card {
+  display: flex;
+}
+
+.program-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Push Learn More button to the same line */
+.program-content .btn-hero-primary {
+  margin-top: auto;   /* 🔥 KEY FIX */
+  align-self: center; /* optional – keeps it centered */
+}
+
+

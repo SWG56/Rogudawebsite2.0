@@ -351,3 +351,163 @@
         background-attachment: scroll;
     }
 }
+/* ================= NAV CTA FIX (TABLET & MOBILE) ================= */
+
+/* Ensure nav links stay aligned */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Group CTA buttons visually */
+.nav-links li a.nav-btn-outline,
+.nav-links li a.nav-btn-gold {
+  padding: 10px 16px;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===== TABLET FIX (iPad / 1024px) ===== */
+@media (max-width: 1100px) {
+  .nav-links {
+    gap: 10px;
+  }
+
+  .nav-links li a.nav-btn-outline,
+  .nav-links li a.nav-btn-gold {
+    padding: 8px 14px;
+    font-size: 0.85rem;
+  }
+}
+
+/* ===== MOBILE FIX ===== */
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+  }
+
+  .nav-links li a.nav-btn-outline,
+  .nav-links li a.nav-btn-gold {
+    width: 100%;
+    text-align: center;
+  }
+}
+/* ================= FIX CUT OFF APPLY BUTTON ================= */
+
+/* Ensure navbar can grow if needed */
+.nav-cinematic {
+  align-items: center;
+  min-height: 72px;
+}
+
+/* Force CTA buttons to be fully visible */
+.nav-links li a.nav-btn-gold,
+.nav-links li a.nav-btn-outline {
+  height: auto;
+  line-height: 1.2;
+  padding: 10px 16px;
+  box-sizing: border-box;
+}
+
+/* Tablet-specific correction */
+@media (max-width: 1100px) {
+  .nav-cinematic {
+    min-height: 78px;
+  }
+
+  .nav-links {
+    align-items: center;
+  }
+
+  .nav-links li a.nav-btn-gold,
+  .nav-links li a.nav-btn-outline {
+    padding: 10px 14px;
+    font-size: 0.85rem;
+  }
+}
+
+/* Mobile menu safety */
+@media (max-width: 768px) {
+  .nav-links li a.nav-btn-gold,
+  .nav-links li a.nav-btn-outline {
+    padding: 14px 16px;
+    font-size: 0.95rem;
+  }
+}
+/* ================= FINAL NAV CLIP FIX ================= */
+
+/* Allow navbar to grow */
+.nav-cinematic,
+.nav-container {
+  height: auto !important;
+  min-height: 80px !important;
+  overflow: visible !important;
+  align-items: center;
+}
+
+/* Ensure nav list is vertically centered */
+.nav-links {
+  align-items: center;
+  height: auto;
+}
+
+/* Force CTA buttons to render fully */
+.nav-btn-gold,
+.nav-btn-outline {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  line-height: normal !important;
+  height: auto !important;
+  padding: 12px 18px !important;
+  white-space: nowrap;
+}
+
+/* iPad / Tablet specific */
+@media (max-width: 1100px) {
+  .nav-cinematic,
+  .nav-container {
+    min-height: 88px !important;
+  }
+
+  .nav-btn-gold,
+  .nav-btn-outline {
+    padding: 12px 16px !important;
+    font-size: 0.9rem !important;
+  }
+}
+/* ================= TABLET NAV OVERFLOW FIX ================= */
+
+/* Allow wrapping on tablet */
+@media (max-width: 1100px) {
+
+  .nav-container {
+    flex-wrap: wrap;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    gap: 10px;
+  }
+
+  /* Move CTA buttons to their own row */
+  .nav-links li:last-child,
+  .nav-links li:nth-last-child(2) {
+    margin-top: 8px;
+  }
+
+  .nav-btn-outline,
+  .nav-btn-gold {
+    padding: 10px 18px;
+    font-size: 0.9rem;
+  }
+}
+

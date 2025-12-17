@@ -68,3 +68,31 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+/* Typewriter effect for "Dreams" */
+function typeDreamsText() {
+  const text = "Dreams";
+  const element = document.getElementById("dreamsText");
+  let index = 0;
+
+  element.textContent = "";
+
+  const typingInterval = setInterval(() => {
+    element.textContent += text.charAt(index);
+    index++;
+
+    if (index === text.length) {
+      clearInterval(typingInterval);
+    }
+  }, 180); // typing speed (luxury pace)
+}
+
+/* Trigger AFTER welcome popup closes */
+function closeWelcomePopup() {
+  const popup = document.getElementById('welcomePopup');
+  if (popup) {
+    popup.classList.remove('active');
+  }
+
+  // Start typing after popup closes
+  setTimeout(typeDreamsText, 400);
+}

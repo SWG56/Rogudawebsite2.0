@@ -3,891 +3,301 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ROGUDA - Fashion & Art Design School</title>
-  <link rel="icon" href="assets/images/circle3.png" type="image/jpeg">
-  <meta name="description" content="QCTO-accredited fashion design & art school in South Africa. Transform your creative vision into a professional career.">
+
+  <title>ROGUDA | Fashion & Art Design School</title>
+  <meta name="description" content="QCTO-accredited fashion and art design school in South Africa. Stitching dreams into reality.">
+
+  <!-- Favicon -->
+  <link rel="icon" href="assets/images/circle3.png">
+
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Core CSS -->
   <link rel="stylesheet" href="assets/css/cinematic.css">
   <link rel="stylesheet" href="assets/css/theme.css">
   <link rel="stylesheet" href="assets/css/main.css">
   <link rel="stylesheet" href="assets/css/responsive.css">
   <link rel="stylesheet" href="assets/css/mobile.css">
-
-  <style>
-    /* Professional Reset & Base */
-    * {
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-
-    body {
-      font-feature-settings: "liga" 1, "kern" 1;
-      text-rendering: optimizeLegibility;
-    }
-
-    /* Smooth Scroll Animations */
-    [data-animate] {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
-                  transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    
-    [data-animate].visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Floating Animation for Cards */
-    @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-15px); }
-    }
-
-    .float-on-scroll {
-      animation: float 6s ease-in-out infinite;
-    }
-
-    /* Shimmer Effect */
-    @keyframes shimmer {
-      0% { background-position: -1000px 0; }
-      100% { background-position: 1000px 0; }
-    }
-
-    .shimmer-text {
-      background: linear-gradient(90deg, #f8d548 0%, #fff 50%, #f8d548 100%);
-      background-size: 1000px 100%;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      animation: shimmer 3s linear infinite;
-    }
-
-    /* Pulse Animation for CTAs */
-    @keyframes pulse {
-      0%, 100% { box-shadow: 0 0 0 0 rgba(248, 213, 72, 0.7); }
-      50% { box-shadow: 0 0 0 20px rgba(248, 213, 72, 0); }
-    }
-
-    .pulse-animate {
-      animation: pulse 2s infinite;
-    }
-
-    /* Fade In Up Animation */
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .fade-in-up {
-      animation: fadeInUp 0.8s ease-out forwards;
-    }
-
-    /* Welcome Popup Modal */
-    .welcome-popup {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.85);
-      backdrop-filter: blur(10px);
-      z-index: 10000;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      transition: opacity 0.4s ease;
-    }
-
-    .welcome-popup.active {
-      display: flex;
-      opacity: 1;
-    }
-
-    .popup-content {
-      background: linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(14, 14, 14, 0.98) 100%);
-      backdrop-filter: blur(30px);
-      border: 1px solid rgba(248, 213, 72, 0.3);
-      border-radius: 24px;
-      padding: 50px 60px;
-      max-width: 600px;
-      width: 90%;
-      text-align: center;
-      position: relative;
-      box-shadow: 0 30px 90px rgba(0, 0, 0, 0.8);
-      animation: slideInDown 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
-    }
-
-    @keyframes slideInDown {
-      from {
-        transform: translateY(-100px) scale(0.8);
-        opacity: 0;
-      }
-      to {
-        transform: translateY(0) scale(1);
-        opacity: 1;
-      }
-    }
-
-    .popup-close {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      background: none;
-      border: none;
-      color: rgba(255, 255, 255, 0.6);
-      font-size: 2rem;
-      cursor: pointer;
-      transition: color 0.3s;
-      width: 40px;
-      height: 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .popup-close:hover {
-      color: #f8d548;
-    }
-
-    .popup-icon {
-      font-size: 4rem;
-      margin-bottom: 20px;
-    }
-
-    .popup-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 15px;
-    }
-
-    .popup-subtitle {
-      font-size: 1.2rem;
-      color: rgba(255, 255, 255, 0.85);
-      margin-bottom: 30px;
-      line-height: 1.6;
-    }
-
-    .popup-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      padding: 16px 40px;
-      background: linear-gradient(135deg, #f8d548 0%, #ffcc00 100%);
-      color: #0e0e0e;
-      border-radius: 12px;
-      font-weight: 700;
-      font-size: 1.05rem;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      box-shadow: 0 8px 24px rgba(248, 213, 72, 0.4);
-    }
-
-    .popup-cta:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 32px rgba(248, 213, 72, 0.6);
-    }
-
-    /* Notification Popup */
-    .notification-popup {
-      position: fixed;
-      bottom: -200px;
-      right: 30px;
-      background: linear-gradient(135deg, rgba(26, 26, 26, 0.98) 0%, rgba(14, 14, 14, 0.98) 100%);
-      backdrop-filter: blur(20px);
-      border: 1px solid rgba(248, 213, 72, 0.4);
-      border-radius: 16px;
-      padding: 25px 30px;
-      max-width: 400px;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
-      z-index: 9999;
-      transition: bottom 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-    }
-
-    .notification-popup.show {
-      bottom: 30px;
-    }
-
-    .notification-content {
-      display: flex;
-      gap: 20px;
-      align-items: center;
-    }
-
-    .notification-icon {
-      font-size: 2.5rem;
-      flex-shrink: 0;
-    }
-
-    .notification-text h4 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.3rem;
-      color: #f8d548;
-      margin: 0 0 8px 0;
-    }
-
-    .notification-text p {
-      margin: 0;
-      color: rgba(255, 255, 255, 0.85);
-      font-size: 0.95rem;
-      line-height: 1.5;
-    }
-
-    .notification-close {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      background: none;
-      border: none;
-      color: rgba(255, 255, 255, 0.5);
-      font-size: 1.5rem;
-      cursor: pointer;
-      transition: color 0.3s;
-    }
-
-    .notification-close:hover {
-      color: #f8d548;
-    }
-    
-    /* Section Architecture */
-    .section-cinematic {
-      padding: 120px 0;
-      position: relative;
-      z-index: 2;
-    }
-    
-    .section-dark { 
-      background: linear-gradient(180deg, rgba(14,14,14,0.92) 0%, rgba(14,14,14,0.88) 100%);
-      color: #fff;
-      position: relative;
-      z-index: 3;
-    }
-    
-    .section-light { 
-      background: linear-gradient(180deg, rgba(26,26,26,0.88) 0%, rgba(20,20,20,0.92) 100%);
-      color: #fff;
-      position: relative;
-      z-index: 4;
-    }
-
-    /* Premium Glass Morphism */
-    .section-glass {
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);
-      backdrop-filter: blur(30px) saturate(180%);
-      -webkit-backdrop-filter: blur(30px) saturate(180%);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 28px;
-      padding: 80px 60px;
-      box-shadow: 0 12px 48px rgba(0, 0, 0, 0.5),
-                  0 0 1px rgba(255, 255, 255, 0.1) inset;
-      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .section-glass::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(248, 213, 72, 0.3), transparent);
-    }
-    
-    .section-glass:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 16px 64px rgba(0, 0, 0, 0.6),
-                  0 0 80px rgba(248, 213, 72, 0.15),
-                  0 0 2px rgba(255, 255, 255, 0.15) inset;
-      border-color: rgba(248, 213, 72, 0.25);
-    }
-
-    /* Professional Typography */
-    .section-label {
-      display: inline-block;
-      padding: 10px 24px;
-      background: linear-gradient(135deg, rgba(248, 213, 72, 0.12), rgba(248, 213, 72, 0.08));
-      border: 1px solid rgba(248, 213, 72, 0.35);
-      border-radius: 50px;
-      color: #f8d548;
-      font-size: 0.75rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 2.5px;
-      margin-bottom: 28px;
-      box-shadow: 0 4px 12px rgba(248, 213, 72, 0.1);
-    }
-
-    .section-title {
-      font-size: 3.5rem;
-      font-family: 'Playfair Display', serif;
-      font-weight: 700;
-      line-height: 1.15;
-      margin-bottom: 24px;
-      color: #fff;
-      letter-spacing: -0.5px;
-    }
-
-    .text-gold {
-      background: linear-gradient(135deg, #f8d548 0%, #ffcc00 50%, #f8d548 100%);
-      background-size: 200% auto;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      animation: shimmer 4s ease-in-out infinite;
-    }
-
-    @keyframes shimmer {
-      0%, 100% { background-position: 0% center; }
-      50% { background-position: 100% center; }
-    }
-
-    /* Premium Card Design */
-    .values-grid { 
-      display: flex;
-      flex-direction: column;
-      gap: 24px; 
-      margin-top: 3.5rem;
-      max-width: 920px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    
-    .value-card {
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 100%);
-      backdrop-filter: blur(25px) saturate(180%);
-      -webkit-backdrop-filter: blur(25px) saturate(180%);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      padding: 2.5rem 3rem;
-      border-radius: 20px;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .value-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, rgba(248, 213, 72, 0.5), transparent);
-      opacity: 0;
-      transition: opacity 0.4s ease;
-    }
-    
-    .value-card:hover {
-      transform: translateY(-6px) scale(1.01);
-      box-shadow: 0 16px 56px rgba(0, 0, 0, 0.45),
-                  0 0 60px rgba(248, 213, 72, 0.12);
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.04) 100%);
-      border-color: rgba(248, 213, 72, 0.3);
-    }
-
-    .value-card:hover::before {
-      opacity: 1;
-    }
-
-    .value-card h3 {
-      color: #f8d548;
-      font-family: 'Playfair Display', serif;
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin-bottom: 18px;
-      letter-spacing: -0.3px;
-    }
-
-    .value-card p {
-      line-height: 1.75;
-      font-size: 1.05rem;
-      color: rgba(255, 255, 255, 0.85);
-      font-weight: 400;
-    }
-
-    /* Premium Program Cards */
-    .programs-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 28px;
-      margin-top: 3.5rem;
-      max-width: 920px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    
-    .program-card {
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 100%);
-      backdrop-filter: blur(25px) saturate(180%);
-      -webkit-backdrop-filter: blur(25px) saturate(180%);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 20px;
-      overflow: hidden;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
-      position: relative;
-    }
-
-    .program-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, transparent, #f8d548, transparent);
-      opacity: 0;
-      transition: opacity 0.4s ease;
-    }
-    
-    .program-card:hover { 
-      transform: translateY(-8px) scale(1.01);
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5),
-                  0 0 80px rgba(248, 213, 72, 0.15);
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.04) 100%);
-      border-color: rgba(248, 213, 72, 0.35);
-    }
-
-    .program-card:hover::before {
-      opacity: 1;
-    }
-    
-    .program-content { 
-      padding: 3rem 3.5rem;
-    }
-    
-    .program-content h3 { 
-      color: #f8d548; 
-      font-family: 'Playfair Display', serif;
-      font-size: 1.75rem;
-      font-weight: 700;
-      margin-bottom: 12px;
-      line-height: 1.3;
-      letter-spacing: -0.4px;
-    }
-
-    .program-content > p:first-of-type {
-      color: rgba(248, 213, 72, 0.85);
-      font-weight: 600;
-      font-size: 0.95rem;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      margin-bottom: 20px;
-    }
-
-    .program-content > p:nth-of-type(2) {
-      font-size: 1.05rem;
-      line-height: 1.75;
-      color: rgba(255, 255, 255, 0.85);
-    }
-
-    .program-content ul {
-      font-size: 1.02rem;
-    }
-
-    .program-content ul li {
-      margin-bottom: 0.75rem;
-      padding-left: 8px;
-    }
-
-    /* Responsive Typography */
-    @media (max-width: 768px) {
-      .section-glass {
-        padding: 50px 30px;
-      }
-
-      .section-title {
-        font-size: 2.5rem;
-      }
-
-      .value-card, .program-content {
-        padding: 2rem;
-      }
-    }
-  </style>
 </head>
 
 <body>
-  <!-- Navbar -->
-  <nav class="nav-cinematic">
-    <div class="nav-container">
-      <a href="index.html" class="nav-logo">
-        <img src="assets/images/WhatsApp Image 2025-09-08 at 20.56.36_80570309.jpg" alt="ROGUDA" style="height: 60px;">
-      </a>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="programs.html">Programs</a></li>
-        <li><a href="gallery.html">Gallery</a></li>
-        <li><a href="incubator.html">Incubator</a></li>
-        <li><a href="studio.html">AI Studio</a></li>
-        <li><a href="marketplace.html">Marketplace</a></li>
-        <li><a href="login.html" class="nav-btn-outline">Student Login</a></li>
-        <li><a href="apply.html" class="nav-btn-gold">Apply Now</a></li>
-      </ul>
-      <button class="nav-toggle" aria-label="Toggle navigation">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </div>
-  </nav>
 
-  <!-- Hero -->
-  <section class="hero-cinematic" id="home">
-    <div class="hero-background">
-      <div class="hero-image" style="background-image:url('assets/images/Vintage Sewing Machine and Measuring Tape (1).png');"></div>
-      <div class="hero-overlay"></div>
-    </div>
-    <div class="hero-content" style="background:transparent;backdrop-filter:none;border:none;box-shadow:none;padding:40px 20px;">
-      <h1 class="hero-title fade-in-up" style="font-size:4.5rem;font-weight:700;letter-spacing:-1px;">
-        <span style="opacity:0.95;">Transform Your</span><br>
-        <span class="title-gold shimmer-text" style="font-size:5rem;font-weight:900;">Creative Vision</span><br>
-        <span style="opacity:0.95;">Into Reality</span>
-      </h1>
-      <p class="hero-subtitle fade-in-up" style="font-size:1.35rem;line-height:1.6;margin:2rem 0;opacity:0.9;font-weight:400;animation-delay:0.2s;">QCTO-Accredited Fashion Design & Art Education in South Africa</p>
-      <div class="hero-cta fade-in-up" style="margin-top:2.5rem;animation-delay:0.4s;">
-        <a href="apply.html" class="btn-hero-primary pulse-animate" style="padding:18px 42px;font-size:1.05rem;font-weight:600;letter-spacing:0.5px;">Start Your Journey</a>
-        <a href="programs.html" class="btn-hero-secondary" style="padding:18px 42px;font-size:1.05rem;font-weight:600;letter-spacing:0.5px;">Explore Programs</a>
-      </div>
-    </div>
-    <div class="scroll-indicator">
-      <span>Scroll to explore</span>
-      <div class="scroll-arrow"></div>
-    </div>
-  </section>
+<!-- ================= NAVIGATION ================= -->
+<nav class="nav-cinematic glass-nav">
+  <div class="nav-container">
 
-  <!-- About -->
-  <section class="section-cinematic section-dark">
-    <div class="container" style="max-width:1100px;margin:auto;text-align:center;" data-animate>
-      <span class="section-label">Who We Are</span>
-      <h2 class="section-title">Where African Heritage<br>Meets <span class="text-gold">Modern Innovation</span></h2>
-      <p style="font-size:1.25rem;line-height:1.8;color:rgba(255,255,255,0.88);max-width:750px;margin:0 auto;">At ROGUDA, we blend traditional craftsmanship with cutting-edge technology to prepare you for the global fashion industry. Our QCTO-accredited programs combine hands-on experience with industry insights.</p>
-    </div>
-  </section>
+<a href="index.html" class="logo">
+  <div class="logo-badge">
+    <img src="assets/images/WhatsApp Image 2025-09-08 at 20.56.36_80570309.jpg" alt="Roguda Fashion Logo">
+  </div>
+  <span class="logo-text">Roguda Fashion</span>
+</a>
 
-  <!-- Why Roguda -->
-  <section class="section-cinematic section-light">
-    <div class="container" style="max-width:1100px;margin:auto;text-align:center;" data-animate>
-      <span class="section-label">Why Choose Roguda</span>
-      <h2 class="section-title">We're <span class="text-gold">Stitching Dreams</span> Into Reality</h2>
-      <p style="font-size:1.2rem;line-height:1.8;color:rgba(255,255,255,0.88);margin-bottom:3.5rem;max-width:820px;margin-left:auto;margin-right:auto;">For over three decades, Roguda has empowered dreamers to become designers. We are a QCTO-accredited institution built on African creativity, business innovation, and a commitment to making world-class education accessible to all.</p>
 
-        <div class="values-grid">
-          <div class="value-card float-on-scroll" data-animate>
-            <h3>QCTO Accredited</h3>
-            <p style="color:rgba(255,255,255,0.87);">Nationally recognized qualifications designed for local relevance and global excellence. Our programs meet international standards while celebrating African design heritage.</p>
-          </div>
-          <div class="value-card float-on-scroll" data-animate style="animation-delay:0.5s;">
-            <h3>Entrepreneurial Focus</h3>
-            <p style="color:rgba(255,255,255,0.87);">We don't just teach fashion — we mentor students to build sustainable creative businesses. Learn brand development, marketing, and business management alongside design skills.</p>
-          </div>
-          <div class="value-card float-on-scroll" data-animate style="animation-delay:1s;">
-            <h3>Community Trust</h3>
-            <p style="color:rgba(255,255,255,0.87);">Over 33 years of empowering families and communities through craftsmanship and design. Join a legacy of excellence and innovation in African fashion education.</p>
-          </div>
-          <div class="value-card float-on-scroll" data-animate style="animation-delay:1.5s;">
-            <h3>70% Practical Learning</h3>
-            <p style="color:rgba(255,255,255,0.87);">Hands-on experience blended with theory and access to AI-driven fashion technology. Real-world projects prepare you for immediate industry integration.</p>
-          </div>
-        </div>
+    <ul class="nav-links">
+      <li><a class="active" href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="programs.html">Programs</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="incubator.html">Incubator</a></li>
+      <li><a href="studio.html">AI Studio</a></li>
+      <li><a href="marketplace.html">Marketplace</a></li>
+      <li><a href="login.html" class="nav-btn-outline">Student Login</a></li>
+      <li><a href="apply.html" class="nav-btn-gold">Apply Now</a></li>
+    </ul>
 
-        <a href="apply.html" class="btn-hero-primary" style="margin-top:3.5rem;display:inline-block;padding:18px 48px;font-size:1.05rem;">Apply Today</a>
-        <p style="margin-top:2rem;font-size:1.15rem;opacity:0.85;font-style:italic;color:rgba(255,255,255,0.8);max-width:700px;margin-left:auto;margin-right:auto;line-height:1.7;">"Guided by creativity, purpose, and the grace to build a better Africa through design."</p>
-    </div>
-  </section>
+    <button class="nav-toggle" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
 
-  <!-- Programs -->
-  <section class="section-cinematic section-dark">
-    <div class="container" style="max-width:1100px;margin:auto;text-align:center;" data-animate>
-      <span class="section-label">Our Programs</span>
-      <h2 class="section-title">QCTO-Accredited <span class="text-gold">Qualifications</span></h2>
-      <p style="font-size:1.2rem;line-height:1.8;color:rgba(255,255,255,0.8);margin-bottom:3rem;">We offer two comprehensive programs designed to launch your fashion career.</p>
+  </div>
+</nav>
 
-        <div class="programs-grid">
-          <!-- NQF 5 -->
-          <div class="program-card" data-animate>
-            <div class="program-content">
-              <h3>NQF Level 5: Fashion Design & Entrepreneurship</h3>
-              <p>1 Year Program</p>
-              <p style="line-height:1.6;margin-bottom:1rem;color:rgba(255,255,255,0.8);">Master pattern design, garment creation, and brand entrepreneurship with 70% hands-on learning.</p>
-              <ul style="list-style:none;padding:0;opacity:0.9;margin-bottom:1.5rem;color:rgba(255,255,255,0.8);">
-                <li style="margin-bottom:0.5rem;">• Fashion Entrepreneurship</li>
-                <li style="margin-bottom:0.5rem;">• Pattern Making & Grading</li>
-                <li style="margin-bottom:0.5rem;">• Digital Fashion Technology</li>
-              </ul>
-              <div style="text-align:center;">
-                <a href="programs.html" class="btn-hero-primary" style="display:inline-block;">Learn More</a>
-              </div>
-            </div>
-          </div>
+<!-- ================= HERO ================= -->
+<section class="hero-cinematic">
+  <div class="hero-background">
+    <div class="hero-image"></div>
+    <div class="hero-overlay"></div>
+  </div>
 
-          <!-- NQF 2 -->
-          <div class="program-card" data-animate>
-            <div class="program-content">
-              <h3>NQF Level 2: Foundational Clothing Production</h3>
-              <p>1 Year Program</p>
-              <p style="line-height:1.6;margin-bottom:1rem;color:rgba(255,255,255,0.8);">Build a solid foundation in sewing, textile handling, and workstation setup.</p>
-              <ul style="list-style:none;padding:0;opacity:0.9;margin-bottom:1.5rem;color:rgba(255,255,255,0.8);">
-                <li style="margin-bottom:0.5rem;">• Basic Clothing & Textile</li>
-                <li style="margin-bottom:0.5rem;">• Sewing Machine Technology</li>
-                <li style="margin-bottom:0.5rem;">• Workstation Preparation</li>
-              </ul>
-              <div style="text-align:center;">
-                <a href="programs.html" class="btn-hero-primary" style="display:inline-block;">Learn More</a>
-              </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <div class="hero-content" data-animate>
+<h1 class="hero-title">
+  <span>Stitching</span>
+  <span class="dreams typewriter" id="dreamsText">Dreams</span>
+  <span class="into-reality">Into Reality</span>
+</h1>
 
-  <!-- Welcome Popup -->
-  <div class="welcome-popup" id="welcomePopup">
-    <div class="popup-content">
-      <button class="popup-close" onclick="closeWelcomePopup()">&times;</button>
-      <h2 class="popup-title">Welcome to ROGUDA</h2>
-      <p class="popup-subtitle">2026 Applications Now Open! Join Africa's premier fashion design school and transform your creative passion into a professional career.</p>
-      <a href="apply.html" class="popup-cta">
-        <span>Apply Now</span>
-        <span>→</span>
-      </a>
-      <p style="margin-top:20px;font-size:0.9rem;color:rgba(255,255,255,0.6);">Limited spaces available</p>
+
+    <p class="hero-subtitle">
+      QCTO-Accredited Fashion & Art Design Education in South Africa
+    </p>
+
+    <div class="hero-cta">
+      <a href="apply.html" class="btn-hero-primary">Start Your Journey</a>
+      <a href="programs.html" class="btn-hero-secondary">Explore Programs</a>
     </div>
   </div>
 
-  <!-- Notification Popup -->
-  <div class="notification-popup" id="notificationPopup">
-    <button class="notification-close" onclick="closeNotification()">&times;</button>
-    <div class="notification-content">
-      <div class="notification-icon">🎓</div>
-      <div class="notification-text">
-        <h4>New: AI Fashion Studio</h4>
-        <p>All programs now include access to cutting-edge AI design tools. Launching 2026 Q2!</p>
+  <div class="scroll-indicator">
+    <span>Scroll</span>
+    <div class="scroll-arrow"></div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section class="section-cinematic section-dark">
+  <div class="container text-center" data-animate>
+    <span class="section-label">Who We Are</span>
+    <h2 class="section-title">
+      Where African Heritage Meets <span class="text-gold">Modern Innovation</span>
+    </h2>
+    <p class="section-subtitle">
+      ROGUDA blends traditional craftsmanship with cutting-edge technology to
+      prepare students for the global fashion industry.
+    </p>
+  </div>
+</section>
+
+<!-- ================= WHY ROGUDA ================= -->
+<section class="section-cinematic section-light">
+  <div class="container" data-animate>
+
+<span class="section-label">Why Choose Roguda Fashion</span>
+<h2 class="section-title text-center section-title-light">
+  We’re <span class="text-gold">Stitching Dreams</span> Into Reality
+</h2>
+
+
+    <div class="values-grid">
+      <div class="value-card">
+        <h3>QCTO Accredited</h3>
+        <p>Nationally recognised qualifications aligned with global standards.</p>
+      </div>
+
+      <div class="value-card">
+        <h3>Entrepreneurial Focus</h3>
+        <p>Build brands, businesses, and sustainable creative careers.</p>
+      </div>
+
+      <div class="value-card">
+        <h3>Community Trust</h3>
+        <p>Over 33 years empowering creatives across South Africa.</p>
+      </div>
+
+      <div class="value-card">
+        <h3>70% Practical Learning</h3>
+        <p>Hands-on experience supported by AI-driven innovation.</p>
       </div>
     </div>
+
+    <div class="text-center">
+      <a href="apply.html" class="btn-hero-primary">Apply Today</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= PROGRAMS ================= -->
+<section class="section-cinematic section-dark">
+  <div class="container text-center" data-animate>
+
+    <span class="section-label">Our Programs</span>
+    <h2 class="section-title">
+      QCTO-Accredited <span class="text-gold">Qualifications</span>
+    </h2>
+
+    <div class="programs-grid">
+
+      <div class="program-card">
+        <div class="program-content">
+          <h3>NQF Level 5 – Fashion Design & Entrepreneurship</h3>
+          <p>1-Year Programme</p>
+          <p>Advanced fashion design, pattern making, branding, and business.</p>
+          <a href="programs.html" class="btn-hero-primary">Learn More</a>
+        </div>
+      </div>
+
+      <div class="program-card">
+        <div class="program-content">
+          <h3>NQF Level 2 – Clothing Production</h3>
+          <p>1-Year Programme</p>
+          <p>Foundational sewing, textiles, and garment construction skills.</p>
+          <a href="programs.html" class="btn-hero-primary">Learn More</a>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<footer class="footer-cinematic footer-gold">
+  <div class="footer-container">
+
+    <!-- Brand -->
+    <div class="footer-brand">
+      <a href="index.html" class="footer-logo">
+        <div class="logo-badge">
+          <img src="assets/images/WhatsApp Image 2025-09-08 at 20.56.36_80570309.jpg" alt="Roguda Fashion Logo">
+        </div>
+        <span class="logo-text">Roguda Fashion</span>
+      </a>
+
+      <!-- Contact Information -->
+      <div class="footer-contact">
+        <p>
+          <strong>Email:</strong>
+          <a href="mailto:info@rogudafashion.co.za">info@rogudafashion.co.za</a>
+        </p>
+        <p>
+          <strong>WhatsApp:</strong>
+          <a href="https://wa.me/27823246267" target="_blank" rel="noopener noreferrer">
+            082 324 6267
+          </a>
+        </p>
+      </div>
+    </div>
+
+    <!-- Footer Navigation -->
+    <ul class="footer-nav">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="programs.html">Programs</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="apply.html">Apply</a></li>
+    </ul>
+
+    <!-- Newsletter -->
+    <div class="newsletter">
+      <h4 class="newsletter-title">Stay Updated</h4>
+      <p class="newsletter-text">
+        Subscribe to our newsletter for the latest updates and announcements.
+      </p>
+
+      <form class="newsletter-form">
+        <div class="input-group">
+          <input type="email" placeholder="Enter your email address" required>
+          <button type="submit" class="btn-subscribe">
+            Subscribe
+            <span class="arrow">→</span>
+          </button>
+        </div>
+
+        <p class="consent-note">
+          By subscribing, you agree to our Privacy Policy and consent to receive updates.
+        </p>
+      </form>
+    </div>
+
+    <!-- Social Media -->
+    <div class="footer-social">
+      <a href="https://www.instagram.com/rogudafashion?igsh=ZHV2bnF1dmEzcHls" target="_blank" aria-label="Instagram">
+        <i class="fa-brands fa-instagram"></i>
+      </a>
+      <a href="https://www.tiktok.com/@rogudafashion?is_from_webapp=1&sender_device=pc" target="_blank" aria-label="TikTok">
+        <i class="fa-brands fa-tiktok"></i>
+      </a>
+      <a href="https://www.facebook.com/share/1DduKcZxrR/" target="_blank" aria-label="Facebook">
+        <i class="fa-brands fa-facebook-f"></i>
+      </a>
+      <a href="https://za.pinterest.com/rogudadesign/" target="_blank" aria-label="Pinterest">
+        <i class="fa-brands fa-pinterest-p"></i>
+      </a>
+    </div>
+
   </div>
 
-  <!-- Footer Stats -->
-  <section class="section-cinematic section-light" style="padding:80px 0;">
-    <div class="container" style="max-width:1100px;margin:auto;">
-      <div class="values-grid">
-        <div class="value-card" style="padding:2.5rem;text-align:center;">
-          <h2 style="color:#f8d548;font-size:3rem;margin-bottom:0.5rem;">500+</h2>
-          <p style="font-size:1.1rem;color:rgba(255,255,255,0.8);">Graduates Successfully Launched</p>
-        </div>
-        <div class="value-card" style="padding:2.5rem;text-align:center;">
-          <h2 style="color:#f8d548;font-size:3rem;margin-bottom:0.5rem;">95%</h2>
-          <p style="font-size:1.1rem;color:rgba(255,255,255,0.8);">Student Satisfaction Rate</p>
-        </div>
-        <div class="value-card" style="padding:2.5rem;text-align:center;">
-          <h2 style="color:#f8d548;font-size:3rem;margin-bottom:0.5rem;">QCTO</h2>
-          <p style="font-size:1.1rem;color:rgba(255,255,255,0.8);">Nationally Accredited Programs</p>
-        </div>
-      </div>
+  <!-- Footer Bottom -->
+  <div class="footer-bottom">
+    <div class="copyright">
+      <p>© 2025 ROGUDA Fashion & Art Design School. All rights reserved.</p>
+      <p class="copyright-links">
+        <a href="docs/privacy_policy.html">Privacy Policy</a> •
+        <a href="docs/terms.html">Terms of Service</a> •
+        <a href="docs/popia_compliance.html">POPIA Compliance</a>
+      </p>
     </div>
-  </section>
 
-  <!-- Footer -->
-  <footer class="footer-cinematic" style="background:linear-gradient(180deg, #0a0a0a 0%, #000 100%);color:#fff;padding:80px 0 40px;border-top:1px solid rgba(248, 213, 72, 0.15);">
-    <div class="container" style="max-width:1200px;margin:auto;">
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:50px;margin-bottom:60px;">
-        <div>
-          <img src="assets/images/WhatsApp Image 2025-09-08 at 20.56.36_80570309.jpg" alt="ROGUDA" style="height:55px;margin-bottom:24px;filter:brightness(1.1);">
-          <p style="line-height:1.8;opacity:0.88;color:rgba(255,255,255,0.85);font-size:1.02rem;">QCTO-accredited fashion design school empowering Africa's next generation of creative professionals through excellence in education.</p>
-          <div style="margin-top:24px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.08);">
-            <p style="font-size:0.95rem;opacity:0.75;color:rgba(255,255,255,0.7);"><strong style="color:#f8d548;">Email:</strong> info@roguda.ac.za</p>
-            <p style="font-size:0.95rem;opacity:0.75;color:rgba(255,255,255,0.7);margin-top:8px;"><strong style="color:#f8d548;">Phone:</strong> +27 (0) 11 123 4567</p>
-          </div>
-        </div>
-        
-        <div>
-          <h4 style="color:#f8d548;margin-bottom:24px;font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;">Legal & Compliance</h4>
-          <ul style="list-style:none;padding:0;">
-            <li style="margin-bottom:14px;"><a href="docs/privacy_policy.html" style="color:rgba(255,255,255,0.8);text-decoration:none;transition:all 0.3s;font-size:1.02rem;display:inline-block;">Privacy Policy</a></li>
-            <li style="margin-bottom:14px;"><a href="docs/terms.html" style="color:rgba(255,255,255,0.8);text-decoration:none;transition:all 0.3s;font-size:1.02rem;display:inline-block;">Terms of Service</a></li>
-            <li style="margin-bottom:14px;"><a href="docs/popia_compliance.html" style="color:rgba(255,255,255,0.8);text-decoration:none;transition:all 0.3s;font-size:1.02rem;display:inline-block;">POPIA Compliance</a></li>
-            <li style="margin-bottom:14px;"><a href="docs/quality_policy.html" style="color:rgba(255,255,255,0.8);text-decoration:none;transition:all 0.3s;font-size:1.02rem;display:inline-block;">Quality Policy</a></li>
-          </ul>
-        </div>
-        
-        <div>
-          <h4 style="color:#f8d548;margin-bottom:24px;font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;">Quick Links</h4>
-          <ul style="list-style:none;padding:0;">
-            <li style="margin-bottom:14px;"><a href="about.html" style="color:rgba(255,255,255,0.8);text-decoration:none;transition:all 0.3s;font-size:1.02rem;display:inline-block;">About Us</a></li>
-            <li style="margin-bottom:14px;"><a href="programs.html" style="color:rgba(255,255,255,0.8);text-decoration:none;transition:all 0.3s;font-size:1.02rem;display:inline-block;">Programs</a></li>
-            <li style="margin-bottom:14px;"><a href="incubator.html" style="color:rgba(255,255,255,0.8);text-decoration:none;transition:all 0.3s;font-size:1.02rem;display:inline-block;">Incubator</a></li>
-            <li style="margin-bottom:14px;"><a href="studio.html" style="color:rgba(255,255,255,0.8);text-decoration:none;transition:all 0.3s;font-size:1.02rem;display:inline-block;">AI Studio</a></li>
-            <li style="margin-bottom:14px;"><a href="marketplace.html" style="color:rgba(255,255,255,0.8);text-decoration:none;transition:all 0.3s;font-size:1.02rem;display:inline-block;">Marketplace</a></li>
-          </ul>
-        </div>
-        
-        <div>
-          <h4 style="color:#f8d548;margin-bottom:24px;font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;">For Students</h4>
-          <ul style="list-style:none;padding:0;">
-            <li style="margin-bottom:14px;"><a href="apply.html" style="color:rgba(255,255,255,0.8);text-decoration:none;transition:all 0.3s;font-size:1.02rem;display:inline-block;">Apply Now</a></li>
-            <li style="margin-bottom:14px;"><a href="login.html" style="color:rgba(255,255,255,0.8);text-decoration:none;transition:all 0.3s;font-size:1.02rem;display:inline-block;">Student Login</a></li>
-            <li style="margin-bottom:14px;"><a href="register.html" style="color:rgba(255,255,255,0.8);text-decoration:none;transition:all 0.3s;font-size:1.02rem;display:inline-block;">Register</a></li>
-            <li style="margin-bottom:14px;"><a href="dashboard.html" style="color:rgba(255,255,255,0.8);text-decoration:none;transition:all 0.3s;font-size:1.02rem;display:inline-block;">Student Portal</a></li>
-          </ul>
-        </div>
-      </div>
-      
-      <div style="text-align:center;padding:40px 0 30px;border-top:1px solid rgba(255,255,255,0.1);border-bottom:1px solid rgba(255,255,255,0.1);margin-bottom:35px;">
-        <h4 style="color:#f8d548;margin-bottom:24px;font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;">Connect With Us</h4>
-        <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
-          <a href="#" style="width:48px;height:48px;display:inline-flex;align-items:center;justify-content:center;background:rgba(248, 213, 72, 0.1);border:1px solid rgba(248, 213, 72, 0.25);border-radius:50%;color:#f8d548;font-size:0.9rem;font-weight:600;transition:all 0.3s;" title="Instagram">IG</a>
-          <a href="#" style="width:48px;height:48px;display:inline-flex;align-items:center;justify-content:center;background:rgba(248, 213, 72, 0.1);border:1px solid rgba(248, 213, 72, 0.25);border-radius:50%;color:#f8d548;font-size:0.9rem;font-weight:600;transition:all 0.3s;" title="Facebook">FB</a>
-          <a href="#" style="width:48px;height:48px;display:inline-flex;align-items:center;justify-content:center;background:rgba(248, 213, 72, 0.1);border:1px solid rgba(248, 213, 72, 0.25);border-radius:50%;color:#f8d548;font-size:0.9rem;font-weight:600;transition:all 0.3s;" title="Twitter">TW</a>
-          <a href="#" style="width:48px;height:48px;display:inline-flex;align-items:center;justify-content:center;background:rgba(248, 213, 72, 0.1);border:1px solid rgba(248, 213, 72, 0.25);border-radius:50%;color:#f8d548;font-size:0.9rem;font-weight:600;transition:all 0.3s;" title="LinkedIn">LI</a>
-          <a href="#" style="width:48px;height:48px;display:inline-flex;align-items:center;justify-content:center;background:rgba(248, 213, 72, 0.1);border:1px solid rgba(248, 213, 72, 0.25);border-radius:50%;color:#f8d548;font-size:0.9rem;font-weight:600;transition:all 0.3s;" title="YouTube">YT</a>
-        </div>
-      </div>
-      
-      <div style="text-align:center;">
-        <p style="margin:0;opacity:0.75;color:rgba(255,255,255,0.7);font-size:0.98rem;">&copy; 2025 ROGUDA Fashion & Art Design School. All rights reserved.</p>
-        <p style="margin-top:12px;color:#f8d548;font-weight:700;font-size:1.05rem;letter-spacing:1px;">QCTO Accredited | NQF Level 2-5</p>
-      </div>
+    <div class="footer-credentials">
+      <span>QCTO Accredited</span>
+      <span class="divider">•</span>
+      <span>NQF Levels 4–5</span>
+      <span class="divider">•</span>
+      <span>Registration: 2025/709919/07</span>
     </div>
-  </footer>
+  </div>
+</footer>
 
-  <script>
-    // Professional scroll animations with stagger
-    const animated = document.querySelectorAll("[data-animate]");
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach((e, index) => {
-        if(e.isIntersecting) {
-          setTimeout(() => {
-            e.target.classList.add("visible");
-          }, index * 100);
-        }
-      });
-    }, {threshold: 0.15, rootMargin: '0px 0px -50px 0px'});
-    animated.forEach(el => observer.observe(el));
-    
-    // Mobile menu toggle with smooth animation
-    const navToggle = document.querySelector('.nav-toggle');
-    const navLinks = document.querySelector('.nav-links');
-    if(navToggle) {
-      navToggle.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-        navToggle.classList.toggle('active');
-      });
-      
-      // Close menu when clicking links
-      document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', () => {
-          navLinks.classList.remove('active');
-          navToggle.classList.remove('active');
-        });
-      });
-    }
 
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if(target) {
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-        }
-      });
-    });
+<!-- ================= POPUPS ================= -->
 
-    // Add parallax effect to hero
-    window.addEventListener('scroll', () => {
-      const scrolled = window.pageYOffset;
-      const heroImage = document.querySelector('.hero-image');
-      if(heroImage && scrolled < window.innerHeight) {
-        heroImage.style.transform = `translateY(${scrolled * 0.4}px) scale(1.1)`;
-      }
-    });
+<div class="welcome-popup" id="welcomePopup">
+  <div class="popup-content">
+    <button class="popup-close" id="closeWelcome">&times;</button>
+    <h2 class="popup-title">Welcome to ROGUDA</h2>
+    <p class="popup-subtitle">
+      2026 Applications Now Open. Join Africa’s premier fashion design school.
+    </p>
+    <a href="apply.html" class="popup-cta">Apply Now →</a>
+    <p class="popup-note">Limited spaces available</p>
+  </div>
+</div>
 
-    // Professional navbar scroll effect
-    let lastScroll = 0;
-    const navbar = document.querySelector('.nav-cinematic');
-    window.addEventListener('scroll', () => {
-      const currentScroll = window.pageYOffset;
-      
-      if(currentScroll > 100) {
-        navbar.style.padding = '12px 0';
-        navbar.style.boxShadow = '0 10px 40px rgba(0, 0, 0, 0.6)';
-      } else {
-        navbar.style.padding = '20px 0';
-        navbar.style.boxShadow = '0 8px 32px rgba(31, 38, 135, 0.15)';
-      }
-      
-      lastScroll = currentScroll;
-    });
+<div class="notification-popup" id="notificationPopup">
+  <button class="notification-close" id="closeNotification">&times;</button>
+  <div class="notification-text">
+    <h4>AI Fashion Studio</h4>
+    <p>All programs include AI fashion tools. Launching 2026 Q2.</p>
+  </div>
+</div>
 
-    // Welcome Popup - Show after 2 seconds
-    setTimeout(() => {
-      const welcomePopup = document.getElementById('welcomePopup');
-      if(welcomePopup && !sessionStorage.getItem('welcomeShown')) {
-        welcomePopup.classList.add('active');
-        sessionStorage.setItem('welcomeShown', 'true');
-      }
-    }, 2000);
+<!-- ================= JS ================= -->
+<script src="assets/js/mobile.js"></script>
+<script src="assets/js/animations.js"></script>
 
-    // Notification Popup - Show after 10 seconds
-    setTimeout(() => {
-      const notification = document.getElementById('notificationPopup');
-      if(notification && !sessionStorage.getItem('notificationShown')) {
-        notification.classList.add('show');
-        sessionStorage.setItem('notificationShown', 'true');
-        
-        // Auto-hide after 8 seconds
-        setTimeout(() => {
-          notification.classList.remove('show');
-        }, 8000);
-      }
-    }, 10000);
-
-    // Close welcome popup function
-    function closeWelcomePopup() {
-      const popup = document.getElementById('welcomePopup');
-      if(popup) {
-        popup.classList.remove('active');
-      }
-    }
-
-    // Close notification function
-    function closeNotification() {
-      const notification = document.getElementById('notificationPopup');
-      if(notification) {
-        notification.classList.remove('show');
-      }
-    }
-
-    // Close welcome popup on background click
-    document.getElementById('welcomePopup')?.addEventListener('click', (e) => {
-      if(e.target.id === 'welcomePopup') {
-        closeWelcomePopup();
-      }
-    });
-
-    // Close on Escape key
-    document.addEventListener('keydown', (e) => {
-      if(e.key === 'Escape') {
-        closeWelcomePopup();
-        closeNotification();
-      }
-    });
-  </script>
-  <script src="assets/js/mobile.js"></script>
 </body>
 </html>

@@ -491,3 +491,67 @@ document.addEventListener('DOMContentLoaded', function() {
         };
     }
 });
+document.addEventListener("DOMContentLoaded", () => {
+  const elements = document.querySelectorAll("[data-animate]");
+
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.15 }
+  );
+
+  elements.forEach(el => observer.observe(el));
+});
+document.addEventListener("DOMContentLoaded", () => {
+  const welcomePopup = document.getElementById("welcomePopup");
+  const notificationPopup = document.getElementById("notificationPopup");
+
+  const closeWelcome = document.getElementById("closeWelcome");
+  const closeNotification = document.getElementById("closeNotification");
+
+  // Show welcome popup
+  if (!sessionStorage.getItem("welcomeShown")) {
+    setTimeout(() => {
+      welcomePopup.classList.add("active");
+      sessionStorage.setItem("welcomeShown", "true");
+    }, 1500);
+  }
+
+  // Show notification popup
+  if (!sessionStorage.getItem("notificationShown")) {
+    setTimeout(() => {
+      notificationPopup.classList.add("show");
+      sessionStorage.setItem("notificationShown", "true");
+    }, 6000);
+  }
+
+  // Close handlers
+  closeWelcome.addEventListener("click", () => {
+    welcomePopup.classList.remove("active");
+  });
+
+  closeNotification.addEventListener("click", () => {
+    notificationPopup.classList.remove("show");
+  });
+
+  // Close welcome popup when clicking background
+  welcomePopup.addEventListener("click", e => {
+    if (e.target === welcomePopup) {
+      welcomePopup.classList.remove("active");
+    }
+  });
+
+  // Escape key
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape") {
+      welcomePopup.classList.remove("active");
+      notificationPopup.classList.remove("show");
+    }
+  });
+});
