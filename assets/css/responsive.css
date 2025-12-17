@@ -16,12 +16,22 @@
     
     /* Container */
     .container {
-        max-width: 95%;
-        padding: 0 15px;
+        max-width: 100%;
+        padding: 0 25px !important;
+        margin: 0 auto;
     }
     
     section {
-        padding: 60px 0;
+        padding: 60px 20px;
+    }
+    
+    /* Hero Section */
+    .hero {
+        padding: 80px 20px 60px 20px;
+    }
+    
+    .hero-content {
+        padding: 30px 20px;
     }
     
     /* Navigation */
@@ -148,6 +158,18 @@
         font-size: 1rem;
     }
     
+    /* Container - Critical for mobile padding */
+    .container {
+        max-width: 100%;
+        padding: 0 20px !important;
+        margin: 0 auto;
+    }
+    
+    /* Sections */
+    section {
+        padding: 40px 15px;
+    }
+    
     /* Buttons */
     .btn-primary,
     .btn-secondary {
@@ -156,8 +178,12 @@
     }
     
     /* Hero */
+    .hero {
+        padding: 60px 15px 40px 15px;
+    }
+    
     .hero-content {
-        padding: 20px;
+        padding: 25px 15px;
     }
     
     .hero-cta a {

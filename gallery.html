@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Gallery | ROGUDA Fashion & Art Design School</title>
+  <meta name="description" content="Explore stunning fashion designs and collections created by ROGUDA students and graduates.">
+  <link rel="icon" href="assets/images/circle3.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/cinematic.css">
+  <link rel="stylesheet" href="assets/css/theme.css">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+  <link rel="stylesheet" href="assets/css/mobile.css">
+  
+  <style>
+    /* Gallery Grid */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 30px;
+      padding: 20px 0;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 16px;
+      aspect-ratio: 3/4;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.1);
+      cursor: pointer;
+      transition: all 0.4s ease;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-8px);
+      border-color: rgba(248,213,72,0.4);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.08);
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 100%);
+      padding: 30px 25px;
+      transform: translateY(100%);
+      transition: transform 0.4s ease;
+    }
+
+    .gallery-item:hover .gallery-overlay {
+      transform: translateY(0);
+    }
+
+    .gallery-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .gallery-meta {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.75);
+    }
+
+    .gallery-tag {
+      display: inline-block;
+      padding: 4px 12px;
+      background: rgba(248,213,72,0.2);
+      border: 1px solid rgba(248,213,72,0.4);
+      border-radius: 20px;
+      color: #f8d548;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-top: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* Filter Buttons */
+    .filter-buttons {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 50px;
+    }
+
+    .filter-btn {
+      padding: 12px 28px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(248,213,72,0.3);
+      border-radius: 50px;
+      color: rgba(255,255,255,0.8);
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: rgba(248,213,72,0.2);
+      border-color: #f8d548;
+      color: #f8d548;
+    }
+
+    /* Lightbox */
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.95);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .lightbox.active {
+      display: flex;
+    }
+
+    .lightbox-content {
+      max-width: 90vw;
+      max-height: 90vh;
+      position: relative;
+    }
+
+    .lightbox-content img {
+      max-width: 100%;
+      max-height: 90vh;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: -50px;
+      right: 0;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 2.5rem;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    .lightbox-close:hover {
+      color: #f8d548;
+    }
+
+    @media (max-width: 768px) {
+      .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  
+  <!-- Navigation -->
+  <nav class="nav-cinematic glass-nav" id="mainNav">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <img src="assets/images/WhatsApp Image 2025-09-08 at 20.56.36_80570309.jpg" alt="ROGUDA">
+        <div class="logo-text">
+          <span class="logo-name">ROGUDA</span>
+        </div>
+      </a>
+      
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="programs.html">Programs</a></li>
+        <li><a href="gallery.html" class="active">Gallery</a></li>
+        <li><a href="incubator.html">Incubator</a></li>
+        <li><a href="studio.html">AI Studio</a></li>
+        <li><a href="marketplace.html">Marketplace</a></li>
+        <li><a href="login.html" class="nav-btn-outline">Student Login</a></li>
+        <li><a href="apply.html" class="nav-btn-gold">Apply Now</a></li>
+      </ul>
+      
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-cinematic">
+    <div class="hero-background">
+      <div class="hero-image" style="background-image: url('assets/images/Vintage Sewing Machine and Measuring Tape (1).png');"></div>
+      <div class="hero-overlay"></div>
+    </div>
+    
+    <div class="hero-content">
+      <h1 class="hero-title">
+        <span class="title-line">Student</span>
+        <span class="title-line title-gold">Design Gallery</span>
+      </h1>
+      
+      <p class="hero-subtitle">Celebrating creativity, craftsmanship, and the future of African fashion</p>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section class="section-cinematic section-dark" style="padding:100px 0;">
+    <div class="container" style="max-width:1400px;margin:auto;">
+      
+      <!-- Filter Buttons -->
+      <div class="filter-buttons">
+        <button class="filter-btn active" data-filter="all">All Work</button>
+        <button class="filter-btn" data-filter="graduate">Graduate Collections</button>
+        <button class="filter-btn" data-filter="runway">Fashion Shows</button>
+        <button class="filter-btn" data-filter="process">Behind the Scenes</button>
+        <button class="filter-btn" data-filter="student">Student Projects</button>
+      </div>
+
+      <!-- Gallery Grid -->
+      <div class="gallery-grid" id="galleryGrid">
+        
+        <!-- Item 1 -->
+        <div class="gallery-item" data-category="graduate">
+          <img src="assets/images/Back1.jpg" alt="Graduate Collection 2024">
+          <div class="gallery-overlay">
+            <h3 class="gallery-title">Heritage Reimagined</h3>
+            <p class="gallery-meta">Thandi Mthembu • Class of 2024</p>
+            <span class="gallery-tag">Graduate Collection</span>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="gallery-item" data-category="runway">
+          <img src="assets/images/Back2.jpg" alt="Fashion Show 2024">
+          <div class="gallery-overlay">
+            <h3 class="gallery-title">Annual Fashion Show</h3>
+            <p class="gallery-meta">Spring/Summer 2024</p>
+            <span class="gallery-tag">Runway</span>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="gallery-item" data-category="student">
+          <img src="assets/images/Back3.jpg" alt="Student Design">
+          <div class="gallery-overlay">
+            <h3 class="gallery-title">Urban Fusion</h3>
+            <p class="gallery-meta">Sipho Nkosi • NQF Level 5</p>
+            <span class="gallery-tag">Student Work</span>
+          </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="gallery-item" data-category="process">
+          <img src="assets/images/Back4.jpg" alt="Pattern Making">
+          <div class="gallery-overlay">
+            <h3 class="gallery-title">Pattern Making Studio</h3>
+            <p class="gallery-meta">Advanced Techniques Workshop</p>
+            <span class="gallery-tag">Behind the Scenes</span>
+          </div>
+        </div>
+
+        <!-- Item 5 -->
+        <div class="gallery-item" data-category="graduate">
+          <img src="assets/images/Back5.jpg" alt="Graduate Work">
+          <div class="gallery-overlay">
+            <h3 class="gallery-title">Elegant Eveningwear</h3>
+            <p class="gallery-meta">Nomsa Dlamini • Class of 2023</p>
+            <span class="gallery-tag">Graduate Collection</span>
+          </div>
+        </div>
+
+        <!-- Item 6 -->
+        <div class="gallery-item" data-category="student">
+          <img src="assets/images/Back6.jpg" alt="Student Project">
+          <div class="gallery-overlay">
+            <h3 class="gallery-title">Contemporary Tailoring</h3>
+            <p class="gallery-meta">Lerato Moloi • NQF Level 4</p>
+            <span class="gallery-tag">Student Work</span>
+          </div>
+        </div>
+
+        <!-- Item 7 -->
+        <div class="gallery-item" data-category="runway">
+          <img src="assets/images/Back7.jpg" alt="Runway Show">
+          <div class="gallery-overlay">
+            <h3 class="gallery-title">Graduate Showcase</h3>
+            <p class="gallery-meta">December 2024</p>
+            <span class="gallery-tag">Runway</span>
+          </div>
+        </div>
+
+        <!-- Item 8 -->
+        <div class="gallery-item" data-category="process">
+          <img src="assets/images/Back8.jpg" alt="Studio Work">
+          <div class="gallery-overlay">
+            <h3 class="gallery-title">Draping & Construction</h3>
+            <p class="gallery-meta">Advanced Class Session</p>
+            <span class="gallery-tag">Behind the Scenes</span>
+          </div>
+        </div>
+
+        <!-- Item 9 -->
+        <div class="gallery-item" data-category="graduate">
+          <img src="assets/images/Back9.jpg" alt="Final Collection">
+          <div class="gallery-overlay">
+            <h3 class="gallery-title">African Couture</h3>
+            <p class="gallery-meta">Zanele Khumalo • Class of 2024</p>
+            <span class="gallery-tag">Graduate Collection</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section-cinematic section-light" style="padding:80px 0;">
+    <div class="container" style="max-width:900px;margin:auto;text-align:center;">
+      <h2 class="section-title">Ready to Create Your <span class="text-gold">Own Collection?</span></h2>
+      <p style="font-size:1.15rem;line-height:1.8;color:rgba(255,255,255,0.8);margin-bottom:40px;">Join ROGUDA and showcase your designs to the world</p>
+      <a href="apply.html" class="btn-hero-primary" style="display:inline-block;padding:18px 48px;font-size:1.05rem;">Apply Now</a>
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <div class="lightbox-content">
+      <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+      <img id="lightboxImg" src="" alt="">
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer-cinematic">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="footer-logo">
+            <img src="assets/images/WhatsApp Image 2025-09-08 at 20.56.36_80570309.jpg" alt="ROGUDA" class="logo-image">
+            <div class="logo-text">
+              <h3 class="school-name">ROGUDA</h3>
+              <p class="school-tagline">Fashion & Art Design School</p>
+            </div>
+          </div>
+          <p>QCTO-accredited fashion design school empowering Africa's next generation of creative professionals.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="programs.html">Programs</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="incubator.html">Incubator</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>For Students</h4>
+          <ul>
+            <li><a href="apply.html">Apply Now</a></li>
+            <li><a href="login.html">Student Login</a></li>
+            <li><a href="register.html">Register</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="docs/privacy_policy.html">Privacy Policy</a></li>
+            <li><a href="docs/terms.html">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 ROGUDA Fashion & Art Design School. All rights reserved.</p>
+        <p>QCTO Accredited | NQF Levels 2-5</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Filter functionality
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Remove active class from all buttons
+        filterBtns.forEach(b => b.classList.remove('active'));
+        // Add active class to clicked button
+        btn.classList.add('active');
+
+        const filter = btn.dataset.filter;
+
+        galleryItems.forEach(item => {
+          if (filter === 'all' || item.dataset.category === filter) {
+            item.style.display = 'block';
+            setTimeout(() => {
+              item.style.opacity = '1';
+              item.style.transform = 'scale(1)';
+            }, 10);
+          } else {
+            item.style.opacity = '0';
+            item.style.transform = 'scale(0.8)';
+            setTimeout(() => {
+              item.style.display = 'none';
+            }, 300);
+          }
+        });
+      });
+    });
+
+    // Lightbox functionality
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+
+    galleryItems.forEach(item => {
+      item.addEventListener('click', () => {
+        const img = item.querySelector('img');
+        lightboxImg.src = img.src;
+        lightbox.classList.add('active');
+      });
+    });
+
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+    }
+
+    // Close lightbox on background click
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        closeLightbox();
+      }
+    });
+
+    // Close on escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeLightbox();
+      }
+    });
+
+    // Mobile menu
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    navToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+  </script>
+  <script src="assets/js/cinematic-animations.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/mobile.js"></script>
+</body>
+</html>

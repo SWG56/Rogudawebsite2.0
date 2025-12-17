@@ -5,24 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Graduate Incubator | ROGUDA Fashion & Art Design School</title>
   <meta name="description" content="Launch your fashion business with support from ROGUDA's Graduate Incubator program.">
-  
-  <!-- Favicon -->
   <link rel="icon" href="assets/images/circle3.png" type="image/png">
-  <link rel="shortcut icon" href="assets/images/circle3.png">
-  
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  
-  <!-- CSS Files -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/cinematic.css">
   <link rel="stylesheet" href="assets/css/theme.css">
   <link rel="stylesheet" href="assets/css/main.css">
-  <link rel="stylesheet" href="assets/css/fixes.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+  <link rel="stylesheet" href="assets/css/mobile.css">
 </head>
 
-<body style="position: relative; min-height: 100vh; overflow-x: hidden;">
+<body>
   
-  <!-- Navigation (Matches index.html) -->
+  <!-- Navigation -->
   <nav class="nav-cinematic glass-nav" id="mainNav">
     <div class="nav-container">
       <a href="index.html" class="nav-logo">
@@ -36,6 +30,7 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="programs.html">Programs</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
         <li><a href="incubator.html" class="active">Incubator</a></li>
         <li><a href="studio.html">AI Studio</a></li>
         <li><a href="marketplace.html">Marketplace</a></li>
@@ -51,25 +46,23 @@
     </div>
   </nav>
 
-  <!-- Incubator Hero Section -->
-  <section class="hero-cinematic incubator-hero" id="incubator">
+  <!-- Hero Section -->
+  <section class="hero-cinematic">
     <div class="hero-background">
-      <div class="hero-image" style="background-image: url('assets/images/campus/incubator.jpg');"></div>
+      <div class="hero-image" style="background-image: url('assets/images/Vintage Sewing Machine and Measuring Tape (1).png');"></div>
       <div class="hero-overlay"></div>
     </div>
     
-    <div class="hero-content" data-animate="fade-up">
-      <h1 class="hero-title reveal-stagger">
-        <span class="title-line reveal-text">Graduate</span>
-        <span class="title-line title-gold reveal-text" style="transition-delay: 0.3s;">Business Incubator</span>
+    <div class="hero-content">
+      <h1 class="hero-title">
+        <span class="title-line">Graduate</span>
+        <span class="title-line title-gold">Business Incubator</span>
       </h1>
       
-      <p class="hero-subtitle float-animation" style="animation-delay: 0.7s; margin-bottom: 30px;">
-        From student to entrepreneur — we support your fashion business journey
-      </p>
+      <p class="hero-subtitle">From student to entrepreneur — we support your fashion business journey</p>
       
-      <div class="hero-cta reveal-stagger" style="transition-delay: 0.9s">
-        <a href="#apply" class="btn-hero-primary btn-enhanced gold-pulse">
+      <div class="hero-cta">
+        <a href="#apply" class="btn-hero-primary">
           <span class="btn-text">Apply to Incubator</span>
           <span class="btn-icon">→</span>
         </a>
@@ -77,212 +70,67 @@
     </div>
   </section>
 
-  <!-- Overview Section -->
-  <section class="about-cinematic" data-animate="fade-up">
-    <div class="container">
-      <div class="section-header-cinematic">
-        <div class="header-top">
-          <span class="section-badge">Launch Your Brand</span>
-          <div class="section-line"></div>
-        </div>
+  <!-- What We Offer -->
+  <section class="section-cinematic section-dark" style="padding:100px 0;">
+    <div class="container" style="max-width:1000px;margin:auto;text-align:center;">
+      <span class="section-label">Support for Graduates</span>
+      <h2 class="section-title">What We <span class="text-gold">Offer</span></h2>
+      <p style="font-size:1.15rem;line-height:1.8;color:rgba(255,255,255,0.8);margin-bottom:60px;max-width:700px;margin-left:auto;margin-right:auto;">Comprehensive support to launch and grow your fashion business</p>
+
+      <div style="display:flex;flex-direction:column;gap:30px;max-width:900px;margin:auto;">
         
-        <h2 class="section-title-cinematic">
-          <span class="title-line">Transform Your Vision Into</span>
-          <span class="title-line">
-            <span class="text-gold shimmer">Sustainable Business</span>
-          </span>
-        </h2>
+        <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(248,213,72,0.2);border-radius:16px;padding:35px;text-align:left;">
+          <h3 style="color:#f8d548;font-size:1.5rem;margin-bottom:15px;">Workspace & Equipment</h3>
+          <p style="color:rgba(255,255,255,0.85);line-height:1.7;font-size:1.05rem;">Dedicated studio space with sewing machines, cutting tables, and professional equipment at subsidized rates.</p>
+        </div>
+
+        <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(248,213,72,0.2);border-radius:16px;padding:35px;text-align:left;">
+          <h3 style="color:#f8d548;font-size:1.5rem;margin-bottom:15px;">Mentorship & Training</h3>
+          <p style="color:rgba(255,255,255,0.85);line-height:1.7;font-size:1.05rem;">One-on-one guidance from industry professionals and workshops on marketing, finance, and business management.</p>
+        </div>
+
+        <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(248,213,72,0.2);border-radius:16px;padding:35px;text-align:left;">
+          <h3 style="color:#f8d548;font-size:1.5rem;margin-bottom:15px;">Funding & Market Access</h3>
+          <p style="color:rgba(255,255,255,0.85);line-height:1.7;font-size:1.05rem;">Business plan assistance, grant applications, marketplace listing, and fashion show participation.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- How to Apply -->
+  <section class="section-cinematic section-light" id="apply" style="padding:100px 0;">
+    <div class="container" style="max-width:1000px;margin:auto;text-align:center;">
+      <span class="section-label">Join Us</span>
+      <h2 class="section-title">How to <span class="text-gold">Apply</span></h2>
+      <p style="font-size:1.15rem;line-height:1.8;color:rgba(255,255,255,0.8);margin-bottom:60px;max-width:700px;margin-left:auto;margin-right:auto;">Start your entrepreneurial journey with our incubator program</p>
+
+      <div style="display:flex;flex-direction:column;gap:30px;max-width:900px;margin:auto;margin-bottom:50px;">
         
-        <p class="section-description-cinematic">
-          Our Graduate Incubator provides resources, mentorship, and infrastructure 
-          to help you transform your creative vision into a successful fashion enterprise.
-        </p>
-      </div>
-
-      <!-- Stats Grid -->
-      <div class="incubator-stats" data-animate="fade-up">
-        <div class="stat-item-incubator">
-          <div class="stat-number-incubator">24</div>
-          <div class="stat-label-incubator">Active Startups</div>
-        </div>
-        <div class="stat-item-incubator">
-          <div class="stat-number-incubator">R2.5M+</div>
-          <div class="stat-label-incubator">Funding Secured</div>
-        </div>
-        <div class="stat-item-incubator">
-          <div class="stat-number-incubator">85%</div>
-          <div class="stat-label-incubator">Still Operating After 2 Years</div>
-        </div>
-        <div class="stat-item-incubator">
-          <div class="stat-number-incubator">120+</div>
-          <div class="stat-label-incubator">Jobs Created</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- What We Offer Section -->
-  <section class="section-cinematic section-light" data-animate="fade-up">
-    <div class="container">
-      <div class="section-header-center">
-        <span class="section-label">Our Support</span>
-        <h2 class="section-title">What We <span class="text-gold">Offer</span></h2>
-        <p class="section-description">Comprehensive support for fashion entrepreneurs</p>
-      </div>
-
-      <div class="benefits-grid-cinematic">
-        <div class="benefit-card-cinematic" data-animate="fade-up" data-delay="100">
-          <div class="benefit-icon">🏢</div>
-          <h3>Workspace Access</h3>
-          <p>Dedicated studio space, sewing machines, cutting tables, and professional equipment at subsidized rates.</p>
-        </div>
-
-        <div class="benefit-card-cinematic" data-animate="fade-up" data-delay="200">
-          <div class="benefit-icon">👥</div>
-          <h3>Mentorship</h3>
-          <p>One-on-one guidance from industry professionals, successful alumni, and business advisors.</p>
-        </div>
-
-        <div class="benefit-card-cinematic" data-animate="fade-up" data-delay="300">
-          <div class="benefit-icon">💰</div>
-          <h3>Funding Support</h3>
-          <p>Assistance with business plans, grant applications, and connections to investors.</p>
-        </div>
-
-        <div class="benefit-card-cinematic" data-animate="fade-up" data-delay="400">
-          <div class="benefit-icon">📚</div>
-          <h3>Business Training</h3>
-          <p>Workshops on marketing, financial management, supply chain, legal compliance, and scaling strategies.</p>
-        </div>
-
-        <div class="benefit-card-cinematic" data-animate="fade-up" data-delay="500">
-          <div class="benefit-icon">🌐</div>
-          <h3>Market Access</h3>
-          <p>Listing on our student marketplace, participation in fashion shows, and industry networking events.</p>
-        </div>
-
-        <div class="benefit-card-cinematic" data-animate="fade-up" data-delay="600">
-          <div class="benefit-icon">🤝</div>
-          <h3>Peer Network</h3>
-          <p>Collaborative community of fellow designers, access to shared resources, and partnership opportunities.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Success Stories Section -->
-  <section class="section-cinematic section-dark" data-animate="fade-up">
-    <div class="container">
-      <div class="section-header-center">
-        <span class="section-label">Success Stories</span>
-        <h2 class="section-title">Incubator <span class="text-gold">Graduates</span></h2>
-        <p class="section-description">Meet graduates who launched successful fashion businesses</p>
-      </div>
-
-      <div class="success-grid-cinematic">
-        <!-- Story 1 -->
-        <div class="story-card-cinematic" data-animate="fade-up" data-delay="100">
-          <div class="story-image" style="background-image: url('assets/images/students/graduate1.jpg');">
-            <div class="story-overlay"></div>
-            <div class="story-badge">Thando Textiles</div>
-          </div>
-          <div class="story-content">
-            <h3>Thando Textiles</h3>
-            <p class="story-founder">Founded by <strong>Thando Mthembu</strong>, Class of 2023</p>
-            <p>Launched a sustainable textile brand specializing in eco-friendly African prints.</p>
-            <div class="story-stats">
-              <span>📈 R850K Revenue (Year 1)</span>
-              <span>👥 8 Employees</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Story 2 -->
-        <div class="story-card-cinematic" data-animate="fade-up" data-delay="200">
-          <div class="story-image" style="background-image: url('assets/images/students/graduate2.jpg');">
-            <div class="story-overlay"></div>
-            <div class="story-badge">Urban Fusion</div>
-          </div>
-          <div class="story-content">
-            <h3>Urban Fusion Apparel</h3>
-            <p class="story-founder">Founded by <strong>Sipho Nkosi</strong>, Class of 2022</p>
-            <p>Streetwear brand blending traditional Zulu beadwork with contemporary urban fashion.</p>
-            <div class="story-stats">
-              <span>🏆 Best New Designer 2024</span>
-              <span>💼 Retail Partnership</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Story 3 -->
-        <div class="story-card-cinematic" data-animate="fade-up" data-delay="300">
-          <div class="story-image" style="background-image: url('assets/images/students/graduate3.jpg');">
-            <div class="story-overlay"></div>
-            <div class="story-badge">Elegance</div>
-          </div>
-          <div class="story-content">
-            <h3>Elegance Alterations</h3>
-            <p class="story-founder">Founded by <strong>Nomsa Dlamini</strong>, Class of 2023</p>
-            <p>Mobile tailoring service offering on-site alterations and custom garment fitting.</p>
-            <div class="story-stats">
-              <span>🚐 3 Mobile Units</span>
-              <span>⭐ 4.9/5 Rating</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Application Process -->
-  <section class="section-cinematic section-light" id="apply" data-animate="fade-up">
-    <div class="container">
-      <div class="section-header-center">
-        <span class="section-label">Join Us</span>
-        <h2 class="section-title">Incubator <span class="text-gold">Application</span></h2>
-        <p class="section-description">Start your entrepreneurial journey with us</p>
-      </div>
-
-      <div class="process-grid-cinematic">
-        <div class="process-card-cinematic" data-animate="fade-up" data-delay="100">
-          <h3>Eligibility</h3>
-          <ul>
+        <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(248,213,72,0.2);border-radius:16px;padding:35px;text-align:left;">
+          <h3 style="color:#f8d548;font-size:1.5rem;margin-bottom:15px;">Eligibility</h3>
+          <ul style="color:rgba(255,255,255,0.85);line-height:1.9;font-size:1.05rem;padding-left:25px;">
             <li>ROGUDA graduate (within 2 years of completion)</li>
-            <li>Business concept related to fashion/textiles</li>
+            <li>Fashion or textile-related business concept</li>
             <li>Commitment to full-time entrepreneurship</li>
-            <li>Willingness to mentor future students</li>
           </ul>
         </div>
 
-        <div class="process-card-cinematic" data-animate="fade-up" data-delay="200">
-          <h3>Requirements</h3>
-          <ul>
+        <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(248,213,72,0.2);border-radius:16px;padding:35px;text-align:left;">
+          <h3 style="color:#f8d548;font-size:1.5rem;margin-bottom:15px;">Requirements</h3>
+          <ul style="color:rgba(255,255,255,0.85);line-height:1.9;font-size:1.05rem;padding-left:25px;">
             <li>Business plan or concept pitch deck</li>
             <li>Portfolio of designs/products</li>
-            <li>Financial projections (1-2 years)</li>
             <li>Letter of motivation</li>
-            <li>Completed POPIA consent form</li>
           </ul>
         </div>
 
-        <div class="process-card-cinematic" data-animate="fade-up" data-delay="300">
-          <h3>Selection Process</h3>
-          <ul>
-            <li>Application review by advisory panel</li>
-            <li>Business pitch presentation</li>
-            <li>Feasibility assessment</li>
-            <li>Interview with incubator committee</li>
-            <li>Acceptance within 4 weeks</li>
-          </ul>
-        </div>
       </div>
 
-      <div class="section-cta" data-animate="fade-up">
-        <a href="apply.html?type=incubator" class="btn-cta-primary">Apply to Incubator</a>
-        <p class="cta-note">
-          Not a graduate yet? <a href="programs.html" class="gold-link">View our programs</a>
-        </p>
-      </div>
+      <a href="apply.html?type=incubator" class="btn-hero-primary" style="display:inline-block;padding:18px 48px;font-size:1.05rem;">Apply to Incubator</a>
+      <p style="margin-top:25px;font-size:1.05rem;color:rgba(255,255,255,0.7);">
+        Not a graduate yet? <a href="programs.html" style="color:#f8d548;text-decoration:underline;">View our programs</a>
+      </p>
     </div>
   </section>
 
@@ -301,8 +149,8 @@
           <p>QCTO-accredited fashion design school empowering Africa's next generation of creative professionals.</p>
           
           <div class="footer-contact">
-            <p>📧 <a href="mailto:info@rogudafashion.co.za">info@rogudafashion.co.za</a></p>
-            <p>📱 <a href="https://wa.me/27823246267">082 324 6267</a> (WhatsApp & Calls)</p>
+            <p>Email: <a href="mailto:info@rogudafashion.co.za">info@rogudafashion.co.za</a></p>
+            <p>Phone: <a href="https://wa.me/27823246267">082 324 6267</a> (WhatsApp & Calls)</p>
           </div>
           
           <div class="footer-social">
@@ -360,5 +208,6 @@
   <script src="assets/js/cinematic-animations.js"></script>
   <script src="assets/js/main.js"></script>
   <script src="assets/js/animations.js"></script>
+  <script src="assets/js/mobile.js"></script>
 </body>
 </html>

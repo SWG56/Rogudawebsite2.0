@@ -1,0 +1,231 @@
+========================================
+ROGUDA WEBSITE - AFRIHOST UPLOAD GUIDE
+========================================
+Package Created: December 15, 2025
+
+✅ THIS PACKAGE INCLUDES:
+- All HTML pages with mobile/tablet support
+- Mobile CSS (responsive.css + mobile.css)
+- Mobile JavaScript (mobile.js)
+- API endpoints (login, register, analytics)
+- Admin panel
+- Assets (CSS, JS, images)
+- Database setup files
+
+========================================
+STEP-BY-STEP UPLOAD INSTRUCTIONS
+========================================
+
+STEP 1: AFRIHOST CPANEL LOGIN
+------------------------------
+1. Go to: https://www.afrihost.com/my/clientarea.php
+2. Login with your Afrihost account
+3. Click "Services" → "My Services"
+4. Click "Manage" on your hosting package
+5. Click "Login to cPanel"
+
+STEP 2: CREATE MYSQL DATABASE
+------------------------------
+1. In cPanel, find "Databases" section
+2. Click "MySQL Databases"
+3. Under "Create New Database":
+   - Database Name: roguda_db
+   - Click "Create Database"
+4. Scroll down to "Add New User":
+   - Username: roguda_user (or your choice)
+   - Password: [Create strong password]
+   - Click "Create User"
+5. Scroll to "Add User to Database":
+   - User: Select roguda_user
+   - Database: Select roguda_db
+   - Click "Add"
+   - Check "ALL PRIVILEGES"
+   - Click "Make Changes"
+
+📝 WRITE DOWN YOUR CREDENTIALS:
+   Database Name: _________________________
+   Database User: _________________________
+   Database Pass: _________________________
+
+STEP 3: UPLOAD FILES TO AFRIHOST
+---------------------------------
+Option A - File Manager (Easiest):
+1. In cPanel, click "File Manager"
+2. Navigate to "public_html" folder
+3. Click "Upload" button (top toolbar)
+4. Select all files from this folder
+5. Wait for upload to complete
+6. Go back to File Manager
+7. Verify all files uploaded
+
+Option B - FTP Client:
+1. Download FileZilla: https://filezilla-project.org/
+2. Get FTP credentials from cPanel → "FTP Accounts"
+3. Connect via FTP:
+   - Host: ftp.yourdomain.co.za
+   - Username: [from cPanel]
+   - Password: [from cPanel]
+   - Port: 21
+4. Navigate to /public_html/
+5. Upload all files from this folder
+
+STEP 4: SETUP DATABASE TABLES
+------------------------------
+1. In cPanel, go to "phpMyAdmin"
+2. Click on "roguda_db" database (left sidebar)
+3. Click "SQL" tab at the top
+4. Open file: SQL_SETUP.sql (in this package)
+5. Copy ALL the SQL code
+6. Paste into phpMyAdmin SQL box
+7. Click "Go" button
+8. You should see: "Query OK" messages
+9. Click "Structure" tab
+10. Verify these tables exist:
+    - applicants
+    - users
+    - products
+    - orders
+
+STEP 5: UPDATE CONFIGURATION
+-----------------------------
+1. In cPanel File Manager, navigate to: public_html/api/
+2. Create new file called: config.php
+3. Add this content (UPDATE WITH YOUR DETAILS):
+
+<?php
+// Database Configuration
+define('DB_HOST', 'localhost');
+define('DB_NAME', 'YOUR_DATABASE_NAME');     // From Step 2
+define('DB_USER', 'YOUR_DATABASE_USER');     // From Step 2
+define('DB_PASS', 'YOUR_DATABASE_PASSWORD'); // From Step 2
+
+// Site Configuration
+define('SITE_URL', 'https://yourdomain.co.za');
+define('SITE_EMAIL', 'admissions@yourdomain.co.za');
+?>
+
+4. Save the file
+5. Set file permissions to 644
+
+STEP 6: ENABLE SSL (HTTPS)
+---------------------------
+1. In cPanel, find "Security" section
+2. Click "SSL/TLS Status"
+3. Find your domain in the list
+4. Click "Run AutoSSL"
+5. Wait for certificate installation
+6. Test: https://yourdomain.co.za
+
+STEP 7: TEST YOUR WEBSITE
+--------------------------
+✅ Test Checklist:
+□ Visit: https://yourdomain.co.za
+□ Homepage loads correctly
+□ Navigation menu works on desktop
+□ Test on mobile phone (responsive design)
+□ Click "Apply" - form loads
+□ Submit test application
+□ Check database: phpMyAdmin → applicants table
+□ Test login page
+□ Test admin login: /admin/admin-login.php
+□ Check mobile menu (hamburger icon)
+
+STEP 8: EMAIL CONFIGURATION
+----------------------------
+1. In cPanel, go to "Email Accounts"
+2. Create: admissions@yourdomain.co.za
+3. Update api/register.php and submit_application.php
+4. Replace email addresses with your actual domain
+5. Test email sending:
+   - Submit application form
+   - Check spam folder if not received
+
+========================================
+TROUBLESHOOTING
+========================================
+
+❌ Problem: "Database connection failed"
+✅ Solution: 
+   - Check config.php credentials match Step 2
+   - Verify database exists in phpMyAdmin
+   - Check DB_HOST is 'localhost'
+
+❌ Problem: "404 Not Found" errors
+✅ Solution:
+   - Verify .htaccess file uploaded
+   - Check file paths are correct
+   - Ensure index.html is in public_html root
+
+❌ Problem: Mobile menu not working
+✅ Solution:
+   - Clear browser cache
+   - Check assets/js/mobile.js uploaded
+   - Verify responsive.css and mobile.css loaded
+
+❌ Problem: Forms not submitting
+✅ Solution:
+   - Check PHP version in cPanel (need PHP 7.4+)
+   - Verify API folder uploaded to public_html/api/
+   - Check file permissions (PHP files need 644)
+
+❌ Problem: Emails not sending
+✅ Solution:
+   - Verify sender email domain matches your hosting
+   - Check Afrihost email limits
+   - Test with cPanel → "Email Deliverability"
+   - Contact Afrihost support for mail() function
+
+========================================
+AFRIHOST SUPPORT
+========================================
+
+📞 Phone: 087 943 7467
+📧 Email: support@afrihost.com
+🌐 Help Center: https://www.afrihost.com/support
+💬 Live Chat: Available in cPanel
+
+========================================
+POST-DEPLOYMENT CHECKLIST
+========================================
+
+□ Website loads on desktop
+□ Website loads on mobile
+□ Website loads on tablet
+□ SSL certificate active (https://)
+□ Application form working
+□ Login system working
+□ Admin panel accessible
+□ Email notifications sending
+□ Database storing data
+□ All images loading
+□ Mobile menu functioning
+□ Forms have POPIA consent checkbox
+□ Privacy policy accessible
+□ Terms & conditions accessible
+
+========================================
+SECURITY RECOMMENDATIONS
+========================================
+
+1. Change default admin passwords
+2. Keep software updated
+3. Enable AutoSSL for HTTPS
+4. Set up regular backups (cPanel → Backup Wizard)
+5. Monitor error logs (cPanel → Error Logs)
+6. Use strong database passwords
+7. Don't share FTP credentials
+8. Enable two-factor authentication in cPanel
+
+========================================
+NEED HELP?
+========================================
+
+For technical support with this deployment:
+- Check: DATABASE_SETUP_GUIDE.md (included)
+- Check: DEPLOYMENT_CHECKLIST.md (included)
+- Afrihost cPanel has built-in tutorials
+- Afrihost support team is very helpful
+
+Good luck with your deployment! 🚀
+
+========================================
