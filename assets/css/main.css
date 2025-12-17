@@ -975,5 +975,49 @@ section {
   margin-top: auto;   /* 🔥 KEY FIX */
   align-self: center; /* optional – keeps it centered */
 }
+.newsletter-form {
+  display: flex;
+  flex-direction: column;   /* 👈 stack vertically */
+  gap: 16px;                /* 👈 clean spacing */
+  max-width: 100%;
+}
+.newsletter-form input {
+  width: 100%;
+  max-width: 100%;
+}
+
+.btn-subscribe {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+/* Desktop */
+@media (min-width: 1025px) {
+  .newsletter-form {
+    flex-direction: row;
+  }
+
+  .newsletter-form input {
+    flex: 1;
+  }
+
+  .btn-subscribe {
+    width: auto;
+    white-space: nowrap;
+  }
+}
+
+/* Tablet & Mobile */
+@media (max-width: 1024px) {
+  .newsletter-form {
+    flex-direction: column;
+  }
+
+  .btn-subscribe {
+    width: 100%;
+  }
+}
 
 

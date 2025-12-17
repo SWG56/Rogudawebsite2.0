@@ -510,4 +510,55 @@
     font-size: 0.9rem;
   }
 }
+.input-group {
+  display: flex;
+}
+.newsletter-form {
+  display: flex;
+  flex-direction: row;
+}
+/* Force Subscribe button BELOW email input */
+.newsletter-form,
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 14px; /* space between input and button */
+}
+.newsletter-form input,
+.newsletter-form .btn-subscribe {
+  width: 100%;
+  max-width: 100%;
+}
+/* ================= HEADER FIX: 1280x800 (Nest Hub Max) ================= */
+
+/* Treat Nest Hub Max like iPad Pro */
+@media (max-width: 1280px) {
+
+  .nav-container {
+    padding: 14px 24px; /* tighter padding */
+  }
+
+  .nav-menu {
+    gap: 20px; /* reduce space between menu items */
+  }
+
+  .nav-menu a {
+    font-size: 0.95rem; /* slightly smaller text */
+  }
+
+  .logo-text {
+    font-size: 1.3rem;
+  }
+
+  .btn-gold,
+  .btn-hero-primary {
+    padding: 10px 18px;
+    font-size: 0.9rem;
+  }
+}
+@media (max-width: 1280px) {
+  .nav-actions {
+    gap: 10px;
+  }
+}
 
