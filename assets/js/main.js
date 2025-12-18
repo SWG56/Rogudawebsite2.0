@@ -314,3 +314,12 @@ window.addEventListener('load', handleScrollIndicator);
         cursorGlow.style.opacity = '0';
       });
     });
+    document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll('a').forEach(link => {
+    const href = link.getAttribute('href');
+
+    if (href === 'studio.html' || href === 'marketplace.html') {
+      link.setAttribute('href', 'comingsoon.html');
+    }
+  });
+});
