@@ -561,4 +561,184 @@
     gap: 10px;
   }
 }
+/* =====================================================
+   FOOTER FIX – TABLET & SMALL SCREENS
+   ===================================================== */
+
+@media (max-width: 1024px) {
+
+  .footer-cinematic {
+    background-position: center !important;
+    background-size: cover !important;
+  }
+
+  .footer-container {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 40px !important;
+    align-items: start !important;
+  }
+
+  /* Brand block */
+  .footer-brand {
+    grid-column: 1 / -1 !important;
+    text-align: left !important;
+  }
+
+  /* Navigation */
+  .footer-nav {
+    padding-left: 0 !important;
+  }
+
+  /* Newsletter */
+  .newsletter {
+    grid-column: 1 / -1 !important;
+    max-width: 480px !important;
+    margin: 0 auto !important;
+  }
+
+  .newsletter-form {
+    width: 100% !important;
+  }
+
+  .newsletter input,
+  .newsletter button {
+    width: 100% !important;
+  }
+
+  /* Social icons */
+  .footer-social {
+    justify-content: center !important;
+    margin-top: 20px !important;
+  }
+}
+/* =====================================================
+   FOOTER FIX – MOBILE
+   ===================================================== */
+
+@media (max-width: 600px) {
+
+  .footer-container {
+    grid-template-columns: 1fr !important;
+    text-align: center !important;
+  }
+
+  .footer-brand,
+  .footer-nav,
+  .newsletter {
+    grid-column: 1 / -1 !important;
+  }
+
+  .footer-contact p {
+    justify-content: center !important;
+  }
+
+  .footer-nav li {
+    margin-bottom: 10px !important;
+  }
+}
+/* =====================================================
+   FOLD / NARROW SCREENS – CENTER EVERYTHING
+   ===================================================== */
+
+@media (max-width: 900px) {
+
+  /* Footer container */
+  .footer-container {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  /* Brand */
+  .footer-brand {
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  .footer-logo {
+    justify-content: center !important;
+  }
+
+  .footer-contact p {
+    justify-content: center !important;
+  }
+
+  /* Navigation */
+  .footer-nav {
+    align-items: center !important;
+    padding: 0 !important;
+  }
+
+  .footer-nav li {
+    text-align: center !important;
+  }
+
+  /* Newsletter */
+  .newsletter {
+    align-items: center !important;
+    text-align: center !important;
+    max-width: 100% !important;
+  }
+
+  .newsletter-form {
+    align-items: center !important;
+  }
+
+  .newsletter input,
+  .newsletter button {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  /* Social icons */
+  .footer-social {
+    justify-content: center !important;
+    margin-top: 25px !important;
+  }
+}
+/* ================= PROGRAM CARDS – MOBILE FIX ================= */
+
+@media (max-width: 768px) {
+
+  .programs-grid,
+  .program-grid,
+  .program-cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+    padding: 40px 16px;
+  }
+
+  .program-card {
+    width: 100%;
+    max-width: 340px;
+    background: #ffffff;
+    border-radius: 22px;
+    padding: 36px 26px;
+    text-align: center;
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.18);
+  }
+
+  .program-card h3 {
+    font-size: 22px;
+    line-height: 1.25;
+    margin-bottom: 10px;
+  }
+
+  .program-card p {
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+  }
+
+  .program-card .btn-hero-primary {
+    margin-top: 20px;
+    width: 100%;
+    max-width: 220px;
+  }
+
+}
 
