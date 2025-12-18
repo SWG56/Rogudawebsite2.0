@@ -96,3 +96,25 @@ function closeWelcomePopup() {
   // Start typing after popup closes
   setTimeout(typeDreamsText, 400);
 }
+// ================= UNIVERSAL MOBILE NAV TOGGLE =================
+document.addEventListener("DOMContentLoaded", () => {
+  const nav = document.querySelector(".nav-cinematic");
+  const toggle = document.querySelector(".nav-toggle");
+  const links = document.querySelector(".nav-links");
+
+  if (!nav || !toggle || !links) return;
+
+  toggle.addEventListener("click", () => {
+    nav.classList.toggle("is-open");
+  });
+
+  // Close menu when a link is clicked
+  links.querySelectorAll("a").forEach(a => {
+    a.addEventListener("click", () => nav.classList.remove("is-open"));
+  });
+
+  // Close menu on resize to desktop
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 980) nav.classList.remove("is-open");
+  });
+});
