@@ -1,0 +1,307 @@
+/* ===============================
+   GALLERY FILTERS
+================================ */
+
+.filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 60px;
+}
+
+.filter-btn {
+  padding: 12px 26px;
+  border-radius: 40px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(248,213,72,0.35);
+  color: #f8d548;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background: #f8d548;
+  color: #111;
+  box-shadow: 0 10px 30px rgba(248,213,72,0.45);
+}
+
+/* ===============================
+   GALLERY GRID
+================================ */
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  cursor: pointer;
+  transform: translateY(0);
+  transition: transform 0.4s ease;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.08);
+}
+
+.gallery-item:hover {
+  transform: translateY(-8px);
+}
+
+/* ===============================
+   OVERLAY
+================================ */
+
+.gallery-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.85),
+    rgba(0,0,0,0.2)
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 28px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.gallery-item:hover .gallery-overlay {
+  opacity: 1;
+}
+
+.gallery-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  color: #fff;
+  margin-bottom: 6px;
+}
+
+.gallery-meta {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 10px;
+}
+
+.gallery-tag {
+  align-self: flex-start;
+  padding: 6px 14px;
+  border-radius: 20px;
+  background: rgba(248,213,72,0.15);
+  color: #f8d548;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+/* ===============================
+   LIGHTBOX
+================================ */
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.9);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.lightbox.active {
+  display: flex;
+}
+
+.lightbox-content {
+  max-width: 90%;
+  max-height: 90%;
+  position: relative;
+  text-align: center;
+}
+
+.lightbox-content img {
+  max-width: 100%;
+  max-height: 70vh;
+  border-radius: 18px;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: -50px;
+  right: 0;
+  font-size: 2.5rem;
+  background: none;
+  border: none;
+  color: #f8d548;
+  cursor: pointer;
+}
+
+.lightbox-info {
+  margin-top: 20px;
+  color: #fff;
+}
+
+/* ===============================
+   MOBILE FIX
+================================ */
+
+@media (max-width: 768px) {
+  .gallery-item img {
+    height: 300px;
+  }
+
+  .filter-buttons {
+    gap: 10px;
+  }
+}
+/* ===============================
+   UPLOAD SECTION – ROGUDA STYLE
+================================ */
+
+.upload-section {
+  max-width: 900px;
+  margin: 120px auto 0;
+  padding: 60px;
+  background: linear-gradient(
+    145deg,
+    rgba(255,255,255,0.06),
+    rgba(255,255,255,0.02)
+  );
+  border: 1px solid rgba(248,213,72,0.25);
+  border-radius: 28px;
+  text-align: center;
+  box-shadow: 0 40px 120px rgba(0,0,0,0.6);
+}
+
+.upload-icon {
+  font-size: 3rem;
+  color: #f8d548;
+  margin-bottom: 20px;
+}
+
+.upload-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.6rem;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.upload-text {
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 35px;
+  font-size: 1.1rem;
+}
+
+/* Hide default input */
+#fileInput {
+  display: none;
+}
+
+/* Upload Button */
+.upload-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: #f8d548;
+  color: #111;
+  padding: 16px 36px;
+  border-radius: 50px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 18px 45px rgba(248,213,72,0.45);
+}
+
+.upload-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 28px 60px rgba(248,213,72,0.6);
+}
+
+/* ===============================
+   PREVIEW AREA
+================================ */
+
+.upload-preview {
+  display: none;
+  margin-top: 50px;
+}
+
+.upload-preview.active {
+  display: block;
+}
+
+.preview-image img {
+  max-width: 100%;
+  border-radius: 22px;
+  margin-bottom: 30px;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+}
+
+/* ===============================
+   FORM
+================================ */
+
+.upload-form {
+  text-align: left;
+}
+
+.form-group {
+  margin-bottom: 25px;
+}
+
+.form-group label {
+  display: block;
+  color: #f8d548;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 14px 18px;
+  border-radius: 14px;
+  background: rgba(0,0,0,0.5);
+  border: 1px solid rgba(248,213,72,0.35);
+  color: #fff;
+  font-size: 1rem;
+}
+
+.form-group input::placeholder {
+  color: rgba(255,255,255,0.5);
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #f8d548;
+  box-shadow: 0 0 0 2px rgba(248,213,72,0.25);
+}
+
+/* Submit button spacing */
+.upload-form .upload-btn {
+  width: 100%;
+  justify-content: center;
+  margin-top: 15px;
+}
+
