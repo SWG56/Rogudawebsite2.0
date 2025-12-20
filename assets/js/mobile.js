@@ -118,3 +118,31 @@ document.addEventListener("DOMContentLoaded", () => {
     if (window.innerWidth > 980) nav.classList.remove("is-open");
   });
 });
+document.addEventListener("DOMContentLoaded", () => {
+  const toggle = document.querySelector(".nav-toggle");
+  const navLinks = document.querySelector(".nav-links");
+
+  if (!toggle || !navLinks) return;
+
+  toggle.addEventListener("click", () => {
+    document.body.classList.toggle("menu-open");
+  });
+
+  // Close menu when clicking a link
+  navLinks.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+      document.body.classList.remove("menu-open");
+    });
+  });
+
+  // Close when clicking overlay
+  document.addEventListener("click", (e) => {
+    if (
+      document.body.classList.contains("menu-open") &&
+      !navLinks.contains(e.target) &&
+      !toggle.contains(e.target)
+    ) {
+      document.body.classList.remove("menu-open");
+    }
+  });
+});

@@ -455,3 +455,90 @@
     background: rgba(248, 213, 72, 0.08);
   }
 }
+/* ============================= */
+/* MOBILE NAV OVERLAY (GLOBAL)   */
+/* ============================= */
+
+@media (max-width: 1024px) {
+
+  /* Lock background when menu open */
+  body.menu-open {
+    overflow: hidden;
+  }
+
+  /* Hide desktop links */
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 82%;
+    max-width: 360px;
+    height: 100vh;
+    background: linear-gradient(180deg, #0e0e0e, #1a1a1a);
+    padding: 100px 30px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    transition: right 0.35s ease;
+    z-index: 9999;
+  }
+
+  /* When menu opens */
+  body.menu-open .nav-links {
+    right: 0;
+  }
+
+  /* Menu links */
+  .nav-links a {
+    color: #fff;
+    font-size: 1.05rem;
+    font-weight: 500;
+    text-decoration: none;
+  }
+
+  .nav-links .nav-btn-outline,
+  .nav-links .nav-btn-gold {
+    margin-top: 10px;
+  }
+
+  /* Dark overlay */
+  body.menu-open::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+    z-index: 9998;
+  }
+
+  /* Burger button */
+  .nav-toggle {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 10000;
+  }
+
+  .nav-toggle span {
+    width: 26px;
+    height: 2px;
+    background: #f8d548;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  /* Burger animation */
+  body.menu-open .nav-toggle span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  body.menu-open .nav-toggle span:nth-child(2) {
+    opacity: 0;
+  }
+
+  body.menu-open .nav-toggle span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+  }
+}

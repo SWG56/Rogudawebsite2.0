@@ -1504,3 +1504,56 @@ section {
 .program-title {
   min-height: 72px;                /* aligns long vs short titles */
 }
+
+/* NAV HEIGHT VARIABLE */
+:root {
+  --nav-height: 72px;
+}
+
+/* FIXED NAV */
+.nav-cinematic {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--nav-height);
+  z-index: 1000;
+}
+
+/* HERO FIX */
+.hero-cinematic {
+  min-height: calc(100vh - var(--nav-height));
+  padding-top: var(--nav-height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+.hero-content {
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 24px 20px;
+  text-align: center;
+}
+
+/* MOBILE TWEAK */
+@media (max-width: 768px) {
+  .hero-cinematic {
+    min-height: calc(100vh - var(--nav-height));
+    padding-top: calc(var(--nav-height) + 20px);
+  }
+
+  .hero-title {
+    font-size: 2.2rem;
+    line-height: 1.15;
+  }
+
+  .hero-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .hero-cta {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
