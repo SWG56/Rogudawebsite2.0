@@ -382,3 +382,76 @@
         padding: 1.5rem;
       }
     }
+    /* =========================================================
+   GLOBAL NAV FIX (Works on About, Gallery, ComingSoon, etc.)
+   Put this in: assets/css/apply.css
+========================================================= */
+
+/* Keep nav always above hero/overlays */
+.nav-cinematic {
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+}
+
+/* Make sure toggle is clickable */
+.nav-toggle {
+  cursor: pointer;
+  pointer-events: auto;
+  z-index: 10001;
+}
+
+/* Mobile / Tablet menu layout */
+@media (max-width: 1024px) {
+
+  /* Hide the desktop menu by default */
+  .nav-links {
+    display: none !important;
+  }
+
+  /* Show burger button */
+  .nav-toggle {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* When menu is open */
+  body.nav-open {
+    overflow: hidden;
+  }
+
+  body.nav-open .nav-links {
+    display: flex !important;
+    flex-direction: column;
+    gap: 10px;
+
+    position: fixed;
+    top: 74px;                /* adjust if your nav height differs */
+    left: 14px;
+    right: 14px;
+
+    max-height: calc(100vh - 90px);
+    overflow: auto;
+
+    padding: 16px;
+    border-radius: 18px;
+
+    background: rgba(12, 12, 12, 0.92);
+    border: 1px solid rgba(248, 213, 72, 0.28);
+    backdrop-filter: blur(14px);
+
+    box-shadow: 0 18px 60px rgba(0,0,0,0.55);
+  }
+
+  body.nav-open .nav-links li a {
+    display: flex;
+    width: 100%;
+    padding: 12px 12px;
+    border-radius: 12px;
+  }
+
+  body.nav-open .nav-links li a:hover {
+    background: rgba(248, 213, 72, 0.08);
+  }
+}

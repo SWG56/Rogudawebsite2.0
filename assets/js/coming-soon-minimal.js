@@ -264,3 +264,61 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(section);
       });
     });
+document.addEventListener("DOMContentLoaded", () => {
+  const toggle = document.querySelector(".nav-toggle");
+  const nav = document.querySelector(".nav-links");
+
+  if (!toggle || !nav) return;
+
+  toggle.addEventListener("click", (e) => {
+    e.stopPropagation();
+    nav.classList.toggle("nav-open");
+    document.body.classList.toggle("nav-lock");
+  });
+
+  nav.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+      nav.classList.remove("nav-open");
+      document.body.classList.remove("nav-lock");
+    });
+  });
+});
+document.addEventListener("DOMContentLoaded", () => {
+  const toggle = document.querySelector(".nav-toggle");
+  const navLinks = document.querySelector(".nav-links");
+
+  // Force Studio/Marketplace to ALWAYS go to comingsoon.html
+  document
+    .querySelectorAll('a[href$="studio.html"], a[href$="marketplace.html"]')
+    .forEach((a) => (a.href = "comingsoon.html"));
+
+  if (!toggle || !navLinks) return;
+
+  // Toggle menu
+  toggle.addEventListener("click", (e) => {
+    e.preventDefault();
+    document.body.classList.toggle("nav-open");
+  });
+
+  // Close menu when clicking a link (mobile)
+  navLinks.addEventListener("click", (e) => {
+    const link = e.target.closest("a");
+    if (!link) return;
+    document.body.classList.remove("nav-open");
+  });
+
+  // Close menu if clicking outside
+  document.addEventListener("click", (e) => {
+    if (!document.body.classList.contains("nav-open")) return;
+    const clickedInsideNav = e.target.closest(".nav-cinematic");
+    const clickedMenu = e.target.closest(".nav-links");
+    if (!clickedInsideNav && !clickedMenu) {
+      document.body.classList.remove("nav-open");
+    }
+  });
+
+  // Close with ESC
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") document.body.classList.remove("nav-open");
+  });
+});
