@@ -1,0 +1,235 @@
+/* =====================================================
+   DOCS GLOBAL STYLES (TERMS, PRIVACY, POPIA, QUALITY)
+   ===================================================== */
+
+.docs {
+  background: #0b0b0b;
+}
+
+/* ================= HEADER ================= */
+
+.docs .nav-cinematic {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.docs .nav-cinematic.glass-nav {
+  background: linear-gradient(180deg, #000000, #111111);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(199, 158, 79, 0.25);
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.6);
+}
+
+.docs .nav-container {
+  padding: 0.85rem 1.6rem;
+}
+
+/* ================= LOGO ================= */
+
+.docs .logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.docs .logo-badge {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: #000;
+  border: 2px solid #d4af37;
+  overflow: hidden;
+  box-shadow:
+    0 0 0 2px rgba(212, 175, 55, 0.35),
+    0 6px 16px rgba(0, 0, 0, 0.65);
+}
+
+.docs .logo-badge img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.docs .logo-text {
+  font-family: "Playfair Display", serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #d4af37;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+}
+
+/* ================= NAV LINK ================= */
+
+.docs .nav-links a {
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+.docs .nav-links a:hover {
+  color: #f8d548;
+  text-shadow: 0 0 8px rgba(248, 213, 72, 0.6);
+}
+
+/* ================= FOOTER ================= */
+
+.docs .footer-cinematic {
+  background: linear-gradient(180deg, #5c4a32, #7a6243);
+}
+
+/* Make ALL footer text white */
+.docs .footer-cinematic p,
+.docs .footer-cinematic span,
+.docs .footer-cinematic li,
+.docs .footer-cinematic a,
+.docs .footer-cinematic strong {
+  color: #ffffff;
+  opacity: 1;
+}
+
+/* Footer links hover */
+.docs .footer-cinematic a:hover {
+  color: #f8d548;
+}
+
+/* Footer bottom */
+.docs .footer-bottom,
+.docs .footer-bottom p {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 768px) {
+  .docs .logo-text {
+    font-size: 1.15rem;
+  }
+
+  .docs .logo-badge {
+    width: 40px;
+    height: 40px;
+  }
+}
+/* ================= RESPONSIVE DOCS NAV ================= */
+
+.docs .nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Desktop */
+.docs .nav-links {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+}
+
+/* Hamburger hidden on desktop */
+.docs .nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Hamburger lines */
+.docs .nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  margin: 5px 0;
+  background: #ffffff;
+  transition: 0.3s;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 992px) {
+
+  /* Show toggle */
+  .docs .nav-toggle {
+    display: block;
+  }
+
+  /* Hide links by default */
+  .docs .nav-links {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: rgba(0, 0, 0, 0.97);
+    backdrop-filter: blur(16px);
+    width: 100%;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px 0;
+    display: none;
+  }
+
+  /* When active */
+  .docs .nav-links.active {
+    display: flex;
+  }
+
+  .docs .nav-links li {
+    margin: 12px 0;
+  }
+
+  .docs .nav-links a {
+    font-size: 1rem;
+  }
+}
+/* ================= POLICY ACTION BUTTONS ================= */
+
+.policy-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 24px;
+  align-items: center;
+}
+
+/* Base button */
+.policy-actions .btn {
+  width: 100%;
+  max-width: 280px;
+  padding: 14px 18px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 10px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+/* Primary (Apply Now) */
+.policy-actions .btn-primary {
+  background: linear-gradient(135deg, #f8d548, #d4af37);
+  color: #000;
+  box-shadow: 0 10px 28px rgba(248, 213, 72, 0.45);
+  border: none;
+}
+
+.policy-actions .btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 34px rgba(248, 213, 72, 0.6);
+}
+
+/* Secondary (Return Home) */
+.policy-actions .btn-secondary {
+  background: transparent;
+  color: #ffffff;
+  border: 1.5px solid rgba(255, 255, 255, 0.6);
+}
+
+.policy-actions .btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+@media (max-width: 480px) {
+  .policy-actions {
+    padding: 0 10px;
+  }
+}

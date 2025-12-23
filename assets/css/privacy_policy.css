@@ -1,0 +1,173 @@
+/* ================= DOCS NAV – FINAL CLEAN VERSION ================= */
+
+.nav-cinematic {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-cinematic.glass-nav {
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.96),
+    rgba(18, 18, 18, 0.90)
+  );
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(199, 158, 79, 0.25);
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.55);
+}
+
+/* Nav spacing */
+.nav-cinematic .nav-container {
+  padding: 0.85rem 1.6rem;
+}
+
+/* ================= LOGO (MATCHES HTML) ================= */
+
+.nav-cinematic .logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.nav-cinematic .logo-img {
+  width: 46px;
+  height: 46px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #d4af37;
+  background: #000;
+  box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.35),
+              0 6px 16px rgba(0, 0, 0, 0.6);
+}
+
+.nav-cinematic .logo-text {
+  font-family: "Playfair Display", serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #d4af37;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.75);
+}
+
+/* ================= BACK LINK ================= */
+
+.nav-cinematic .nav-links a {
+  color: #f2f2f2;
+  font-size: 0.95rem;
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+.nav-cinematic .nav-links a:hover {
+  color: #f8d548;
+  opacity: 1;
+  text-shadow: 0 0 8px rgba(248, 213, 72, 0.55);
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 768px) {
+  .nav-cinematic.glass-nav {
+    background: rgba(0, 0, 0, 0.97);
+  }
+
+  .nav-cinematic .logo-text {
+    font-size: 1.15rem;
+  }
+
+  .nav-cinematic .logo-img {
+    width: 40px;
+    height: 40px;
+  }
+}
+/* ================= FORCE DOCS NAV TO MATCH MAIN SITE ================= */
+
+/* Hard override any inherited gold/light backgrounds */
+.nav-cinematic,
+.nav-cinematic.glass-nav,
+.docs .nav-cinematic {
+  background: linear-gradient(
+    180deg,
+    #000000 0%,
+    #111111 100%
+  ) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border-bottom: 1px solid rgba(199, 158, 79, 0.25) !important;
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* Ensure nothing behind leaks through */
+.nav-cinematic::before,
+.nav-cinematic::after {
+  display: none !important;
+}
+
+/* Nav container */
+.nav-cinematic .nav-container {
+  background: transparent !important;
+  padding: 0.85rem 1.6rem;
+}
+
+/* ================= LOGO ================= */
+
+.nav-cinematic .logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav-cinematic .logo-img {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #000;
+  border: 2px solid #d4af37;
+  box-shadow:
+    0 0 0 2px rgba(212, 175, 55, 0.35),
+    0 6px 16px rgba(0, 0, 0, 0.65);
+}
+
+.nav-cinematic .logo-text {
+  font-family: "Playfair Display", serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #d4af37;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+}
+
+/* ================= BACK LINK ================= */
+
+.nav-cinematic .nav-links a {
+  color: #f2f2f2 !important;
+  font-size: 0.95rem;
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+.nav-cinematic .nav-links a:hover {
+  color: #f8d548 !important;
+  opacity: 1;
+  text-shadow: 0 0 8px rgba(248, 213, 72, 0.55);
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 768px) {
+  .nav-cinematic,
+  .nav-cinematic.glass-nav {
+    background: #000000 !important;
+  }
+
+  .nav-cinematic .logo-text {
+    font-size: 1.15rem;
+  }
+
+  .nav-cinematic .logo-img {
+    width: 40px;
+    height: 40px;
+  }
+}

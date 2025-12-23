@@ -1,0 +1,201 @@
+/* Quality Policy page styles (works with your cinematic theme) */
+
+.policy-hero {
+  background: linear-gradient(135deg, rgba(0,0,0,0.95), rgba(212,175,55,0.10));
+  padding: 110px 20px 60px;
+  text-align: center;
+}
+
+.policy-subtitle {
+  font-size: 1.1rem;
+  color: #F7E7B2;
+  margin-top: 14px;
+}
+
+.policy-meta {
+  color: rgba(255,255,255,0.7);
+  margin-top: 10px;
+}
+
+.policy-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+.policy-section {
+  margin-bottom: 50px;
+  padding: 30px;
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(212,175,55,0.2);
+  border-radius: 15px;
+}
+
+.policy-section h2 {
+  color: #D4AF37;
+  margin-bottom: 20px;
+  font-family: "Playfair Display", serif;
+}
+
+.policy-section h3 {
+  color: #F7E7B2;
+  margin-top: 25px;
+  margin-bottom: 15px;
+}
+
+.policy-list {
+  margin-left: 22px;
+  line-height: 1.8;
+}
+
+.policy-list li {
+  margin-bottom: 12px;
+}
+
+.highlight-box {
+  background: rgba(212,175,55,0.10);
+  border-left: 4px solid #D4AF37;
+  padding: 18px;
+  margin: 18px 0;
+  border-radius: 8px;
+}
+
+.quality-standards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 18px;
+  margin: 26px 0;
+}
+
+.standard-card {
+  background: rgba(255,255,255,0.05);
+  padding: 22px;
+  border-radius: 12px;
+  border: 1px solid rgba(212,175,55,0.3);
+  text-align: center;
+}
+
+.standard-card .icon {
+  font-size: 2.6rem;
+  margin-bottom: 12px;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+.policy-table {
+  width: 100%;
+  border-collapse: collapse;
+  color: #fff;
+  min-width: 600px;
+}
+
+.policy-table th, .policy-table td {
+  text-align: left;
+  padding: 10px;
+  border-bottom: 1px solid rgba(255,255,255,0.10);
+}
+
+.policy-table th {
+  color: #F7E7B2;
+  font-weight: 700;
+}
+
+.contact-box {
+  background: rgba(212,175,55,0.06);
+  padding: 28px;
+  border-radius: 15px;
+  text-align: center;
+  margin-top: 40px;
+  border: 1px solid rgba(212,175,55,0.18);
+}
+
+.contact-box a {
+  color: #D4AF37;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.contact-box a:hover {
+  text-shadow: 0 0 10px rgba(212,175,55,0.45);
+}
+
+.contact-lead {
+  margin: 14px 0;
+  color: rgba(255,255,255,0.85);
+}
+
+.contact-details {
+  color: rgba(255,255,255,0.85);
+  line-height: 1.75;
+}
+
+.contact-links {
+  margin-top: 18px;
+}
+
+/* Small screens spacing */
+@media (max-width: 600px) {
+  .policy-section { padding: 22px; }
+  .policy-hero { padding-top: 95px; }
+}
+/* Mobile nav open/close */
+@media (max-width: 992px) {
+  .nav-links {
+    position: fixed;
+    top: 80px;
+    right: -100%;
+    width: 100%;
+    height: calc(100vh - 80px);
+    flex-direction: column;
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(20px);
+    padding: 2rem 1.5rem;
+    gap: 1.2rem;
+    transition: right 0.35s ease;
+    z-index: 999;
+  }
+
+  .nav-links.nav-open {
+    right: 0;
+  }
+}
+/* ================= LOGO FIX ================= */
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.logo-img {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #C79E4F;
+  background: #000;
+}
+
+.logo-text {
+  font-family: "Playfair Display", serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #C79E4F;
+  white-space: nowrap;
+}
+
+/* Mobile adjustment */
+@media (max-width: 600px) {
+  .logo-img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .logo-text {
+    font-size: 1.1rem;
+  }
+}
