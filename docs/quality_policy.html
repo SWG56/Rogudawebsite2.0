@@ -20,9 +20,12 @@
   <!-- Page CSS -->
   <link rel="stylesheet" href="../assets/css/quality_policy.css">
   <link rel="icon" href="../assets/images/circle3.png">
+  <link rel="stylesheet" href="../assets/css/overrides.css">
+  <link rel="stylesheet" href="../assets/css/theme.css">
+  <link rel="stylesheet" href="../assets/css/mobile.css">
 </head>
 
-<body>
+<body class="docs dark-theme">
 
   <!-- ================= NAVIGATION (STATIC - NO PHP) ================= -->
 <nav class="nav-cinematic glass-nav">
@@ -241,9 +244,9 @@
         Subscribe to our newsletter for the latest updates and announcements.
       </p>
 
-      <form class="newsletter-form">
+      <form class="newsletter-form" action="../subscribe.php" method="POST">
         <div class="input-group">
-          <input type="email" placeholder="Enter your email address" required>
+          <input type="email" name="email" placeholder="Enter your email address" required>
           <button type="submit" class="btn-subscribe">
             Subscribe
             <span class="arrow">→</span>

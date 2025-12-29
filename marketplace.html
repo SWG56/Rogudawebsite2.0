@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
     <link rel="stylesheet" href="assets/css/mobile.css">
+  <link rel="stylesheet" href="assets/css/overrides.css">
 </head>
 <body>
     <!-- Navigation - Cinematic Style -->
@@ -255,9 +256,9 @@
                     You'll receive special previews, early-bird discounts, and updates on new collections.
                 </p>
                 
-                <form class="newsletter-form" id="newsletterForm" style="max-width: 500px; margin: 40px auto;">
+                <form class="newsletter-form" id="newsletterForm" style="max-width: 500px; margin: 40px auto;" action="subscribe.php" method="POST">
                     <div class="input-group" style="display: flex; gap: 15px; margin-bottom: 20px;">
-                        <input type="email" placeholder="Enter your email" required style="flex: 1; padding: 16px 20px; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(248, 213, 72, 0.3); border-radius: 8px; color: white; font-size: 1rem;">
+                        <input type="email" name="email" placeholder="Enter your email" required style="flex: 1; padding: 16px 20px; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(248, 213, 72, 0.3); border-radius: 8px; color: white; font-size: 1rem;">
                         <button type="submit" class="btn-cta-primary" style="padding: 16px 30px; background: #f8d548; color: #0e0e0e; border: none; border-radius: 8px; font-weight: 600; font-size: 1rem; cursor: pointer;">
                             Join Waitlist
                         </button>
@@ -391,9 +392,9 @@
                 <div class="newsletter">
                     <h4 class="newsletter-title">Marketplace Updates</h4>
                     <p class="newsletter-text">Get notified about new collections and marketplace features.</p>
-                    <form class="newsletter-form">
+                    <form class="newsletter-form" action="subscribe.php" method="POST">
                         <div class="input-group">
-                            <input type="email" placeholder="Enter your email" required>
+                            <input type="email" name="email" placeholder="Enter your email" required>
                             <button type="submit" class="btn-subscribe">
                                 <span>Subscribe</span>
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">

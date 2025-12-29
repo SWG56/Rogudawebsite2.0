@@ -21,6 +21,7 @@
   <link rel="stylesheet" href="assets/css/cinematic.css">
   <link rel="stylesheet" href="assets/css/responsive.css">
   <link rel="stylesheet" href="assets/css/mobile.css">
+  <link rel="stylesheet" href="assets/css/overrides.css">
 </head>
 
 <body>
@@ -191,9 +192,9 @@
         Subscribe to our newsletter for the latest updates and announcements.
       </p>
 
-      <form class="newsletter-form">
+      <form class="newsletter-form" action="subscribe.php" method="POST">
         <div class="input-group">
-          <input type="email" placeholder="Enter your email address" required>
+          <input type="email" name="email" placeholder="Enter your email address" required>
           <button type="submit" class="btn-subscribe">
             Subscribe
             <span class="arrow">→</span>

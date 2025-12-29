@@ -11,13 +11,14 @@
     <link rel="stylesheet" href="../assets/css/main.css">
     <link rel="stylesheet" href="../assets/css/cinematic.css">
     <link rel="stylesheet" href="../assets/css/responsive.css">
-    <link rel="icon" href=" ../assets/images/circle3.png">
+    <link rel="icon" href="../assets/images/circle3.png">
     <link rel="stylesheet" href="../assets/css/mobile.css">
     <link rel="stylesheet" href="../assets/css/theme.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="../assets/css/docs.css">
+  <link rel="stylesheet" href="../assets/css/overrides.css">
 </head>
-<body class="dark-theme">
+<body class="docs dark-theme">
     
 <nav class="nav-cinematic glass-nav">
   <div class="nav-container">
@@ -247,9 +248,9 @@
         Subscribe to our newsletter for the latest updates and announcements.
       </p>
 
-      <form class="newsletter-form">
+      <form class="newsletter-form" action="../subscribe.php" method="POST">
         <div class="input-group">
-          <input type="email" placeholder="Enter your email address" required>
+          <input type="email" name="email" placeholder="Enter your email address" required>
           <button type="submit" class="btn-subscribe">
             Subscribe
             <span class="arrow">→</span>

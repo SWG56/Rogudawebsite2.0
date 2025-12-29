@@ -20,7 +20,7 @@
   <link rel="stylesheet" href="assets/css/responsive.css">
   <link rel="stylesheet" href="assets/css/mobile.css">
   <link rel="stylesheet" href="assets/css/coming-soon-minimal.css">
-  <link rel="stylesheet" href="assets/css/apply.css">
+  <link rel="stylesheet" href="assets/css/overrides.css">
 </head>
 
 <body class="coming-soon-page">
@@ -201,14 +201,14 @@
           <p class="notify-subtitle">Join our waitlist to be the first to know when we launch</p>
         </div>
         
-        <form class="notify-form" id="notifyForm">
+        <form class="notify-form" id="notifyForm" action="subscribe.php" method="POST">
           <div class="form-row">
             <div class="form-group">
               <input type="text" id="notifyName" placeholder="Your Name" required>
             </div>
             
             <div class="form-group">
-              <input type="email" id="notifyEmail" placeholder="Email Address" required>
+              <input type="email" name="email" id="notifyEmail" placeholder="Email Address" required>
             </div>
             
             <button type="submit" class="notify-submit">
@@ -298,9 +298,9 @@
         Subscribe to our newsletter for the latest updates and announcements.
       </p>
 
-      <form class="newsletter-form">
+      <form class="newsletter-form" action="subscribe.php" method="POST">
         <div class="input-group">
-          <input type="email" placeholder="Enter your email address" required>
+          <input type="email" name="email" placeholder="Enter your email address" required>
           <button type="submit" class="btn-subscribe">
             Subscribe
             <span class="arrow">→</span>

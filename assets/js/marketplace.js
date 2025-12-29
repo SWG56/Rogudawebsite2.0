@@ -32,36 +32,56 @@ function animateProducts() {
 // Newsletter Form Handler
 function setupNewsletterForm() {
     const form = document.getElementById('newsletterForm');
-    
-    if (form) {
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            const emailInput = form.querySelector('input[type="email"]');
-            const email = emailInput.value.trim();
-            
-            // Validate email
-            if (!validateEmail(email)) {
-                showToast('Please enter a valid email address', 'error');
-                return;
+    if (!form) return;
+
+    const emailInput = form.querySelector('input[type="email"]');
+    if (!emailInput) return;
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const email = (emailInput.value || '').trim();
+        if (!email) {
+            showToast('Please enter your email address.', 'error');
+            return;
+        }
+
+        // Prevent duplicates (local check)
+        const subscribers = Storage.get('newsletter_subscribers') || [];
+        if (subscribers.includes(email)) {
+            showToast('You are already subscribed!', 'info');
+            return;
+        }
+
+        try {
+            const payload = new URLSearchParams();
+            payload.set('email', email);
+            payload.set('page', window.location.href);
+
+            const response = await fetch('subscribe.php', {
+                method: 'POST',
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest',
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+                },
+                body: payload.toString()
+            });
+
+            const result = await response.json();
+
+            if (result && result.success) {
+                subscribers.push(email);
+                Storage.set('newsletter_subscribers', subscribers);
+                showToast('Thank you for subscribing! We'll keep you updated.', 'success');
+                emailInput.value = '';
+            } else {
+                showToast((result && result.message) ? result.message : 'Subscription failed. Please try again.', 'error');
             }
-            
-            // Store in localStorage (simulate subscription)
-            const subscribers = Storage.get('newsletter_subscribers') || [];
-            
-            if (subscribers.includes(email)) {
-                showToast('You are already subscribed!', 'info');
-                return;
-            }
-            
-            subscribers.push(email);
-            Storage.set('newsletter_subscribers', subscribers);
-            
-            // Success feedback
-            showToast('Thank you for subscribing! We\'ll notify you when the marketplace launches.', 'success');
-            emailInput.value = '';
-        });
-    }
+        } catch (err) {
+            showToast('Subscription failed. Please try again.', 'error');
+        }
+    });
 }
 
 // Add hover effect to product cards

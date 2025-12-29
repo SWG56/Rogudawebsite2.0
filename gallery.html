@@ -22,6 +22,7 @@
   <link rel="stylesheet" href="assets/css/programs.css">
   <link rel="stylesheet" href="assets/css/gallery.css">
   
+  <link rel="stylesheet" href="assets/css/overrides.css">
 </head>
 
 <body>
@@ -137,7 +138,7 @@
 
         <!-- Item 5 -->
         <div class="gallery-item visible" data-category="graduate">
-          <img src="assets\images\WhatsApp Image 2025-12-16 at 09.43.57.jpeg" alt="Graduate Work">
+          <img src="assets/images/WhatsApp Image 2025-12-16 at 09.43.57.jpeg" alt="Graduate Work">
           <div class="gallery-overlay">
             <h3 class="gallery-title">Elegant Eveningwear</h3>
             <p class="gallery-meta">Nomsa Dlamini • Class of 2023</p>
@@ -147,7 +148,7 @@
 
         <!-- Item 6 -->
         <div class="gallery-item visible" data-category="student">
-          <img src="assets\images\WhatsApp Image 2025-12-16 at 09.43.43 (1).jpeg" alt="Student Project">
+          <img src="assets/images/WhatsApp Image 2025-12-16 at 09.43.43 (1).jpeg" alt="Student Project">
           <div class="gallery-overlay">
             <h3 class="gallery-title">Contemporary Tailoring</h3>
             <p class="gallery-meta">Lerato Moloi • NQF Level 4</p>
@@ -157,7 +158,7 @@
 
         <!-- Item 7 -->
         <div class="gallery-item visible" data-category="runway">
-          <img src="assets\images\WhatsApp Image 2025-12-16 at 09.43.43.jpeg" alt="Runway Show">
+          <img src="assets/images/WhatsApp Image 2025-12-16 at 09.43.43.jpeg" alt="Runway Show">
           <div class="gallery-overlay">
             <h3 class="gallery-title">Graduate Showcase</h3>
             <p class="gallery-meta">December 2024</p>
@@ -167,7 +168,7 @@
 
         <!-- Item 8 -->
         <div class="gallery-item visible" data-category="process">
-          <img src="assets\images\WhatsApp Image 2025-12-18 at 17.26.26 (1).jpeg" alt="Studio Work">
+          <img src="assets/images/WhatsApp Image 2025-12-18 at 17.26.26 (1).jpeg" alt="Studio Work">
           <div class="gallery-overlay">
             <h3 class="gallery-title">Draping & Construction</h3>
             <p class="gallery-meta">Advanced Class Session</p>
@@ -177,7 +178,7 @@
 
         <!-- Item 9 -->
         <div class="gallery-item visible" data-category="graduate">
-          <img src="assets\images\WhatsApp Image 2025-12-16 at 09.43.43 (1).jpeg" alt="Final Collection">
+          <img src="assets/images/WhatsApp Image 2025-12-16 at 09.43.43 (1).jpeg" alt="Final Collection">
           <div class="gallery-overlay">
             <h3 class="gallery-title">African Couture</h3>
             <p class="gallery-meta">Zanele Khumalo • Class of 2024</p>
@@ -263,9 +264,9 @@
         Subscribe to our newsletter for the latest updates and announcements.
       </p>
 
-      <form class="newsletter-form">
+      <form class="newsletter-form" action="subscribe.php" method="POST">
         <div class="input-group">
-          <input type="email" placeholder="Enter your email address" required>
+          <input type="email" name="email" placeholder="Enter your email address" required>
           <button type="submit" class="btn-subscribe">
             Subscribe
             <span class="arrow">→</span>

@@ -22,6 +22,7 @@
   <link rel="stylesheet" href="assets/css/main.css">
   <link rel="stylesheet" href="assets/css/responsive.css">
   <link rel="stylesheet" href="assets/css/mobile.css">
+  <link rel="stylesheet" href="assets/css/overrides.css">
 </head>
 
 <body>
@@ -153,6 +154,29 @@
     <div class="programs-grid">
 
 <div class="program-card">
+
+    <div class="program-content">
+    <span class="program-line"></span>
+
+
+    <span class="program-badge">NQF Level 2</span>
+
+    <h3 class="program-title">Clothing Production</h3>
+
+    <p class="program-duration">1-Year Programme</p>
+
+    <p class="program-description">
+      Foundational sewing, textiles, and garment construction skills.
+    </p>
+    
+
+    <a href="programs.html" class="btn-program">Learn More</a>
+
+  </div>
+</div>
+
+
+<div class="program-card">
   <div class="program-content">
 
   <span class="program-badge premium">NQF Level 5</span>
@@ -167,27 +191,6 @@
     <p class="program-description">
       Advanced fashion design, pattern making, branding, and business development
       for creative entrepreneurs.
-    </p>
-
-    <a href="programs.html" class="btn-program">Learn More</a>
-
-  </div>
-</div>
-
-
-<div class="program-card">
-  <div class="program-content">
-    <span class="program-line"></span>
-
-
-    <span class="program-badge">NQF Level 2</span>
-
-    <h3 class="program-title">Clothing Production</h3>
-
-    <p class="program-duration">1-Year Programme</p>
-
-    <p class="program-description">
-      Foundational sewing, textiles, and garment construction skills.
     </p>
 
     <a href="programs.html" class="btn-program">Learn More</a>
@@ -245,9 +248,9 @@
         Subscribe to our newsletter for the latest updates and announcements.
       </p>
 
-      <form class="newsletter-form">
+      <form class="newsletter-form" action="subscribe.php" method="POST">
         <div class="input-group">
-          <input type="email" placeholder="Enter your email address" required>
+          <input type="email" name="email" placeholder="Enter your email address" required>
           <button type="submit" class="btn-subscribe">
             Subscribe
             <span class="arrow">→</span>

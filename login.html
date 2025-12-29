@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="assets/css/responsive.css">
     <link rel="stylesheet" href="assets/css/mobile.css">
      <link rel="icon" href="assets/images/circle3.png">
+  <link rel="stylesheet" href="assets/css/overrides.css">
 </head>
 <body>
     
@@ -20,7 +21,7 @@
                 <p>Login to access your student portal</p>
             </div>
 
-            <form action="includes/auth.php" method="POST" class="auth-form">
+            <form id="loginForm" class="auth-form">
                 <div class="form-group">
                     <label for="email">Email Address</label>
                     <input type="email" id="email" name="email" required autofocus>

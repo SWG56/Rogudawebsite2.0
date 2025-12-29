@@ -1,0 +1,56 @@
+/* =========================================
+   OVERRIDES.CSS - Small global fixes
+   - Remove unwanted hover highlight behind links
+   - Keep button hover effects intact
+   - Keep fonts consistent
+   ========================================= */
+
+/* Ensure consistent fonts everywhere */
+html, body {
+  font-family: var(--font-body, 'Outfit', sans-serif);
+}
+
+/* Remove "highlight / grass" background on hover for normal links */
+a:hover:not([class*="btn"]):not(.btn):not(.nav-btn-outline):not(.btn-subscribe):not(.submit-btn):not(.btn-primary):not(.btn-secondary) {
+  background: transparent !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+/* Also remove background highlight for list-item link wrappers (footer/nav) */
+.nav-links a:hover,
+.nav-menu a:hover,
+.footer-links a:hover,
+.footer-cinematic a:hover {
+  background: transparent !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+/* Don't let focus add a block background */
+a:focus,
+a:active {
+  background: transparent;
+}
+
+/* Keep keyboard accessibility visible */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid rgba(248, 213, 72, 0.55);
+  outline-offset: 3px;
+}
+
+/* =========================================
+   FIX: Top spacing on pages with the cinematic hero
+   NOTE: mobile.css forces the nav to be sticky (in-flow).
+         cinematic.css still adds margin-top: 80px on hero/page-hero to
+         compensate for a fixed nav. That creates a big empty gap on mobile.
+   ========================================= */
+
+.hero-cinematic,
+.page-hero {
+  margin-top: 0 !important;
+}

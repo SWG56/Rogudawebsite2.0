@@ -1,0 +1,38 @@
+<?php
+// Roguda - Student portal placeholder (safe fallback)
+header('Content-Type: text/html; charset=utf-8');
+
+$email = trim($_POST['email'] ?? '');
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Portal | Roguda</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/theme.css">
+  <link rel="stylesheet" href="../assets/css/mobile.css">
+  <link rel="stylesheet" href="../assets/css/overrides.css">
+  <link rel="icon" href="../assets/images/circle3.png">
+</head>
+<body class="dark-theme">
+  <section style="max-width:900px;margin:0 auto;padding:6rem 1.5rem;text-align:center;">
+    <h1 style="font-family:var(--font-title);color:var(--gold);margin-bottom:1rem;">Student Portal</h1>
+    <p style="color:rgba(255,255,255,0.85);font-size:1.1rem;line-height:1.8;">
+      The student portal is being prepared.
+      <?php if ($email): ?>
+        <br><br>We received your login attempt for <strong style="color:#fff;"><?php echo htmlspecialchars($email); ?></strong>.
+      <?php endif; ?>
+      <br><br>
+      If you need help, contact us at <strong style="color:#fff;">info@rogudafashion.co.za</strong> or WhatsApp <strong style="color:#fff;">082 324 6267</strong>.
+    </p>
+    <div style="margin-top:2.5rem;">
+      <a href="../index.html" class="nav-btn-outline" style="display:inline-block;">Back to Home</a>
+    </div>
+  </section>
+  <script src="../assets/js/mobile.js"></script>
+</body>
+</html>
