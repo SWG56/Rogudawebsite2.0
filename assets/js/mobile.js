@@ -146,3 +146,64 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+/* =========================================
+   mobile.js (NAV FIX)
+   - Works on ALL pages including Apply
+   - Shows menu properly on mobile
+   - Closes on outside click / link click / ESC
+========================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+  const nav = document.querySelector(".nav-cinematic");
+  if (!nav) return;
+
+  const toggle = nav.querySelector(".nav-toggle");
+  const links = nav.querySelector(".nav-links");
+  if (!toggle || !links) return;
+
+  // Ensure aria
+  toggle.setAttribute("aria-expanded", "false");
+
+  // Create backdrop if missing
+  let backdrop = nav.querySelector(".nav-backdrop");
+  if (!backdrop) {
+    backdrop = document.createElement("div");
+    backdrop.className = "nav-backdrop";
+    nav.appendChild(backdrop);
+  }
+
+  const openNav = () => {
+    nav.classList.add("nav-open");
+    document.body.classList.add("nav-lock");
+    toggle.setAttribute("aria-expanded", "true");
+  };
+
+  const closeNav = () => {
+    nav.classList.remove("nav-open");
+    document.body.classList.remove("nav-lock");
+    toggle.setAttribute("aria-expanded", "false");
+  };
+
+  toggle.addEventListener("click", (e) => {
+    e.preventDefault();
+    nav.classList.contains("nav-open") ? closeNav() : openNav();
+  });
+
+  // Close when clicking backdrop
+  backdrop.addEventListener("click", closeNav);
+
+  // Close when clicking any nav link
+  links.querySelectorAll("a").forEach((a) => {
+    a.addEventListener("click", () => closeNav());
+  });
+
+  // Close on ESC
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeNav();
+  });
+
+  // If resizing to desktop, unlock scroll and close menu
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 980) closeNav();
+  });
+});
