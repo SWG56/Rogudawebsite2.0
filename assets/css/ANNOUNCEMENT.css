@@ -1,0 +1,83 @@
+/* ===== TOP ANNOUNCEMENT TICKER (CLEAN + FIT) ===== */
+:root{
+  --ticker-h: 38px;              /* height of the top bar */
+  --ticker-bg: rgba(10,10,10,.92);
+  --ticker-border: rgba(212,175,55,.35);
+  --ticker-gold: #f6d27b;
+}
+
+.top-ticker{
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+  height: var(--ticker-h);
+  display: flex;
+  align-items: center;
+  background: var(--ticker-bg);
+  border-bottom: 1px solid var(--ticker-border);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  overflow: hidden;
+}
+
+/* full-width scrolling rail */
+/* full-width scrolling rail */
+.top-ticker__track{
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  width: max-content;
+
+  /* IMPORTANT: start off-screen to the right so scrolling always happens */
+  transform: translateX(100%);
+  will-change: transform;
+
+  /* 60s hold + 22s scroll */
+  animation: ticker-hold-scroll 82s linear infinite;
+}
+
+/* Hold 60s, then scroll fully across */
+@keyframes ticker-hold-scroll{
+  0%   { transform: translateX(100%); }  /* start off-screen (right) */
+  73%  { transform: translateX(100%); }  /* hold ~60s */
+  100% { transform: translateX(-100%); } /* scroll off-screen (left) */
+}
+
+
+/* each repeat */
+.top-ticker__item{
+  white-space: nowrap;
+  color: rgba(255,255,255,.92);
+  font-family: "Outfit", system-ui, Arial, sans-serif;
+  font-weight: 500;
+  font-size: 0.90rem;
+  line-height: 1;
+  letter-spacing: .01em;
+  padding: 0 6px;
+}
+
+.top-ticker__item strong{ color: var(--ticker-gold); font-weight: 700; }
+
+/* right -> left (cleaner for reading) */
+@keyframes ticker-rtl{
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* pause on hover (desktop) */
+@media (hover:hover){
+  .top-ticker:hover .top-ticker__track{ animation-play-state: paused; }
+}
+
+/* mobile fit */
+@media (max-width: 520px){
+  :root{ --ticker-h: 34px; }
+  .top-ticker__item{ font-size: .82rem; }
+  .top-ticker__track{ animation-duration: 26s; }
+}
+/* Hold for 60s, then scroll for the remaining time */
+@keyframes ticker-rtl-hold{
+  0%   { transform: translateX(0); }
+  73%  { transform: translateX(0); }     /* ~60s hold (73% of 82s) */
+  100% { transform: translateX(-50%); }  /* then scroll */
+}
