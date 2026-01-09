@@ -1,169 +1,248 @@
 <?php
-// ================================
-// Roguda - Application Submission
-// - Works on standard PHP hosting (Afrihost)
-// - Emails the admin + saves CSV backup
-// - Supports file uploads (pdf/jpg/jpeg/png)
-// ================================
+declare(strict_types=1);
+
+require_once __DIR__ . '/db_data.php';
+
 header('X-Content-Type-Options: nosniff');
 
-// Optional WhatsApp notification
-@require_once __DIR__ . '/includes/whatsapp.php';
+// ===== CONFIG =====
+$BASE_URL = 'https://rogudafashion.co.za';
+$VERIFY_TTL_MINUTES = 45;
 
-function wants_json() {
-  $accept = $_SERVER['HTTP_ACCEPT'] ?? '';
-  $xhr = $_SERVER['HTTP_X_REQUESTED_WITH'] ?? '';
-  return (stripos($accept, 'application/json') !== false) || (strtolower($xhr) === 'xmlhttprequest');
-}
+$FROM_EMAIL = 'info@rogudafashion.co.za';
+$FROM_NAME  = 'Roguda Admissions';
 
-function respond($ok, $message, $extra = []) {
-  $payload = array_merge(['success' => $ok, 'message' => $message], $extra);
+$MAX_FILE_BYTES = 8 * 1024 * 1024; // 8MB
+$ALLOWED_EXT  = ['pdf', 'jpg', 'jpeg', 'png'];
+$ALLOWED_MIME = ['application/pdf', 'image/jpeg', 'image/png'];
 
-  if (wants_json()) {
-    header('Content-Type: application/json; charset=utf-8');
-    echo json_encode($payload);
-    exit;
-  }
+// Your real folder: public_html/uploads/applications
+$UPLOAD_BASE = __DIR__ . '/uploads/applications';
 
-  header('Location: ' . ($ok ? 'apply-success.html' : 'apply-failed.html'));
+// ===== HELPERS =====
+function fail_redirect(): void {
+  header('Location: apply-failed.html');
   exit;
 }
 
-if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-  respond(false, 'Invalid request method.');
-}
-
-function clean($v) {
+function clean(?string $v, int $maxLen = 255): string {
   $v = trim((string)$v);
-  $v = str_replace(["\r","\n"], ' ', $v);
+  $v = preg_replace('/\s+/', ' ', $v);
+  if (mb_strlen($v) > $maxLen) $v = mb_substr($v, 0, $maxLen);
   return $v;
 }
 
-$data = [
-  'firstName' => clean($_POST['firstName'] ?? ''),
-  'lastName' => clean($_POST['lastName'] ?? ''),
-  'email' => clean($_POST['email'] ?? ''),
-  'phone' => clean($_POST['phone'] ?? ''),
-  'dob' => clean($_POST['dob'] ?? ''),
-  'gender' => clean($_POST['gender'] ?? ''),
-  'idNumber' => clean($_POST['idNumber'] ?? ''),
-  'address' => clean($_POST['address'] ?? ''),
-  'school' => clean($_POST['school'] ?? ''),
-  'education' => clean($_POST['education'] ?? ''),
-  'graduationYear' => clean($_POST['graduationYear'] ?? ''),
-  'program' => clean($_POST['program'] ?? ''),
-  'startDate' => clean($_POST['startDate'] ?? ''),
-  'motivation' => clean($_POST['motivation'] ?? ''),
-  'popiaConsent' => isset($_POST['popiaConsent']) ? 'Yes' : 'No',
-  'marketingConsent' => isset($_POST['marketingConsent']) ? 'Yes' : 'No',
-  'accuracyConsent' => isset($_POST['accuracyConsent']) ? 'Yes' : 'No',
-];
-
-if (!$data['firstName'] || !$data['lastName']) {
-  respond(false, 'Please enter your full name.');
-}
-if (!$data['email'] || !filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
-  respond(false, 'Please enter a valid email address.');
-}
-if (!$data['phone']) {
-  respond(false, 'Please enter your phone number.');
-}
-if ($data['popiaConsent'] !== 'Yes' || $data['accuracyConsent'] !== 'Yes') {
-  respond(false, 'Please accept the required consent checkboxes.');
+function valid_phone(string $phone): bool {
+  $p = preg_replace('/\s+/', '', $phone);
+  return (bool)preg_match('/^(\+27|0)[0-9]{9}$/', $p);
 }
 
-// ---- File Uploads ----
-$upload_dir = __DIR__ . '/uploads/applications';
-if (!is_dir($upload_dir)) { @mkdir($upload_dir, 0755, true); }
+function safe_mkdir(string $dir): void {
+  if (!is_dir($dir)) {
+    if (!mkdir($dir, 0755, true)) {
+      throw new RuntimeException("Could not create directory: {$dir}");
+    }
+  }
+}
 
-function handle_upload($key, $upload_dir) {
-  if (!isset($_FILES[$key]) || $_FILES[$key]['error'] === UPLOAD_ERR_NO_FILE) {
-    return ['ok' => true, 'path' => ''];
+function validate_upload(array $file, array $allowedExt, array $allowedMime, int $maxBytes): string {
+  if (!isset($file['error']) || is_array($file['error'])) throw new RuntimeException('Invalid upload.');
+  if ($file['error'] !== UPLOAD_ERR_OK) throw new RuntimeException('Upload failed.');
+  if (($file['size'] ?? 0) <= 0 || ($file['size'] ?? 0) > $maxBytes) throw new RuntimeException('File too large.');
+
+  $ext = strtolower(pathinfo((string)$file['name'], PATHINFO_EXTENSION));
+  if (!in_array($ext, $allowedExt, true)) throw new RuntimeException('Invalid file type.');
+
+  $finfo = new finfo(FILEINFO_MIME_TYPE);
+  $mime = $finfo->file($file['tmp_name']) ?: '';
+  if (!in_array($mime, $allowedMime, true)) throw new RuntimeException('Invalid file content type.');
+
+  return $ext;
+}
+
+function random_token(int $bytes = 32): string {
+  return bin2hex(random_bytes($bytes));
+}
+
+function send_email(string $to, string $subject, string $html, string $fromEmail, string $fromName): bool {
+  $headers = [];
+  $headers[] = "MIME-Version: 1.0";
+  $headers[] = "Content-type: text/html; charset=UTF-8";
+  $headers[] = "From: " . mb_encode_mimeheader($fromName) . " <{$fromEmail}>";
+  $headers[] = "Reply-To: {$fromEmail}";
+  return @mail($to, $subject, $html, implode("\r\n", $headers));
+}
+
+// ===== MAIN =====
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') fail_redirect();
+
+// From apply.html
+$firstName = clean($_POST['firstName'] ?? '', 100);
+$lastName  = clean($_POST['lastName'] ?? '', 100);
+$email     = clean($_POST['email'] ?? '', 255);
+$phone     = clean($_POST['phone'] ?? '', 30);
+$idNumber  = clean($_POST['idNumber'] ?? '', 50);
+$dob       = clean($_POST['dob'] ?? '', 20);
+$gender    = clean($_POST['gender'] ?? '', 20);
+$address   = clean($_POST['address'] ?? '', 1000);
+
+$program    = clean($_POST['program'] ?? '', 200);
+$startYear  = clean($_POST['startDate'] ?? '', 10); // your form uses startDate but it's a year
+$motivation = clean($_POST['motivation'] ?? '', 2000);
+
+$education = clean($_POST['education'] ?? '', 100);
+$school    = clean($_POST['school'] ?? '', 200);
+$graduationYear = clean($_POST['graduationYear'] ?? '', 10);
+$portfolioLink  = clean($_POST['portfolio'] ?? '', 500);
+$experience     = clean($_POST['experience'] ?? '', 2000);
+
+$popiaConsent     = isset($_POST['popiaConsent']) ? 1 : 0;
+$marketingConsent = isset($_POST['marketingConsent']) ? 1 : 0;
+$accuracyConsent  = isset($_POST['accuracyConsent']) ? 1 : 0;
+
+// ---- Validations ----
+if ($firstName===''||$lastName===''||$email===''||$phone===''||$idNumber===''||$dob===''||$address==='') fail_redirect();
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) fail_redirect();
+if (!valid_phone($phone)) fail_redirect();
+
+// Basic SA ID length check (optional but helpful)
+if (preg_match('/^\d+$/', $idNumber) && strlen($idNumber) !== 13) {
+  fail_redirect();
+}
+
+$dobTime = strtotime($dob);
+if ($dobTime === false || $dobTime > time()) fail_redirect();
+
+if ($program===''||$startYear===''||$motivation==='') fail_redirect();
+if (!preg_match('/^(2026|2027|2028|2029|2030)$/', $startYear)) fail_redirect();
+
+if ($education===''||$school===''||$graduationYear==='') fail_redirect();
+if (!preg_match('/^(19|20)\d{2}$/', $graduationYear)) fail_redirect();
+
+if ($portfolioLink!=='' && !filter_var($portfolioLink, FILTER_VALIDATE_URL)) fail_redirect();
+if ($popiaConsent!==1 || $accuracyConsent!==1) fail_redirect();
+
+// Required file
+if (!isset($_FILES['idCopy']) || ($_FILES['idCopy']['error'] ?? UPLOAD_ERR_NO_FILE) === UPLOAD_ERR_NO_FILE) fail_redirect();
+
+try {
+  // Ensure base upload folder exists
+  safe_mkdir($UPLOAD_BASE);
+
+  // Validate uploads (content & size)
+  validate_upload($_FILES['idCopy'], $ALLOWED_EXT, $ALLOWED_MIME, $MAX_FILE_BYTES);
+  if (isset($_FILES['certificate']) && $_FILES['certificate']['error'] !== UPLOAD_ERR_NO_FILE) {
+    validate_upload($_FILES['certificate'], $ALLOWED_EXT, $ALLOWED_MIME, $MAX_FILE_BYTES);
+  }
+  if (isset($_FILES['portfolioFile']) && $_FILES['portfolioFile']['error'] !== UPLOAD_ERR_NO_FILE) {
+    validate_upload($_FILES['portfolioFile'], $ALLOWED_EXT, $ALLOWED_MIME, $MAX_FILE_BYTES);
   }
 
-  if ($_FILES[$key]['error'] !== UPLOAD_ERR_OK) {
-    return ['ok' => false, 'error' => 'Upload failed for ' . $key];
+  $pdo->beginTransaction();
+
+  // Applicants
+  $stmt = $pdo->prepare("
+    INSERT INTO applicants (first_name, last_name, email, phone, id_number, date_of_birth, gender, address)
+    VALUES (:fn,:ln,:em,:ph,:idn,:dob,:ge,:ad)
+  ");
+  $stmt->execute([
+    ':fn'=>$firstName, ':ln'=>$lastName, ':em'=>$email, ':ph'=>$phone,
+    ':idn'=>$idNumber, ':dob'=>date('Y-m-d',$dobTime), ':ge'=>$gender, ':ad'=>$address
+  ]);
+  $applicantId = (int)$pdo->lastInsertId();
+
+  // Programs (get or create)
+  $programStartDate = $startYear . "-01-01";
+  $stmt = $pdo->prepare("SELECT program_id FROM programs WHERE program_name=:pn AND start_date=:sd LIMIT 1");
+  $stmt->execute([':pn'=>$program, ':sd'=>$programStartDate]);
+  $row = $stmt->fetch();
+  if ($row) $programId = (int)$row['program_id'];
+  else {
+    $stmt = $pdo->prepare("INSERT INTO programs (program_name, start_date) VALUES (:pn,:sd)");
+    $stmt->execute([':pn'=>$program, ':sd'=>$programStartDate]);
+    $programId = (int)$pdo->lastInsertId();
   }
 
-  $tmp = $_FILES[$key]['tmp_name'];
-  $name = $_FILES[$key]['name'];
-  $size = (int)($_FILES[$key]['size'] ?? 0);
+  // Applications
+  $stmt = $pdo->prepare("INSERT INTO applications (applicant_id, program_id, motivation) VALUES (:aid,:pid,:mot)");
+  $stmt->execute([':aid'=>$applicantId, ':pid'=>$programId, ':mot'=>$motivation]);
 
-  $ext = strtolower(pathinfo($name, PATHINFO_EXTENSION));
-  $allowed = ['pdf','jpg','jpeg','png'];
-  if (!in_array($ext, $allowed, true)) {
-    return ['ok' => false, 'error' => 'Invalid file type for ' . $key];
+  // Education
+  $stmt = $pdo->prepare("
+    INSERT INTO education (applicant_id, education_level, institution, graduation_year, previous_experience, portfolio_link)
+    VALUES (:aid,:lvl,:inst,:gy,:exp,:plink)
+  ");
+  $stmt->execute([
+    ':aid'=>$applicantId, ':lvl'=>$education, ':inst'=>$school, ':gy'=>$graduationYear,
+    ':exp'=>$experience, ':plink'=>$portfolioLink
+  ]);
+
+  // Consents
+  $stmt = $pdo->prepare("
+    INSERT INTO consents (applicant_id, popia_consent, marketing_consent, accuracy_consent)
+    VALUES (:aid,:pc,:mc,:ac)
+  ");
+  $stmt->execute([
+    ':aid'=>$applicantId, ':pc'=>$popiaConsent, ':mc'=>$marketingConsent, ':ac'=>$accuracyConsent
+  ]);
+
+  // Uploads into: uploads/applications/{applicantId}/
+  $appDir = $UPLOAD_BASE . '/' . $applicantId;
+  safe_mkdir($appDir);
+
+  $map = ['idCopy'=>'id_copy','certificate'=>'certificate','portfolioFile'=>'portfolio'];
+  foreach ($map as $input=>$type) {
+    if (!isset($_FILES[$input])) continue;
+    $f = $_FILES[$input];
+    if ($input!=='idCopy' && $f['error']===UPLOAD_ERR_NO_FILE) continue;
+
+    $ext = validate_upload($f, $ALLOWED_EXT, $ALLOWED_MIME, $MAX_FILE_BYTES);
+    $newName = $type . '_' . bin2hex(random_bytes(8)) . '.' . $ext;
+    $dest = $appDir . '/' . $newName;
+
+    if (!move_uploaded_file($f['tmp_name'], $dest)) throw new RuntimeException('File save failed.');
+
+    $stmt = $pdo->prepare("INSERT INTO applicant_files (applicant_id, file_type, file_name) VALUES (:aid,:ft,:fn)");
+    $stmt->execute([':aid'=>$applicantId, ':ft'=>$type, ':fn'=>$newName]);
   }
 
-  // 8MB limit
-  if ($size > 8 * 1024 * 1024) {
-    return ['ok' => false, 'error' => 'File too large for ' . $key . ' (max 8MB)'];
-  }
+  // Email verification
+  $rawToken  = random_token(32);
+  $tokenHash = hash('sha256', $rawToken);
+  $expiresAt = (new DateTimeImmutable('now'))->modify("+{$VERIFY_TTL_MINUTES} minutes")->format('Y-m-d H:i:s');
 
-  $safe = preg_replace('/[^a-zA-Z0-9._-]/', '_', $name);
-  $new_name = date('Ymd_His') . '_' . bin2hex(random_bytes(4)) . '_' . $safe;
-  $dest = $upload_dir . '/' . $new_name;
+  $stmt = $pdo->prepare("INSERT INTO email_verifications (applicant_id, token_hash, expires_at) VALUES (:aid,:th,:ex)");
+  $stmt->execute([':aid'=>$applicantId, ':th'=>$tokenHash, ':ex'=>$expiresAt]);
 
-  if (!move_uploaded_file($tmp, $dest)) {
-    return ['ok' => false, 'error' => 'Could not save uploaded file for ' . $key];
-  }
+  $pdo->commit();
 
-  return ['ok' => true, 'path' => 'uploads/applications/' . $new_name];
+  // Send verification email (don’t fail submission if mail fails)
+  $verifyLink = $BASE_URL . "/verify_email.php?token=" . urlencode($rawToken);
+
+  $subject = "Verify your email - Roguda Application Received";
+  $html = "
+    <div style='font-family:Arial,sans-serif; line-height:1.6;'>
+      <h2>Application Received</h2>
+      <p>Hi <strong>" . htmlspecialchars($firstName) . "</strong>,</p>
+      <p>We received your application for <strong>" . htmlspecialchars($program) . "</strong>.</p>
+      <p>Please verify your email within <strong>{$VERIFY_TTL_MINUTES} minutes</strong>:</p>
+      <p style='margin:16px 0;'>
+        <a href='" . htmlspecialchars($verifyLink) . "' style='background:#C79E4F;color:#000;padding:12px 18px;text-decoration:none;border-radius:8px;font-weight:bold;'>
+          Verify Email
+        </a>
+      </p>
+      <p>If the button doesn't work, use this link:</p>
+      <p><a href='" . htmlspecialchars($verifyLink) . "'>" . htmlspecialchars($verifyLink) . "</a></p>
+      <p>Regards,<br>Roguda Admissions</p>
+    </div>
+  ";
+  send_email($email, $subject, $html, $FROM_EMAIL, $FROM_NAME);
+
+  header('Location: apply-success.html');
+  exit;
+
+} catch (Throwable $e) {
+  if ($pdo->inTransaction()) $pdo->rollBack();
+  error_log("submit_application.php error: " . $e->getMessage());
+  fail_redirect();
 }
-
-$uploads = [];
-foreach (['idCopy','certificate','portfolioFile'] as $k) {
-  $r = handle_upload($k, $upload_dir);
-  if (!$r['ok']) {
-    respond(false, $r['error']);
-  }
-  $uploads[$k] = $r['path'];
-}
-
-// ---- Save CSV backup ----
-$data_dir = __DIR__ . '/data';
-if (!is_dir($data_dir)) { @mkdir($data_dir, 0755, true); }
-
-$csv = $data_dir . '/applications.csv';
-$new = !file_exists($csv);
-$fp = @fopen($csv, 'a');
-if ($fp) {
-  if ($new) {
-    fputcsv($fp, array_merge(['timestamp'], array_keys($data), array_keys($uploads)));
-  }
-  fputcsv($fp, array_merge([date('c')], array_values($data), array_values($uploads)));
-  fclose($fp);
-}
-
-// ---- Email admin ----
-$to = "info@rogudafashion.co.za";           // change if you want another inbox
-$subject = "New Application - Roguda Fashion";
-$from = "info@rogudafashion.co.za";     // sender mailbox on your domain
-
-$headers = "From: {$from}\r\n";
-$headers .= "Reply-To: {$data['email']}\r\n";
-$headers .= "MIME-Version: 1.0\r\n";
-$headers .= "Content-Type: text/plain; charset=utf-8\r\n";
-
-$body = "New student application received:\n\n";
-foreach ($data as $k => $v) {
-  $body .= ucfirst($k) . ": " . $v . "\n";
-}
-$body .= "\nUploads (saved on server):\n";
-foreach ($uploads as $k => $p) {
-  $body .= $k . ": " . ($p ?: 'N/A') . "\n";
-}
-$body .= "\nSubmitted from: " . ($_SERVER['HTTP_REFERER'] ?? '') . "\n";
-
-@mail($to, $subject, $body, $headers);
-
-
-// ---- Optional WhatsApp notify (short message) ----
-$wa_msg = "Roguda: New application\n"
-        . "Name: {$data['firstName']} {$data['lastName']}\n"
-        . "Program: {$data['program']}\n"
-        . "Phone: {$data['phone']}\n"
-        . "Email: {$data['email']}";
-@roguda_send_whatsapp_text($wa_msg);
-
-respond(true, 'Application submitted successfully.');
