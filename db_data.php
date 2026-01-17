@@ -1,5 +1,4 @@
  
- 
 <?php
 $host = "localhost";
 $db   = "rogudat3b7y0_admissions";
@@ -18,9 +17,5 @@ $options = [
 try {
     $pdo = new PDO($dsn, $user, $pass, $options);
 } catch (Exception $e) {
-    die("Database connection failed: $e");
+    die("Database connection failed: " . $e->getMessage());
 }
-
-?>
-
- 
