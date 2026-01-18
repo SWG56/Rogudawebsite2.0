@@ -423,3 +423,18 @@ body.nav-lock { overflow: hidden; }
     display: block;
   }
 }
+/* Ensure form is always clickable above any nav overlays */
+.section { position: relative; z-index: 10; }
+#rogudaForm, #rogudaForm * { position: relative; z-index: 11; }
+
+/* Overlays/backdrops must not block the form area */
+.menu-overlay,
+.nav-backdrop {
+  pointer-events: none !important;
+}
+
+/* Only allow click on overlay/backdrop when NAV is open */
+.nav-cinematic.nav-open .nav-backdrop,
+body.menu-open .menu-overlay {
+  pointer-events: auto !important;
+}

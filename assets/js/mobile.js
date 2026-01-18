@@ -5,10 +5,15 @@ document.addEventListener('DOMContentLoaded', function() {
     const navLinks = document.getElementById('navLinks');
     const body = document.body;
     
-    // Create overlay element
-    const overlay = document.createElement('div');
-    overlay.className = 'menu-overlay';
-    document.body.appendChild(overlay);
+// Create overlay element (skip on apply page to prevent blocking submit)
+const isApplyPage = window.location.pathname.toLowerCase().includes("apply");
+let overlay = null;
+
+if (!isApplyPage) {
+  overlay = document.createElement('div');
+  overlay.className = 'menu-overlay';
+  document.body.appendChild(overlay);
+}
     
     // Toggle menu function
     function toggleMenu() {
@@ -29,6 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
         navLinks.classList.remove('active');
         overlay.classList.remove('active');
         body.classList.remove('menu-open');
+        
     });
     
     // Close menu when clicking a link
