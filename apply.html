@@ -4,43 +4,40 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Apply | Roguda Fashion & Art Design School</title>
+
+  <!-- Favicon -->
   <link rel="icon" href="assets/images/circle3.png" type="image/jpeg">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/roguda-grid.css">
-  <link rel="stylesheet" href="assets/css/apply.css">
-    <!-- Favicon -->
-  <link rel="icon" href="assets/images/circle3.png">
 
   <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <!-- Core CSS -->
+  <link rel="stylesheet" href="assets/css/roguda-grid.css">
+  <link rel="stylesheet" href="assets/css/apply.css">
   <link rel="stylesheet" href="assets/css/cinematic.css">
   <link rel="stylesheet" href="assets/css/theme.css">
   <link rel="stylesheet" href="assets/css/main.css">
   <link rel="stylesheet" href="assets/css/responsive.css">
   <link rel="stylesheet" href="assets/css/mobile.css">
   <link rel="stylesheet" href="assets/css/overrides.css">
-
-
 </head>
 
 <body>
-  <form action="submit_application.php" method="POST" enctype="multipart/form-data"></form> 
+
 <!-- ================= NAVIGATION ================= -->
 <nav class="nav-cinematic glass-nav">
   <div class="nav-container">
 
-<a href="index.html" class="logo">
-  <div class="logo-badge">
-    <img src="assets/images/WhatsApp Image 2025-09-08 at 20.56.36_80570309.jpg" alt="Roguda Fashion Logo">
-  </div>
-  <span class="logo-text">Roguda Fashion</span>
-</a>
-
+    <a href="index.html" class="logo">
+      <div class="logo-badge">
+        <img src="assets/images/WhatsApp Image 2025-09-08 at 20.56.36_80570309.jpg" alt="Roguda Fashion Logo">
+      </div>
+      <span class="logo-text">Roguda Fashion</span>
+    </a>
 
     <ul class="nav-links">
       <li><a class="active" href="index.html">Home</a></li>
@@ -61,240 +58,246 @@
   </div>
 </nav>
 
-  <section class="section" style="min-height:100vh; padding:4rem 1rem; position:relative; z-index:1;">
-    <div style="max-width:950px; width:100%; margin:0 auto; background:rgba(255,255,255,0.08); backdrop-filter:blur(40px); border:1px solid rgba(199,158,79,0.35); padding:3rem; border-radius:24px; box-shadow:0 20px 60px rgba(0,0,0,0.4); box-sizing:border-box;">
+<section class="section" style="min-height:100vh; padding:4rem 1rem; position:relative; z-index:1;">
+  <div style="max-width:950px; width:100%; margin:0 auto; background:rgba(255,255,255,0.08); backdrop-filter:blur(40px); border:1px solid rgba(199,158,79,0.35); padding:3rem; border-radius:24px; box-shadow:0 20px 60px rgba(0,0,0,0.4); box-sizing:border-box;">
 
-      <div style="text-align:center; margin-bottom:3rem;">
-        <div style="display:inline-block; background:rgba(199,158,79,0.1); padding:0.8rem 2rem; border-radius:30px; border:1px solid rgba(199,158,79,0.4); margin-bottom:1.5rem;">
-          <span style="color:#C79E4F; font-weight:700; font-size:0.85rem; letter-spacing:0.5px;">APPLICATIONS OPEN: DEC 11, 2025 – JAN 22, 2026</span>
-        </div>
-        <h2 style="font-family:'Playfair Display',serif; color:#C79E4F; font-size:clamp(2rem, 5vw, 2.8rem); margin-bottom:0.8rem; line-height:1.2;">Apply to Roguda</h2>
-        <p style="max-width:700px; margin:0 auto; color:rgba(255,255,255,0.85); line-height:1.7; font-size:clamp(0.95rem, 2vw, 1.05rem);">Complete this application to begin your creative journey at Roguda. We'll match your passion with the perfect program.</p>
+    <div style="text-align:center; margin-bottom:3rem;">
+      <div style="display:inline-block; background:rgba(199,158,79,0.1); padding:0.8rem 2rem; border-radius:30px; border:1px solid rgba(199,158,79,0.4); margin-bottom:1.5rem;">
+        <span style="color:#C79E4F; font-weight:700; font-size:0.85rem; letter-spacing:0.5px;">APPLICATIONS OPEN: DEC 11, 2025 – JAN 22, 2026</span>
+      </div>
+      <h2 style="font-family:'Playfair Display',serif; color:#C79E4F; font-size:clamp(2rem, 5vw, 2.8rem); margin-bottom:0.8rem; line-height:1.2;">Apply to Roguda</h2>
+      <p style="max-width:700px; margin:0 auto; color:rgba(255,255,255,0.85); line-height:1.7; font-size:clamp(0.95rem, 2vw, 1.05rem);">Complete this application to begin your creative journey at Roguda. We'll match your passion with the perfect program.</p>
+    </div>
+
+    <!-- ✅ ONLY ONE FORM (THIS IS THE FIX) -->
+    <form id="rogudaForm" action="submit_application.php" method="POST" enctype="multipart/form-data">
+
+      <!-- Progress Bar -->
+      <div class="progressbar">
+        <div class="progress-step active" data-title="Personal">1</div>
+        <div class="progress-step" data-title="Program">2</div>
+        <div class="progress-step" data-title="Education">3</div>
+        <div class="progress-step" data-title="Documents">4</div>
+        <div class="progress-step" data-title="Review">5</div>
       </div>
 
-      <form id="rogudaForm" action="submit_application.php" method="POST" enctype="multipart/form-data">
-        
-        <!-- Progress Bar -->
-        <div class="progressbar">
-          <div class="progress-step active" data-title="Personal">1</div>
-          <div class="progress-step" data-title="Program">2</div>
-          <div class="progress-step" data-title="Education">3</div>
-          <div class="progress-step" data-title="Documents">4</div>
-          <div class="progress-step" data-title="Review">5</div>
-        </div>
+      <!-- Step 1 -->
+      <div class="form-step active">
+        <div class="form-section-box">
+          <h3 class="form-section-title">Personal Information</h3>
 
-        <!-- Step 1: Personal Information -->
-        <div class="form-step active">
-          <div class="form-section-box">
-            <h3 class="form-section-title">Personal Information</h3>
-            <div class="form-grid-2">
-              <div class="form-group">
-                <label class="glass-label">First Name *</label>
-                <input type="text" name="firstName" required placeholder="John" class="glass-input">
-              </div>
-              <div class="form-group">
-                <label class="glass-label">Last Name *</label>
-                <input type="text" name="lastName" required placeholder="Doe" class="glass-input">
-              </div>
-            </div>
-
-            <div class="form-grid-2">
-              <div class="form-group">
-                <label class="glass-label">Email Address *</label>
-                <input type="email" name="email" required placeholder="your.email@example.com" class="glass-input">
-              </div>
-              <div class="form-group">
-                <label class="glass-label">Phone Number *</label>
-                <input type="tel" name="phone" required placeholder="+27 XX XXX XXXX" class="glass-input">
-              </div>
-            </div>
-
-            <div class="form-grid-2">
-              <div class="form-group">
-                <label class="glass-label">ID / Passport Number *</label>
-                <input type="text" name="idNumber" required placeholder="XXXXXXXXXX" class="glass-input">
-              </div>
-              <div class="form-group">
-                <label class="glass-label">Date of Birth *</label>
-                <input type="date" name="dob" required class="glass-input">
-              </div>
-            </div>
-
+          <div class="form-grid-2">
             <div class="form-group">
-              <label class="glass-label">Gender *</label>
-              <select name="gender" required class="glass-select">
-                <option value="">Select...</option>
-                <option>Male</option>
-                <option>Female</option>
-                <option>Non-binary</option>
-                <option>Prefer not to say</option>
-              </select>
+              <label class="glass-label">First Name *</label>
+              <input type="text" name="firstName" required placeholder="John" class="glass-input">
             </div>
-
             <div class="form-group">
-              <label class="glass-label">Physical Address *</label>
-              <textarea name="address" rows="3" required placeholder="Street, City, Province, Postal Code" class="glass-textarea"></textarea>
+              <label class="glass-label">Last Name *</label>
+              <input type="text" name="lastName" required placeholder="Doe" class="glass-input">
             </div>
           </div>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label class="glass-label">Email Address *</label>
+              <input type="email" name="email" required placeholder="your.email@example.com" class="glass-input">
+            </div>
+            <div class="form-group">
+              <label class="glass-label">Phone Number *</label>
+              <input type="tel" name="phone" required placeholder="+27 XX XXX XXXX" class="glass-input">
+            </div>
+          </div>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label class="glass-label">ID / Passport Number *</label>
+              <input type="text" name="idNumber" required placeholder="XXXXXXXXXX" class="glass-input">
+            </div>
+            <div class="form-group">
+              <label class="glass-label">Date of Birth *</label>
+              <input type="date" name="dob" required class="glass-input">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="glass-label">Gender *</label>
+            <select name="gender" required class="glass-select">
+              <option value="">Select...</option>
+              <option>Male</option>
+              <option>Female</option>
+              <option>Non-binary</option>
+              <option>Prefer not to say</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="glass-label">Physical Address *</label>
+            <textarea name="address" rows="3" required placeholder="Street, City, Province, Postal Code" class="glass-textarea"></textarea>
+          </div>
+        </div>
+
+        <button type="button" class="btn-next">Continue</button>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="form-step">
+        <div class="form-section-box">
+          <h3 class="form-section-title">Program Selection</h3>
+
+          <div class="form-group">
+            <label class="glass-label">Choose Your Program *</label>
+            <select name="program" required class="glass-select">
+              <option value="">Select a program...</option>
+              <option>Apparel Pattern Designer Assistant – NQF 5 (12 months)</option>
+              <option>Sewing Machine Operator – NQF 2 (12 months)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="glass-label">Preferred Start Date *</label>
+            <select name="startDate" required class="glass-select">
+              <option value="">Select...</option>
+              <option>2026</option>
+              <option>2027</option>
+              <option>2028</option>
+              <option>2029</option>
+              <option>2030</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="glass-label">Why are you interested in this program? *</label>
+            <textarea name="motivation" rows="4" required placeholder="Tell us what draws you to this program..." class="glass-textarea"></textarea>
+          </div>
+        </div>
+
+        <div class="btns-group">
+          <button type="button" class="btn-prev">Previous</button>
           <button type="button" class="btn-next">Continue</button>
         </div>
+      </div>
 
-        <!-- Step 2: Program Selection -->
-        <div class="form-step">
-          <div class="form-section-box">
-            <h3 class="form-section-title">Program Selection</h3>
-            <div class="form-group">
-              <label class="glass-label">Choose Your Program *</label>
-              <select name="program" required class="glass-select">
-                <option value="">Select a program...</option>
-                <option>Apparel Pattern Designer Assistant – NQF 5 (12 months)</option>
-                <option>Sewing Machine Operator – NQF 2 (12 months)</option>
-                
-              </select>
-            </div>
+      <!-- Step 3 -->
+      <div class="form-step">
+        <div class="form-section-box">
+          <h3 class="form-section-title">Educational Background</h3>
 
-            <div class="form-group">
-              <label class="glass-label">Preferred Start Date *</label>
-              <select name="startDate" required class="glass-select">
-                <option value="">Select...</option>
-                <option>2026</option>
-                <option>2027</option>
-                <option>2028</option>
-                <option>2029</option>
-                <option > 2030</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label class="glass-label">Why are you interested in this program? *</label>
-              <textarea name="motivation" rows="4" required placeholder="Tell us what draws you to this program..." class="glass-textarea"></textarea>
-            </div>
+          <div class="form-group">
+            <label class="glass-label">Highest Level of Education *</label>
+            <select name="education" required class="glass-select">
+              <option value="">Select...</option>
+              <option>Grade 12 / Matric</option>
+              <option>Diploma</option>
+              <option>Degree</option>
+              <option>Certificate</option>
+            </select>
           </div>
-          <div class="btns-group">
-            <button type="button" class="btn-prev">Previous</button>
-            <button type="button" class="btn-next">Continue</button>
+
+          <div class="form-group">
+            <label class="glass-label">School / Institution *</label>
+            <input type="text" name="school" required placeholder="Name of your school or institution" class="glass-input">
           </div>
-        </div>
 
-        <!-- Step 3: Education & Experience -->
-        <div class="form-step">
-          <div class="form-section-box">
-            <h3 class="form-section-title">Educational Background</h3>
-            <div class="form-group">
-              <label class="glass-label">Highest Level of Education *</label>
-              <select name="education" required class="glass-select">
-                <option value="">Select...</option>
-                <option>Grade 12 / Matric</option>
-                <option>Diploma</option>
-                <option>Degree</option>
-                <option>Certificate</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label class="glass-label">School / Institution *</label>
-              <input type="text" name="school" required placeholder="Name of your school or institution" class="glass-input">
-            </div>
-
-            <div class="form-group">
-              <label class="glass-label">Year Completed / Expected *</label>
-              <input type="number" name="graduationYear" required placeholder="2024" min="2000" max="2030" class="glass-input">
-            </div>
-
-            <div class="form-group">
-              <label class="glass-label">Portfolio / Social Media Links</label>
-              <input type="url" name="portfolio" placeholder="https://instagram.com/yourhandle" class="glass-input">
-            </div>
-
-            <div class="form-group">
-              <label class="glass-label">Previous Fashion/Design Experience</label>
-              <textarea name="experience" rows="3" placeholder="Describe any relevant experience..." class="glass-textarea"></textarea>
-            </div>
+          <div class="form-group">
+            <label class="glass-label">Year Completed / Expected *</label>
+            <input type="number" name="graduationYear" required placeholder="2024" min="2000" max="2030" class="glass-input">
           </div>
-          <div class="btns-group">
-            <button type="button" class="btn-prev">Previous</button>
-            <button type="button" class="btn-next">Continue</button>
+
+          <div class="form-group">
+            <label class="glass-label">Portfolio / Social Media Links</label>
+            <input type="url" name="portfolio" placeholder="https://instagram.com/yourhandle" class="glass-input">
+          </div>
+
+          <div class="form-group">
+            <label class="glass-label">Previous Fashion/Design Experience</label>
+            <textarea name="experience" rows="3" placeholder="Describe any relevant experience..." class="glass-textarea"></textarea>
           </div>
         </div>
 
-        <!-- Step 4: Upload Documents -->
-        <div class="form-step">
-          <div class="form-section-box">
-            <h3 class="form-section-title">Upload Documents</h3>
-            <div class="form-group">
-              <label class="glass-label">Upload ID / Passport Copy *</label>
-              <input type="file" name="idCopy" accept=".pdf,.jpg,.jpeg,.png" required class="glass-input" style="padding:0.8rem;">
-              <small style="color:rgba(255,255,255,0.6); font-size:0.85rem; display:block; margin-top:0.5rem;">Accepted formats: PDF, JPG, PNG (Max 5MB)</small>
-            </div>
+        <div class="btns-group">
+          <button type="button" class="btn-prev">Previous</button>
+          <button type="button" class="btn-next">Continue</button>
+        </div>
+      </div>
 
-            <div class="form-group">
-              <label class="glass-label">Upload Matric Certificate / Latest Results (Optional)</label>
-              <input type="file" name="certificate" accept=".pdf,.jpg,.jpeg,.png" class="glass-input" style="padding:0.8rem;">
-            </div>
+      <!-- Step 4 -->
+      <div class="form-step">
+        <div class="form-section-box">
+          <h3 class="form-section-title">Upload Documents</h3>
 
-            <div class="form-group">
-              <label class="glass-label">Upload Portfolio / Creative Work (Optional)</label>
-              <input type="file" name="portfolioFile" accept=".pdf,.jpg,.jpeg,.png" class="glass-input" style="padding:0.8rem;">
-            </div>
+          <div class="form-group">
+            <label class="glass-label">Upload ID / Passport Copy *</label>
+            <input type="file" name="idCopy" accept=".pdf,.jpg,.jpeg,.png" required class="glass-input" style="padding:0.8rem;">
+            <small style="color:rgba(255,255,255,0.6); font-size:0.85rem; display:block; margin-top:0.5rem;">Accepted formats: PDF, JPG, PNG (Max 5MB)</small>
           </div>
-          <div class="btns-group">
-            <button type="button" class="btn-prev">Previous</button>
-            <button type="button" class="btn-next">Continue</button>
+
+          <div class="form-group">
+            <label class="glass-label">Upload Matric Certificate / Latest Results (Optional)</label>
+            <input type="file" name="certificate" accept=".pdf,.jpg,.jpeg,.png" class="glass-input" style="padding:0.8rem;">
+          </div>
+
+          <div class="form-group">
+            <label class="glass-label">Upload Portfolio / Creative Work (Optional)</label>
+            <input type="file" name="portfolioFile" accept=".pdf,.jpg,.jpeg,.png" class="glass-input" style="padding:0.8rem;">
           </div>
         </div>
 
-        <!-- Step 5: Review & Submit -->
-        <div class="form-step">
-          <div class="form-section-box">
-            <h3 class="form-section-title">Review & Submit</h3>
-            <p style="color:rgba(255,255,255,0.85); line-height:1.7; margin-bottom:1.5rem;">
-              Please review all the information you've provided before submitting your application. You can go back to any previous step to make changes.
-            </p>
-          </div>
+        <div class="btns-group">
+          <button type="button" class="btn-prev">Previous</button>
+          <button type="button" class="btn-next">Continue</button>
+        </div>
+      </div>
 
-          <!-- POPIA CONSENT -->
-          <div class="consent-box">
-            <h3 class="form-section-title">Data Privacy & Consent</h3>
-            <div class="consent-notice">
-              <p><strong>Protection of Personal Information Act (POPIA) Notice:</strong></p>
-              <p>Your information will only be used for application processing, enrollment communication, and educational purposes. You have the right to access or delete your data at any time.</p>
-              <p><a href="docs/popia_compliance.html" target="_blank" style="color:#F8D548;">Read our full POPIA Policy →</a></p>
-            </div>
-
-            <label class="checkbox-label">
-              <input type="checkbox" name="popiaConsent" required>
-              <span>I consent to my personal data being processed in accordance with the <a href="docs/popia_compliance.html" target="_blank" style="color:#F8D548;">POPIA Policy</a>. *</span>
-            </label>
-
-            <label class="checkbox-label">
-              <input type="checkbox" name="marketingConsent">
-              <span>I agree to receive updates, event invitations, and promotional content from Roguda (optional).</span>
-            </label>
-
-            <label class="checkbox-label">
-              <input type="checkbox" name="accuracyConsent" required>
-              <span>I confirm that all information provided is true, accurate, and complete to the best of my knowledge. *</span>
-            </label>
-          </div>
-
-          <div class="btns-group">
-            <button type="button" class="btn-prev">Previous</button>
-            <button type="submit" class="submit-btn">Submit Application</button>
-          </div>
-          
-          <p class="form-footer-text">
-            All fields marked with * are required. Your application will be reviewed within 5–7 business days.
+      <!-- Step 5 -->
+      <div class="form-step">
+        <div class="form-section-box">
+          <h3 class="form-section-title">Review & Submit</h3>
+          <p style="color:rgba(255,255,255,0.85); line-height:1.7; margin-bottom:1.5rem;">
+            Please review all the information you've provided before submitting your application. You can go back to any previous step to make changes.
           </p>
         </div>
 
-      </form>
-    </div>
-  </section>
+        <div class="consent-box">
+          <h3 class="form-section-title">Data Privacy & Consent</h3>
+
+          <div class="consent-notice">
+            <p><strong>Protection of Personal Information Act (POPIA) Notice:</strong></p>
+            <p>Your information will only be used for application processing, enrollment communication, and educational purposes. You have the right to access or delete your data at any time.</p>
+            <p><a href="docs/popia_compliance.html" target="_blank" style="color:#F8D548;">Read our full POPIA Policy →</a></p>
+          </div>
+
+          <label class="checkbox-label">
+            <input type="checkbox" name="popiaConsent" required>
+            <span>I consent to my personal data being processed in accordance with the <a href="docs/popia_compliance.html" target="_blank" style="color:#F8D548;">POPIA Policy</a>. *</span>
+          </label>
+
+          <label class="checkbox-label">
+            <input type="checkbox" name="marketingConsent">
+            <span>I agree to receive updates, event invitations, and promotional content from Roguda (optional).</span>
+          </label>
+
+          <label class="checkbox-label">
+            <input type="checkbox" name="accuracyConsent" required>
+            <span>I confirm that all information provided is true, accurate, and complete to the best of my knowledge. *</span>
+          </label>
+        </div>
+
+        <div class="btns-group">
+          <button type="button" class="btn-prev">Previous</button>
+          <button type="button" class="submit-btn" onclick="document.getElementById('rogudaForm').submit();"> Submit Application</button>
+        </div>
+
+        <p class="form-footer-text">
+          All fields marked with * are required. Your application will be reviewed within 5–7 business days.
+        </p>
+      </div>
+
+    </form>
+  </div>
+</section>
 
 <footer class="footer-cinematic footer-gold">
   <div class="footer-container">
-
-    <!-- Brand -->
     <div class="footer-brand">
       <a href="index.html" class="footer-logo">
         <div class="logo-badge">
@@ -303,22 +306,12 @@
         <span class="logo-text">Roguda Fashion</span>
       </a>
 
-      <!-- Contact Information -->
       <div class="footer-contact">
-        <p>
-          <strong>Email:</strong>
-          <a href="mailto:info@rogudafashion.co.za">info@rogudafashion.co.za</a>
-        </p>
-        <p>
-          <strong>WhatsApp:</strong>
-          <a href="https://wa.me/27823246267" target="_blank" rel="noopener noreferrer">
-            082 324 6267
-          </a>
-        </p>
+        <p><strong>Email:</strong> <a href="mailto:info@rogudafashion.co.za">info@rogudafashion.co.za</a></p>
+        <p><strong>WhatsApp:</strong> <a href="https://wa.me/27823246267" target="_blank" rel="noopener noreferrer">082 324 6267</a></p>
       </div>
     </div>
 
-    <!-- Footer Navigation -->
     <ul class="footer-nav">
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
@@ -327,47 +320,30 @@
       <li><a href="apply.html">Apply</a></li>
     </ul>
 
-    <!-- Newsletter -->
     <div class="newsletter">
       <h4 class="newsletter-title">Stay Updated</h4>
-      <p class="newsletter-text">
-        Subscribe to our newsletter for the latest updates and announcements.
-      </p>
+      <p class="newsletter-text">Subscribe to our newsletter for the latest updates and announcements.</p>
 
       <form class="newsletter-form" action="subscribe.php" method="POST">
         <div class="input-group">
           <input type="email" name="email" placeholder="Enter your email address" required>
           <button type="submit" class="btn-subscribe">
-            Subscribe
-            <span class="arrow">→</span>
+            Subscribe <span class="arrow">→</span>
           </button>
         </div>
 
-        <p class="consent-note">
-          By subscribing, you agree to our Privacy Policy and consent to receive updates.
-        </p>
+        <p class="consent-note">By subscribing, you agree to our Privacy Policy and consent to receive updates.</p>
       </form>
     </div>
 
-    <!-- Social Media -->
     <div class="footer-social">
-      <a href="https://www.instagram.com/rogudafashion?igsh=ZHV2bnF1dmEzcHls" target="_blank" aria-label="Instagram">
-        <i class="fa-brands fa-instagram"></i>
-      </a>
-      <a href="https://www.tiktok.com/@rogudafashion?is_from_webapp=1&sender_device=pc" target="_blank" aria-label="TikTok">
-        <i class="fa-brands fa-tiktok"></i>
-      </a>
-      <a href="https://www.facebook.com/share/1DduKcZxrR/" target="_blank" aria-label="Facebook">
-        <i class="fa-brands fa-facebook-f"></i>
-      </a>
-      <a href="https://za.pinterest.com/rogudadesign/" target="_blank" aria-label="Pinterest">
-        <i class="fa-brands fa-pinterest-p"></i>
-      </a>
+      <a href="https://www.instagram.com/rogudafashion?igsh=ZHV2bnF1dmEzcHls" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      <a href="https://www.tiktok.com/@rogudafashion?is_from_webapp=1&sender_device=pc" target="_blank" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+      <a href="https://www.facebook.com/share/1DduKcZxrR/" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+      <a href="https://za.pinterest.com/rogudadesign/" target="_blank" aria-label="Pinterest"><i class="fa-brands fa-pinterest-p"></i></a>
     </div>
-
   </div>
 
-  <!-- Footer Bottom -->
   <div class="footer-bottom">
     <div class="copyright">
       <p>© 2025 ROGUDA Fashion & Art Design School. All rights reserved.</p>
@@ -388,7 +364,7 @@
   </div>
 </footer>
 
-  <script src="assets/js/mobile.js"></script>
-  <script src="assets/js/apply.js"></script>
+<script src="assets/js/mobile.js"></script>
+<script src="assets/js/apply.js"></script>
 </body>
 </html>

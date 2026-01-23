@@ -5,6 +5,23 @@ require_once __DIR__ . '/db_data.php';
 
 header('X-Content-Type-Options: nosniff');
 
+ini_set('display_errors', '0');
+ini_set('log_errors', '1');
+ini_set('error_log', __DIR__ . '/apply_debug.log');
+
+// Log every hit with counts (helps you confirm POST is happening)
+error_log(
+  "---- submit_application.php HIT ---- Method=" . ($_SERVER['REQUEST_METHOD'] ?? '') .
+  " | POST=" . count($_POST) .
+  " | FILES=" . count($_FILES)
+);
+
+// Optional: allow GET just to confirm file exists (does NOT block POST)
+if (($_SERVER['REQUEST_METHOD'] ?? '') === 'GET') {
+  echo "submit_application.php is reachable (use POST from apply.html to submit)";
+  exit;
+}
+
 // ===== CONFIG =====
 $BASE_URL = 'https://rogudafashion.co.za';
 $VERIFY_TTL_MINUTES = 45;
@@ -45,16 +62,26 @@ function safe_mkdir(string $dir): void {
 }
 
 function validate_upload(array $file, array $allowedExt, array $allowedMime, int $maxBytes): string {
-  if (!isset($file['error']) || is_array($file['error'])) throw new RuntimeException('Invalid upload.');
-  if ($file['error'] !== UPLOAD_ERR_OK) throw new RuntimeException('Upload failed.');
-  if (($file['size'] ?? 0) <= 0 || ($file['size'] ?? 0) > $maxBytes) throw new RuntimeException('File too large.');
+  if (!isset($file['error']) || is_array($file['error'])) {
+    throw new RuntimeException('Invalid upload.');
+  }
+  if ($file['error'] !== UPLOAD_ERR_OK) {
+    throw new RuntimeException('Upload failed. Code=' . (string)$file['error']);
+  }
+  if (($file['size'] ?? 0) <= 0 || ($file['size'] ?? 0) > $maxBytes) {
+    throw new RuntimeException('File too large.');
+  }
 
   $ext = strtolower(pathinfo((string)$file['name'], PATHINFO_EXTENSION));
-  if (!in_array($ext, $allowedExt, true)) throw new RuntimeException('Invalid file type.');
+  if (!in_array($ext, $allowedExt, true)) {
+    throw new RuntimeException('Invalid file type.');
+  }
 
   $finfo = new finfo(FILEINFO_MIME_TYPE);
   $mime = $finfo->file($file['tmp_name']) ?: '';
-  if (!in_array($mime, $allowedMime, true)) throw new RuntimeException('Invalid file content type.');
+  if (!in_array($mime, $allowedMime, true)) {
+    throw new RuntimeException('Invalid file content type.');
+  }
 
   return $ext;
 }
@@ -73,7 +100,9 @@ function send_email(string $to, string $subject, string $html, string $fromEmail
 }
 
 // ===== MAIN =====
-if ($_SERVER['REQUEST_METHOD'] !== 'POST') fail_redirect();
+if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {
+  fail_redirect();
+}
 
 // Collect fields
 $firstName = clean($_POST['firstName'] ?? '', 100);
@@ -99,27 +128,33 @@ $popiaConsent     = isset($_POST['popiaConsent']) ? 1 : 0;
 $marketingConsent = isset($_POST['marketingConsent']) ? 1 : 0;
 $accuracyConsent  = isset($_POST['accuracyConsent']) ? 1 : 0;
 
-// Basic validations
+// Validations
 if ($firstName===''||$lastName===''||$email===''||$phone===''||$idNumber===''||$dob===''||$address==='') fail_redirect();
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) fail_redirect();
 if (!valid_phone($phone)) fail_redirect();
 if ($popiaConsent!==1 || $accuracyConsent!==1) fail_redirect();
-if (!isset($_FILES['idCopy']) || ($_FILES['idCopy']['error'] ?? UPLOAD_ERR_NO_FILE) === UPLOAD_ERR_NO_FILE) fail_redirect();
+
+if (!isset($_FILES['idCopy']) || (($_FILES['idCopy']['error'] ?? UPLOAD_ERR_NO_FILE) === UPLOAD_ERR_NO_FILE)) {
+  fail_redirect();
+}
 
 $dobTime = strtotime($dob);
 if ($dobTime === false) fail_redirect();
 
 try {
   safe_mkdir($UPLOAD_BASE);
+
+  // Validate required ID file
   validate_upload($_FILES['idCopy'], $ALLOWED_EXT, $ALLOWED_MIME, $MAX_FILE_BYTES);
 
   $pdo->beginTransaction();
 
   // Insert applicant
   $stmt = $pdo->prepare("
-    INSERT INTO applicants 
-    (first_name, last_name, email, phone, id_number, date_of_birth, gender, address)
-    VALUES (:fn,:ln,:em,:ph,:idn,:dob,:ge,:ad)
+    INSERT INTO applicants
+      (first_name, last_name, email, phone, id_number, date_of_birth, gender, address)
+    VALUES
+      (:fn,:ln,:em,:ph,:idn,:dob,:ge,:ad)
   ");
   $stmt->execute([
     ':fn'=>$firstName,
@@ -133,7 +168,7 @@ try {
   ]);
   $applicantId = (int)$pdo->lastInsertId();
 
-  // Program
+  // Program lookup/create
   $programStartDate = $startYear . "-01-01";
   $stmt = $pdo->prepare("SELECT program_id FROM programs WHERE program_name=:pn AND start_date=:sd LIMIT 1");
   $stmt->execute([':pn'=>$program, ':sd'=>$programStartDate]);
@@ -148,11 +183,22 @@ try {
   }
 
   // Application
-  $stmt = $pdo->prepare("
-    INSERT INTO applications (applicant_id, program_id, motivation)
-    VALUES (:aid,:pid,:mot)
-  ");
+  $stmt = $pdo->prepare("INSERT INTO applications (applicant_id, program_id, motivation) VALUES (:aid,:pid,:mot)");
   $stmt->execute([':aid'=>$applicantId, ':pid'=>$programId, ':mot'=>$motivation]);
+
+  // Education (optional in DB? if you have the table, store it)
+  $stmt = $pdo->prepare("
+    INSERT INTO education (applicant_id, education_level, institution, graduation_year, previous_experience, portfolio_link)
+    VALUES (:aid,:lvl,:inst,:gy,:exp,:plink)
+  ");
+  $stmt->execute([
+    ':aid'=>$applicantId,
+    ':lvl'=>$education,
+    ':inst'=>$school,
+    ':gy'=>$graduationYear,
+    ':exp'=>$experience,
+    ':plink'=>$portfolioLink
+  ]);
 
   // Consents
   $stmt = $pdo->prepare("
@@ -174,14 +220,17 @@ try {
 
   foreach ($map as $input=>$type) {
     if (!isset($_FILES[$input])) continue;
+
     $f = $_FILES[$input];
-    if ($input!=='idCopy' && $f['error']===UPLOAD_ERR_NO_FILE) continue;
+    if ($input !== 'idCopy' && ($f['error'] ?? UPLOAD_ERR_NO_FILE) === UPLOAD_ERR_NO_FILE) continue;
 
     $ext = validate_upload($f, $ALLOWED_EXT, $ALLOWED_MIME, $MAX_FILE_BYTES);
     $newName = $type . '_' . bin2hex(random_bytes(8)) . '.' . $ext;
     $dest = $appDir . '/' . $newName;
 
-    move_uploaded_file($f['tmp_name'], $dest);
+    if (!move_uploaded_file($f['tmp_name'], $dest)) {
+      throw new RuntimeException("Could not save file: {$input}");
+    }
 
     $stmt = $pdo->prepare("
       INSERT INTO applicant_files (applicant_id, file_type, file_name)
@@ -193,9 +242,7 @@ try {
   // Email verification token
   $rawToken  = random_token(32);
   $tokenHash = hash('sha256', $rawToken);
-  $expiresAt = (new DateTimeImmutable('now'))
-      ->modify("+{$VERIFY_TTL_MINUTES} minutes")
-      ->format('Y-m-d H:i:s');
+  $expiresAt = (new DateTimeImmutable('now'))->modify("+{$VERIFY_TTL_MINUTES} minutes")->format('Y-m-d H:i:s');
 
   $stmt = $pdo->prepare("
     INSERT INTO email_verifications (applicant_id, token_hash, expires_at)
@@ -205,38 +252,41 @@ try {
 
   $pdo->commit();
 
-  // ---- EMAIL TO STUDENT ----
+  // Email to student
   $verifyLink = $BASE_URL . "/verify_email.php?token=" . urlencode($rawToken);
 
   $subject = "Verify your email - Roguda Application Received";
   $html = "
-    <h2>Application Received</h2>
-    <p>Hi <strong>{$firstName}</strong>,</p>
-    <p>Please verify your email:</p>
-    <p><a href='{$verifyLink}'>Verify Email</a></p>
+    <div style='font-family:Arial,sans-serif;line-height:1.6'>
+      <h2>Application Received</h2>
+      <p>Hi <strong>" . htmlspecialchars($firstName) . "</strong>,</p>
+      <p>Please verify your email:</p>
+      <p><a href='" . htmlspecialchars($verifyLink) . "'>Verify Email</a></p>
+    </div>
   ";
   send_email($email, $subject, $html, $FROM_EMAIL, $FROM_NAME);
 
-  // ---- EMAIL TO ROGUDA ADMIN ----
+  // Email to admin
   $adminSubject = "New Application: {$firstName} {$lastName}";
   $adminHtml = "
-    <h2>New Application Submitted</h2>
-    <p><strong>Name:</strong> {$firstName} {$lastName}</p>
-    <p><strong>Email:</strong> {$email}</p>
-    <p><strong>Phone:</strong> {$phone}</p>
-    <p><strong>Program:</strong> {$program}</p>
-    <p><strong>Start Year:</strong> {$startYear}</p>
-    <p><strong>Applicant ID:</strong> {$applicantId}</p>
-    <p><strong>Uploads:</strong> /uploads/applications/{$applicantId}/</p>
+    <div style='font-family:Arial,sans-serif;line-height:1.6'>
+      <h2>New Application Submitted</h2>
+      <p><strong>Name:</strong> " . htmlspecialchars($firstName . ' ' . $lastName) . "</p>
+      <p><strong>Email:</strong> " . htmlspecialchars($email) . "</p>
+      <p><strong>Phone:</strong> " . htmlspecialchars($phone) . "</p>
+      <p><strong>Program:</strong> " . htmlspecialchars($program) . "</p>
+      <p><strong>Start Year:</strong> " . htmlspecialchars($startYear) . "</p>
+      <p><strong>Applicant ID:</strong> {$applicantId}</p>
+      <p><strong>Uploads:</strong> /uploads/applications/{$applicantId}/</p>
+    </div>
   ";
-
   send_email("info@rogudafashion.co.za", $adminSubject, $adminHtml, $FROM_EMAIL, $FROM_NAME);
 
   header('Location: apply-success.html');
   exit;
 
 } catch (Throwable $e) {
-  if ($pdo->inTransaction()) $pdo->rollBack();
-  error_log("submit_application.php error: " . $e->getMessage());
+  if (isset($pdo) && $pdo->inTransaction()) $pdo->rollBack();
+  error_log("submit_application.php ERROR: " . $e->getMessage());
   fail_redirect();
 }
